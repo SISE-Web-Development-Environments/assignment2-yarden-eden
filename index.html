@@ -23,7 +23,7 @@
     <script type="text/javascript" src="jvCode/registerCode.js"></script>
     <script type="text/javascript" src="jvCode/setting.js"></script>
     <script type="text/javascript" src="jvCode/about.js"></script>
-
+    <script type="text/javascript" src="jvCode/app.js"></script>
     <!-- <script src="https://kit.fontawesome.com/f35a"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -34,7 +34,9 @@
 
 
 <body class="body" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
-    <div class="menu">
+            <div id="overlay"></div>
+
+    <div class="menu" id="menu">
         <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)"><b>Welcome</b></a>
         <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)"><b>Log in</b></a>
         <a class="signin" href="#register" data-option="dataRegister" onclick="changeWindow(this)"><b>Sign in</b></a>
@@ -98,7 +100,7 @@
         </section>
 
         <section id="dataLogin" style="display: none; background-image: url(images/pacman_background.jpg);">
-            <div class="loginContainer">
+            <div class="loginContainer" id="loginContainer">
                 <form id="loginForm" role="form" method="post" action="">
                     <h1>Log-in</h1>
                     <table style="width:80%; margin: 0 auto;">
@@ -154,7 +156,6 @@
                  </p>
             </div>
         </div>
-        <div id="overlay"></div>
 
         <section id="settingSection" style="display: none;">
         <div style="background-image: url('images/pacBackground3.jpg'); height: 100%; width: 100%;   padding-top: 5%;">       
@@ -225,6 +226,7 @@
             <br>
             <button type="button" class="startGame-btn" onclick="start(this)">START!</button>
             <button type="button" class="startGame-btn" onclick="random(this)">Random Values And Start</button>
+            
             
             </form>
 
