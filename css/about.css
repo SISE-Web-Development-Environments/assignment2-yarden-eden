@@ -11,6 +11,7 @@
     border-radius: 10px;
     z-index: 10;
     background-color: rgb(211, 174, 125);
+   height: 280px;
     width:500px;
     max-width: 80%;
 }
@@ -33,13 +34,15 @@
     font-weight: bold;
 }
 
-.model-header .close-buttun{
+.close-button{
     cursor: pointer;
     border:none;
     outline:none;
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
+    color: yellow;
+    font-size: 30px;
 
 }
 

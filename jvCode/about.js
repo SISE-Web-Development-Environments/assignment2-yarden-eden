@@ -7,11 +7,23 @@ function openModel(){
     document.getElementById("overlay").addEventListener("click", function(){
             closeModel();   
         });
+    document.addEventListener("keydown", isEsc);   
 }
-
+function isEsc(e){
+    let keyChoose=e.code;
+    if(keyChoose=="Escape"){
+        closeModel();
+    }
+}
 function closeModel(){
     model=document.getElementById("model");
     model.classList.remove('active');
     overlay=document.getElementById("overlay");
     overlay.classList.remove('active');
+    document.removeEventListener("click", function(){
+        closeModel();   
+    });
+ 
+
+
 }
