@@ -1,13 +1,12 @@
 
+$(document).ready(function () {
 
-$().ready(function () {
-
-    $("form[name='registration']").validate({
+    $('#registrationForm').validate({
         rules: {
             fullname: {
                 pattern: '^([a-zA-Z]+\\s)*[a-zA-Z]+$',
                 required: true,
-                checkFullName: true,
+                //checkFullName: true,
                 //wordCount: 2,
             },
             username: {
@@ -33,7 +32,7 @@ $().ready(function () {
             fullname: {
                 pattern: "Your name must be contains only letters",
                 required: "Please enter your first and last name",
-                checkFullName: "Please enter at least 2 words"
+                //checkFullName: "Please enter at least 2 words"
                 //wordCount: "Please enter at least 2 words"
             },
             username: {
@@ -53,21 +52,22 @@ $().ready(function () {
         },
 
         
-        //just if submitted without errors keep to create an account
-        submitHandler: function(form) {
-            form.submit();
-            if(saveUser()==true){
-                //functionHide('gameSection');
-                LoginPage();
-            }
-            else{
-                alert("This username is already exist") 
-            }
-            //document.getElementById("dataRegister").style.display = "none";
-            //document.getElementById("dataLogin").style.display = "block";
-            //var element = document.getElementById("myDIV");
-            //element.classList.toggle("mystyle");
-        }
+        // //just if submitted without errors keep to create an account
+        // submitHandler: function(form, event) {
+        //     form.submit();
+        //     if(saveUser()==true){
+        //         //functionHide('gameSection');
+        //         //LoginPage();
+        //         changeWindowById("dataLogin");
+        //     }
+        //     else{
+        //         alert("This username is already exist") 
+        //     }
+        //     //document.getElementById("dataRegister").style.display = "none";
+        //     //document.getElementById("dataLogin").style.display = "block";
+        //     //var element = document.getElementById("myDIV");
+        //     //element.classList.toggle("mystyle");
+        // }
 
     });
 });
@@ -87,4 +87,14 @@ function saveUser() {
     let user={userName,userPassword};
     addUser(user);
     return true;
+}
+
+function register(){
+    if ($('#registrationForm').valid()) {
+
+        //reset the inputs fields
+
+        alert("submitted!");
+        changeWindowById("dataLogin")
+    }
 }
