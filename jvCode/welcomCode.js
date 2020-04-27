@@ -42,9 +42,16 @@ function getPasswordOfUserName(userName){
 
 //add uder to localStorage array of users
 function addUser(user){
-  if(containUser(user)==false){
+  if(containUserName(user.name)==false){
     allUsers = JSON.parse(localStorage.getItem("allUsers"));
     allUsers.push(user);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    return true;
+  }
+  else{
+    //this username contains in the system
+    alert("There is username like this in the system, please choose another name")
+
+    return false;
   }
 }
