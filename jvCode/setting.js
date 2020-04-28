@@ -197,7 +197,9 @@ function start(id){
     }
     if(isValid==true){
         //go to game
+        readyToGame();
         changeWindowById("gameSection")
+
     }
 
 }
@@ -247,6 +249,8 @@ function random(id){
     document.getElementById("colorpadsecond").value =getRandomColor();
     document.getElementById("colorpadfirstthird").value =getRandomColor();
     changeWindowById("gameSection")
+    readyToGame();
+    
 
     
 }
