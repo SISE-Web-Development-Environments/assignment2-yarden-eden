@@ -25,9 +25,7 @@ function readyToGame(){
 	Start();
 }
 function setUpSetting(){
-
 	document.getElementById("lblUserName").value = currentLoginUser;//write the current userName
-
 	document.getElementById("left-arrow").innerText=": "+leftChoose;
 	
 	document.getElementById("right-arrow").innerText=": "+rightChoose;
@@ -42,7 +40,6 @@ function setUpSetting(){
 	document.getElementById("totalBalls").innerText=document.getElementById("numberOfBalls").value;
 
 }
-
 function Start() {
 	board = new Array();
 
@@ -123,13 +120,11 @@ function Start() {
 			}
 		}
 	}
-
 	while (food_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		board[emptyCell[0]][emptyCell[1]] = 1;
 		food_remain--;
 	}
-
 	keysDown = {};
 	addEventListener(
 		"keydown",
@@ -179,7 +174,6 @@ function Draw() {
 	lblTime.value = time_elapsed;
 	var cellHeight=canvas.height/30;
 	var cellWidth=canvas.width/30;
-
 	for (var i = 0; i < 30; i++) {
 		for (var j = 0; j <30; j++) {
 			var start = new Object();
@@ -257,26 +251,19 @@ function UpdatePosition() {
 			shape.i++;
 		}
 	}
-
-	if (board[shape.i][shape.j] == 1) {//move to cell of food - add score
+	if (board[shape.i][shape.j] == 1) {
 		score++;
 	}
-
-	board[shape.i][shape.j] = 2;//draw the pacman
-
-	/**Time* */
+	board[shape.i][shape.j] = 2;
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	if (score >= 20 && time_elapsed <= 10) {
 		pac_color = "green";
 	}
-
 	if (score == 50) {
 		window.clearInterval(interval);
 		window.alert("Game completed");
 	} else {
 		Draw();
 	}
-
 }
-
