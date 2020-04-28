@@ -8,10 +8,27 @@ var time_elapsed;
 var interval;
 
 $(document).ready(function() {
+	document.getElementById("start").addEventListener("click", setUpSetting);  
+	document.getElementById("random").addEventListener("click", setUpSetting);   
+ 
 	context = canvas.getContext("2d");
 	Start();
 });
 
+function setUpSetting(){
+	document.getElementById("left-arrow").innerText=": "+leftChoose;
+	
+	document.getElementById("right-arrow").innerText=": "+rightChoose;
+	document.getElementById("up-arrow").innerText=": "+upChoose;
+	document.getElementById("down-arrow").innerText=": "+downChoose;
+	document.getElementById("monster-setting").innerText=document.getElementById("numberOfMonsters").value;
+	document.getElementById("firstPoint").style.color=document.getElementById("colorpadfirst").value;
+
+	document.getElementById("secondPoint").style.color=document.getElementById("colorpadsecond").value;
+	document.getElementById("thirdPoint").style.color=document.getElementById("colorpadfirstthird").value;
+	document.getElementById("totalTime").innerText=document.getElementById("choosenGameTime").value;
+
+}
 function Start() {
 	board = new Array();
 	score = 0;

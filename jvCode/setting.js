@@ -1,15 +1,17 @@
 //left key choose
-let leftChoose="";
-let rightChoose="";
-let downChoose="";
-let upChoose="";
+var leftChoose="";
+var rightChoose="";
+var downChoose="";
+var upChoose="";
 let isLissen=false;
 function leftKeyHandling() {
     if(isLissen==false){
         isLissen=true;
         document.getElementById("keyerror").style.display='none';
-        document.getElementById("left").innerText = "Choose Key";
+        document.getElementById("left").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-left'><br>Choose Key</i></span>";
         document.getElementById("left").style.background= "#ca7c6d";
+        document.getElementById("left").style.border= "yellow solid 4px";
+
         document.addEventListener("keydown", leftChoosen);   
     }
     else{
@@ -30,9 +32,11 @@ function leftChoosen(e) {
         isLissen=false      
         document.getElementById("keyerror").style.display='none';
         leftChoose = keyChoose;
-        document.getElementById("left").innerText =keyChoose;
+        document.getElementById("left").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-left'><br>"+keyChoose+"</i></span>";
         document.getElementById("left").style.background= "#eaada1";
         document.removeEventListener("keydown", leftChoosen);
+        document.getElementById("left").style.border= "none";
+
     }
  
 
@@ -43,9 +47,10 @@ function rightKeyHandling() {
     if(isLissen==false){
         isLissen=true;
         document.getElementById("keyerror").style.display='none';
-        document.getElementById("right").innerText = "Choose Key";
+        document.getElementById("right").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-right'><br>Choose Key</i></span>";
         document.getElementById("right").style.background= "#ca7c6d";
-        document.addEventListener("keydown", rightChoosen);   
+        document.addEventListener("keydown", rightChoosen);
+        document.getElementById("right").style.border= "yellow solid 4px";   
     }
     else{
         document.getElementById("keyerror").style.display='none';
@@ -65,9 +70,10 @@ function rightChoosen(e) {
         isLissen=false      
         document.getElementById("keyerror").style.display='none';
         rightChoose = keyChoose;
-        document.getElementById("right").innerText =keyChoose;
+        document.getElementById("right").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-right'><br>"+keyChoose+"</i></span>";
         document.getElementById("right").style.background= "#eaada1";
         document.removeEventListener("keydown", rightChoosen);
+        document.getElementById("right").style.border= "none";
     }
  
 }
@@ -76,9 +82,10 @@ function upKeyHandling() {
     if(isLissen==false){
         isLissen=true;
         document.getElementById("keyerror").style.display='none';
-        document.getElementById("up").innerText = "Choose Key";
+        document.getElementById("up").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-up'><br>Choose Key</i></span>";
         document.getElementById("up").style.background= "#ca7c6d";
-        document.addEventListener("keydown", upChoosen);   
+        document.addEventListener("keydown", upChoosen);  
+        document.getElementById("up").style.border= "yellow solid 3px"; 
     }
     else{
         document.getElementById("keyerror").style.display='none';
@@ -100,8 +107,11 @@ function upChoosen(e) {
         document.getElementById("keyerror").style.display='none';
         upChoose = keyChoose;
         document.getElementById("up").innerText =keyChoose;
+        document.getElementById("up").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-up'><br>"+keyChoose+"</i></span>";
+
         document.getElementById("up").style.background= "#eaada1";
         document.removeEventListener("keydown", upChoosen);
+        document.getElementById("up").style.border= "none";
     }
 
 }
@@ -111,9 +121,10 @@ function downKeyHandling() {
     if(isLissen==false){
         isLissen=true;
         document.getElementById("keyerror").style.display='none';
-        document.getElementById("down").innerText = "Choose Key";
+        document.getElementById("down").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-down'><br>Choose Key</i></span>";
         document.getElementById("down").style.background= "#ca7c6d";
         document.addEventListener("keydown", downChoosen);   
+        document.getElementById("down").style.border= "yellow solid 3px";
     }
     else{
         document.getElementById("keyerror").style.display='none';
@@ -133,9 +144,10 @@ function downChoosen(e) {
         isLissen=false      
         document.getElementById("keyerror").style.display='none';
         downChoose = keyChoose;
-        document.getElementById("down").innerText =keyChoose;
+        document.getElementById("down").innerHTML="<span class='after-press-span' style='font-size: 16px; color: black;font-family:cursive;'><i class='fas fa-arrow-alt-circle-down'><br>"+keyChoose+"</i></span>";
         document.getElementById("down").style.background= "#eaada1";
         document.removeEventListener("keydown", downChoosen);
+        document.getElementById("down").style.border= "none";
     }
 
 }

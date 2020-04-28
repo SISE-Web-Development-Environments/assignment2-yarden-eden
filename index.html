@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="css/setting.css" />
     <link rel="stylesheet" type="text/css" href="css/datalogin.css" />
     <link rel="stylesheet" type="text/css" href="css/about.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+
     <meta charset="UTF-8">
 
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
@@ -24,6 +26,7 @@
     <script type="text/javascript" src="jvCode/setting.js"></script>
     <script type="text/javascript" src="jvCode/about.js"></script>
     <script type="text/javascript" src="jvCode/app.js"></script>
+    <script src="https://kit.fontawesome.com/c96c3db330.js" crossorigin="anonymous"></script>
     <!-- <script src="https://kit.fontawesome.com/f35a"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -121,7 +124,8 @@
         </section>
         
 
-        <section id="gameSection" name="gameSection"style="display: none; background-color: blueviolet; height: 937px;">
+        <section id="gameSection" name="gameSection"style="display: none; background-color: blueviolet; height: 937px; padding-top: 5%;">
+            
             <div id="score">
                 <label for="lblScore">SCORE:</label>
                 <input id="lblScore" type="text" />
@@ -130,9 +134,37 @@
                 <label for="lblTime">TIME:</label>
                 <input id="lblTime" type="text" />
             </div>
+            <div class="" style="float: left; display: flex;
+            justify-content: center;">
+           <div class="gameSetting">
+          <div class="arrows">            
+            <i id="up-arrow" class="fas fa-arrow-up"></i>
+            <br>
+            <i id="down-arrow" class="fas fa-arrow-down"></i>
+            <br>
+            <i  id="left-arrow" class="fas fa-arrow-left"></i>
+            <br>
+            <i  id="right-arrow" class="fas fa-arrow-right"></i>
+        </div>
+<div class="otherSetting">
+            <br>
+            <span class="setting-text">👹 Monsters: </span><i  id="monster-setting"></i>
+
+                
+                <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span></p>
+                
+                <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15 Point</span></p>
+                
+                <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span></p>
+            </i>
+
+            <p><span class="setting-text">Total Time</span></p><p id="totalTime"></p>
+        </div>
+           </div>
             <div id="game">
                 <canvas id="canvas" height="600" width="600"></canvas>
             </div>
+        </div>
         </section>
 
         <!-- <section id="aboutSection">
@@ -171,11 +203,11 @@
                     
                 <div class="keyboard">
                     <ul>
-                    <li><a href="#" class="key c37" id="left" onclick="leftKeyHandling()"><span><</span> </a></li>
-                    <li><a href="#" class="key c38" id="up" onclick="upKeyHandling()"><span>^</span></a>
-                        <a href="#" class="key c40" id="down" onclick="downKeyHandling()"><span>v</span></a>
+                    <li><a href="#" class="key c37" id="left" onclick="leftKeyHandling()" style="padding-top: 5px;"><span ><i class="fas fa-arrow-alt-circle-left" id="leftC"></i></span> </a></li>
+                    <li><a href="#" class="key c38" id="up" onclick="upKeyHandling()" style="padding-top: 5px;"><span><i class="fas fa-arrow-alt-circle-up"></i></span></a>
+                        <a href="#" class="key c40" id="down" onclick="downKeyHandling()"style="padding-top: 5px;"><span><i class="fas fa-arrow-alt-circle-down"></i></span></a>
                     </li>
-                    <li><a href="#" class="key c39" id="right" onclick="rightKeyHandling()"><span>></span></a></li>
+                    <li><a href="#" class="key c39" id="right" onclick="rightKeyHandling()"style="padding-top: 5px;"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a></li>
                     </ul>
                 </div>
                 <p id="keyerror" style="display: none;color:red;text-align: center;"></p>
@@ -224,8 +256,8 @@
 
                 </form>
             <br>
-            <button type="button" class="startGame-btn" onclick="start(this)">START!</button>
-            <button type="button" class="startGame-btn" onclick="random(this)">Random Values And Start</button>
+            <button type="button" class="startGame-btn" id="start" onclick="start(this)">START!</button>
+            <button type="button" class="startGame-btn" id="random" onclick="random(this)">Random Values And Start</button>
             
             
             </form>
