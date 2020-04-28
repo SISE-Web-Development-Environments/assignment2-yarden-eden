@@ -1,6 +1,7 @@
 
 //initialize array for saving users
 var allUsers;
+var currentLoginUser;
 
 $(document).ready(function(){
     
@@ -29,7 +30,7 @@ $(document).ready(function(){
 })
 
 
-/*************switching window**************/
+/*************switching windows**************/
 function changeWindow(id) {
     let section = document.getElementsByTagName('section');
 

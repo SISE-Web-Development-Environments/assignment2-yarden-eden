@@ -46,7 +46,7 @@ function login() {
                 //check if his password correct
                 if(getPasswordOfUserName(userName) == userPassword){
                     //save the user to be the cuurent user
-                 
+                    currentLoginUser = userName;
                     
                     //just than change to setting
                     changeWindowById("settingSection")
