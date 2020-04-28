@@ -124,8 +124,8 @@
         </section>
         
 
-        <section id="gameSection" name="gameSection"style="display: none; background-color: blueviolet; height: 937px; padding-top: 5%;">
-            
+        <section id="gameSection" name="gameSection"style="display: none; height: 937px; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover; ">
+          <div style="background-color: black; height:800px ; width: 50%; border: blanchedalmond solid 5px; border-radius: 15px;padding-bottom: 0px;">
             <div id="score">
                 <label for="lblScore">Score:</label>
                 <input id="lblScore" type="text" />
@@ -135,7 +135,7 @@
                 <input id="lblTime" type="text" />
             </div>
             <div class="board" style="float: left; display: flex;
-            justify-content: center;">
+            justify-content: center; margin-bottom: 0px;">
            <div class="gameSetting">
           <div class="arrows">            
             <i id="up-arrow" class="fas fa-arrow-up"></i>
@@ -157,14 +157,17 @@
                 
                 <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span></p>
             </i>
-
-            <p><span class="setting-text">Total Time</span></p><p id="totalTime"></p>
+            <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
+<br>
+<br>
+            <span class="setting-text">Total Time: </span><i id="totalTime"></i>
         </div>
            </div>
             <div id="game">
                 <canvas id="canvas" height="700" width="700"></canvas>
             </div>
         </div>
+    </div>  
         </section>
 
         <!-- <section id="aboutSection">
@@ -198,7 +201,7 @@
                     <div class="subsection">
                         <div>
                     <p class="settingHeaders" style=" margin-top: 0px;">Choose your in-game keyboard:</p>
-                    <br>
+                    
                 </div>
                     
                 <div class="keyboard">
@@ -212,6 +215,11 @@
                 </div>
                 <p id="keyerror" style="display: none;color:red;text-align: center;"></p>
             </div>
+                <br>
+                
+                <br>
+                <br>
+                <br>
                 <br>
                 <br>
                 <br>

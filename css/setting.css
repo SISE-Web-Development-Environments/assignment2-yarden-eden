@@ -158,8 +158,8 @@ ul ol {list-style-type: none;}
 #up, #left, #right {height: 60px;width: 80px;}
 #left, #right {margin: 65px 0px 0px;}
 #left:active, #right:active {margin: 67px 2px 3px ;}
-#up {margin: 5px 5px 1px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;}
-#up:active {margin: 8px 5px -2px;}
+#up {margin: 0px 5px 70px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;}
+#up:active {margin: 8px 5px 70px;}
 #down {margin: 0px 5px 10px; border-top-left-radius: 0px; border-top-right-radius: 0px;}
 #down:Active {margin: 3px 5px 4px;}
 

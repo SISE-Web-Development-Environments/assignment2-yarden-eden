@@ -9,14 +9,21 @@ var interval;
 
 
 
-$(document).ready(function() {
-	document.getElementById("start").addEventListener("click", setUpSetting);  
-	document.getElementById("random").addEventListener("click", setUpSetting);   
+// $(document).ready(function() {
+// 	document.getElementById("start").addEventListener("click", setUpSetting);  
+// 	document.getElementById("random").addEventListener("click", setUpSetting);   
  
+// 	context = canvas.getContext("2d");
+// 	Start();
+// });
+
+function readyToGame(){
+	// document.getElementById("start").addEventListener("click", setUpSetting);  
+	// document.getElementById("random").addEventListener("click", setUpSetting);   
+	setUpSetting();
 	context = canvas.getContext("2d");
 	Start();
-});
-
+}
 function setUpSetting(){
 	document.getElementById("left-arrow").innerText=": "+leftChoose;
 	
@@ -29,6 +36,8 @@ function setUpSetting(){
 	document.getElementById("secondPoint").style.color=document.getElementById("colorpadsecond").value;
 	document.getElementById("thirdPoint").style.color=document.getElementById("colorpadfirstthird").value;
 	document.getElementById("totalTime").innerText=document.getElementById("choosenGameTime").value;
+	document.getElementById("totalBalls").innerText=document.getElementById("numberOfBalls").value;
+
 }
 function Start() {
 	board = new Array();
@@ -71,7 +80,7 @@ function Start() {
 	score = 0;
 	pac_color = "yellow";
 	var cnt = 312;
-	var food_remain = 90;
+	var food_remain = document.getElementById("numberOfBalls").value;
 	var pacman_remain = 1;
 	start_time = new Date();
 	for (var i = 0; i <30; i++) {
@@ -86,12 +95,21 @@ function Start() {
 				var randomNum = Math.random();
 				if (randomNum <= (1.0 * food_remain) / cnt) {
 					let rand=Math.random();
+					if(rand>=0.9){//25 point
+						board[i][j]=25;
+					}
+					if(rand<0.9&&rand>=0.6){//15 point
+						board[i][j]=15;
+					}
+					if(rand>=0&&rand<0.6){//5 point
+						board[i][j]=5;
+					}
 					food_remain--;
-					board[i][j] = 1;
+				
 				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
 					shape.i = i;
 					shape.j = j;
-					
+
 					pacman_remain--;
 					board[i][j] = 2;
 				} else {
@@ -174,15 +192,30 @@ function Draw() {
 				context.arc(centerX+ 1, centerY-6, 1.5, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
-				/*Balls*/
+				
 			} else
-			 if (board[i][j] == 1) {
+			/*Balls*/
+			 if (board[i][j] == 5) {
 				context.beginPath();
 				context.arc(centerX, centerY, 7.5, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
+				context.fillStyle =document.getElementById("colorpadfirst").value;
 				context.fill();
+			 }
+			 if (board[i][j] == 15) {
+				context.beginPath();
+				context.arc(centerX, centerY, 7.5, 0, 2 * Math.PI); // circle
+				context.fillStyle =document.getElementById("colorpadsecond").value;
+				context.fill();
+			 }
+			 if (board[i][j] == 25) {
+				context.beginPath();
+				context.arc(centerX, centerY, 7.5, 0, 2 * Math.PI); // circle
+				context.fillStyle =document.getElementById("colorpadfirstthird").value;
+				context.fill();
+				
+			 }
 				/*Walls*/
-			} else
+			 else
 			 if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(start.x, start.y,cellWidth,cellHeight);
