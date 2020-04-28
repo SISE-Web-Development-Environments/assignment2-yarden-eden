@@ -124,18 +124,31 @@
         </section>
         
 
-        <section id="gameSection" name="gameSection"style="display: none; height: 937px; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover; ">
-          <div style="background-color: black; height:800px ; width: 50%; border: blanchedalmond solid 5px; border-radius: 15px;padding-bottom: 0px;">
+        <section id="gameSection" name="gameSection"style="display: none; background-color: blueviolet; height: 1500px; padding-top: 5%;">
+            <br>
+            <br>
+            <div id="user-login">
+                <label for="lblUserName">UserName:</label>
+                <input id="lblUserName" type="text" disabled="disabled" />
+            </div>
+            <br>
             <div id="score">
                 <label for="lblScore">Score:</label>
                 <input id="lblScore" type="text" />
             </div>
+            <br>
             <div id="time">
                 <label for="lblTime">Time:</label>
                 <input id="lblTime" type="text" />
             </div>
-            <div class="board" style="float: left; display: flex;
-            justify-content: center; margin-bottom: 0px;">
+            <br>
+            <div id="disqualification">
+                <label for="lblDisqualification">Disqualifications:</label>
+                <input id="lblDisqualification" type="text" value="0" disabled="disabled"/>
+            </div>
+            <br>
+
+            <div class="board" style="float: left; display: flex; justify-content: center;">
            <div class="gameSetting">
           <div class="arrows">            
             <i id="up-arrow" class="fas fa-arrow-up"></i>
