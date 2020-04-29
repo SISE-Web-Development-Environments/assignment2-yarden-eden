@@ -16,7 +16,16 @@ var firstAngle=0.15;
 var secondAngle=1.95;
 
 
+/**monsters position**/
+var monster1;
+var monster2;
+var monster3;
+var monster4;
 
+var intervalMonster1;
+var intervalMonster2;
+var intervalMonster3;
+var intervalMonster4;
 
 // $(document).ready(function() {
 // 	document.getElementById("start").addEventListener("click", setUpSetting);  
@@ -56,8 +65,8 @@ function Start() {
 		
  board = [
 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-	[4, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 0, 4],
+	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	[4, 7, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 0, 4],
 	[4, 0, 4, 4, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 0, 0, 0, 4],
 	[4, 0, 4, 0, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
 	[4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
@@ -94,12 +103,31 @@ function Start() {
 	var food_remain = document.getElementById("numberOfBalls").value;
 	var pacman_remain = 1;
 	start_time = new Date();
+	var numberOfMonsters = document.getElementById("numberOfMonsters").value;
+
+	/**set monsters**/
+	monster1 = {x: 1, y: 1};
+	board[1][1] = 3;
+	if(numberOfMonsters>=2){
+		monster2 = {x: 28, y: 28};
+		board[28][28] = 3;
+	}
+	if(numberOfMonsters>=3){
+		monster3 = {x: 1, y: 28};
+		board[1][28] = 3;
+	}
+	if(numberOfMonsters==4){
+		monster4 = {x: 28, y: 1};
+		board[28][1] = 3;
+	}
+
+
 	for (var i = 0; i <30; i++) {
 		// board[i] = new Array();
 		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
 		for (var j = 0; j < 30; j++) {
 	
-			if(board[i][j]==4||board[i][j]==7){
+			if(board[i][j]==4 || board[i][j]==3||board[i][j]==7){//do nothing - monster/wall
 
 			}
 			else {
@@ -117,6 +145,7 @@ function Start() {
 					}
 					food_remain--;
 				
+					
 				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
 					shape.i = i;
 					shape.j = j;
@@ -130,11 +159,13 @@ function Start() {
 			}
 		}
 	}
+
 	while (food_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		board[emptyCell[0]][emptyCell[1]] = 1;
 		food_remain--;
 	}
+
 	keysDown = {};
 	addEventListener(
 		"keydown",
@@ -166,6 +197,26 @@ function Start() {
 		}
 	}, false);
 	interval = setInterval(UpdatePosition, 250);
+	/**create monsters interval according their number**/
+	setMonstersInterval();
+	
+}
+
+
+function setMonstersInterval(){
+	intervalMonster1 = setInterval(UpdateMonsterPosition,2250);
+
+	// if(numberOfMonsters>=2){
+	// 	intervalMonster2 = setInterval(UpdateMonsterPosition,250);
+	// }
+
+	// if(numberOfMonsters>=3){
+	// 	intervalMonster3 = setInterval(UpdateMonsterPosition,250);
+	// }
+
+	// if(numberOfMonsters==4){
+	// 	intervalMonster4 = setInterval(UpdateMonsterPosition,250);
+	// }
 }
 
 function findRandomEmptyCell(board) {
@@ -177,6 +228,7 @@ function findRandomEmptyCell(board) {
 	}
 	return [i, j];
 }
+
 
 function GetKeyPressed() {
 
@@ -240,8 +292,15 @@ function Draw() {
 
 				context.fillStyle = "black"; //color
 				context.fill();
-				
-			} else
+			} else//monster
+			if(monster1.x == i && monster1.y == j){
+				var image = document.getElementById("monster-img");
+				context.drawImage(image,start.x, start.y,cellWidth,cellHeight)
+			}
+			// if (board[i][j] == 3) {
+			// 	var image = document.getElementById("monster-img");
+			// 	context.drawImage(image,start.x, start.y,cellWidth,cellHeight);
+			// } else
 			/*Balls*/
 			 if (board[i][j] == 5) {
 				context.beginPath();
@@ -322,6 +381,101 @@ function Draw() {
 
 }
 
+function bestMove(monster){
+	let up;
+	let down;
+	let left;
+	let right;
+
+	//up
+	if(board[(monster.y-1)][monster.x]!=4){
+		var deltaX = Math.abs((monster.x)-shape.i);
+  		var deltaY = Math.abs((monster.y-1)-shape.j);
+  		up = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+	}
+	else{
+		//wall
+		up = Infinity;
+	}
+
+	//down
+	if(board[monster.y+1][monster.x]!=4){
+		var deltaX = Math.abs(monster.x-shape.i);
+  		var deltaY = Math.abs((monster.y+1)-shape.j);
+  		down = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+	}
+	else{
+		//wall
+		down = Infinity;
+	}
+
+	//left
+	if(board[monster.y][monster.x-1]!=4){
+		var deltaX = Math.abs((monster.x-1)-shape.i);
+  		var deltaY = Math.abs(monster.y-shape.j);
+  		left = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+	}
+	else{
+		//wall
+		left = Infinity;
+	}
+
+	//right
+	if( board[monster.y][monster.x+1]!=4){
+		var deltaX = Math.abs((monster.x+1)-shape.i);
+  		var deltaY = Math.abs(monster.y-shape.j);
+  		right = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+	}
+	else{
+		//wall
+		right = Infinity;
+	}
+
+	/**find the minimun dist**/
+	var minDist = Math.min(up,down,left,right);
+	if(minDist==up){
+		return [monster.x,monster.y-1];
+		// monster.x = monster.x;
+		// monster.y = monster.y--;
+	}
+	else{
+		if(minDist==down){
+			return [monster.x,monster.y+1];
+			// monster.x = monster.x;
+			// monster.y = monster.y++;
+		}
+		else{
+			if(minDist==left){
+				return [monster.x-1,monster.y];
+				// monster.x = monster.x--;
+				// monster.y = monster.y;
+			}
+			else{
+				if(minDist==right){
+					return [monster.x+1,monster.y];
+					// monster.x = monster.x++;
+					// monster.y = monster.y;
+				}
+			}
+		}
+	}
+
+}
+
+function UpdateMonsterPosition(){
+	//what happend after doing the move ?
+
+	//
+	// let move = bestMove(monster1);
+
+	// monster1.x = move[0];
+	// monster1.y = move[1];
+
+	// board[monster1.x, monster1.y] = 3;
+	// Draw();
+}
+
+/**pacman**/
 function UpdatePosition() {
 	let lasti=shape.i;
 	let lastj=shape.j;
@@ -371,6 +525,9 @@ function UpdatePosition() {
 	}
 	document.getElementById("lblScore").value=score;
 	board[shape.i][shape.j] = 2;
+
+
+
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {
