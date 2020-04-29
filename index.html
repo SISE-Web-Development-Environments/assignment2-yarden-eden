@@ -39,6 +39,11 @@
 <body class="body" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
             <div id="overlay"></div>
 
+    <div class="header">
+        <h1>Header</h1>
+            
+    </div>
+
     <div class="menu" id="menu">
         <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)"><b>Welcome</b></a>
         <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)"><b>Log in</b></a>
@@ -52,9 +57,12 @@
     
     </div>
 
+    <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
+    <div id="mainContainer" class="main" style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height:1100px;" >
 
-    <div id="mainContainer" class="main" style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;">
-        <section id="dataWelcome" >
+
+
+        <section id="dataWelcome" style=" height: 600px; width: 100%;   padding-top: 10%;">
             <div class="welcomeContainer">
                 <img id="pacman_icon" style="width: 70px; margin-top: -50px;" src ="images/pacman_icon.jpg">
                 <button type="button" class="signup-btn" onclick="changeWindowById('dataRegister')">Sign in</button>
@@ -66,7 +74,7 @@
         </section>
 
       
-        <section id="dataRegister" style="display: none; background-image: url(images/pacman_background.jpg);  height: 937px;; width: 100%;   padding-top: 5%;">
+        <section id="dataRegister" style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px;; width: 100%;   padding-top: 15%;">
          
             <div class="signinContainer">
              
@@ -102,7 +110,7 @@
             </div>
         </section>
 
-        <section id="dataLogin" style="display: none; background-image: url(images/pacman_background.jpg);  height: 937px; width: 100%;   padding-top: 5%;">
+        <section id="dataLogin" style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px; width: 100%;   padding-top: 15%;">
             <div class="loginContainer" id="loginContainer">
                 <form id="loginForm" role="form" method="post" action="">
                     <h1>Log-in</h1>
@@ -124,7 +132,7 @@
         </section>
         
 
-        <section id="gameSection" name="gameSection"style="display: none; height: 937px; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover; ">
+        <section id="gameSection" name="gameSection"style="display: none; height: 1200px; width: 100%; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover;">
           <div class="settingConteiner" style="width:900px; ">
            
             <div id="user-login">
@@ -145,11 +153,12 @@
                 <label for="lblDisqualification">Disqualifications:</label>
                 <input id="lblDisqualification" type="text" value="0" disabled="disabled"/>
             </div>
+            <button type="button"  onclick="startNewGame()" class="newGame" >Start New Game</button>
             <div class="board" style="float: left; display: flex;
             justify-content: center; margin-bottom: 0px;">
            <div class="gameSetting">
           <div class="arrows">            
-            <i id="up-arrow" class="fas fa-arrow-up" "></i>
+            <i id="up-arrow" class="fas fa-arrow-up" ></i>
             <br>
             <i id="down-arrow" class="fas fa-arrow-down"></i>
             <br>
@@ -203,7 +212,7 @@
         </div>
 
         <section id="settingSection" style="display: none;">
-        <div style="background-image: url('images/pacBackground3.jpg'); height: 937px; width: 100%;   padding-top: 5%;">       
+        <div style="background-image: url('images/pacBackground3.jpg'); height: 1100px; width: 100%;   padding-top: 10%;">       
             <div class="settingConteiner" >
                 <!-- <img style=" width: 200px; margin-top: -140px;" src ="images/packman4e.jpg"> -->
                 <p class="mainHeadline"  style="margin-top: 0px;margin-bottom: 0px;" >Almost There...</p>
@@ -284,14 +293,22 @@
         </div>
         </section>
 
+
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+
+
     </div>
+
+   
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
     <script src="https://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
-<script src="jvCode/setting.js"></script>
-<script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="jvCode/setting.js"></script>
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
     
   
     <script type="text/javascript" src="jvCode/registerCode.js"></script>

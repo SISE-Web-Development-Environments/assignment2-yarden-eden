@@ -26,6 +26,7 @@ function readyToGame(){
 }
 function setUpSetting(){
 	document.getElementById("lblUserName").value = currentLoginUser;//write the current userName
+	
 	document.getElementById("left-arrow").innerText=": "+leftChoose;
 	
 	document.getElementById("right-arrow").innerText=": "+rightChoose;
@@ -266,4 +267,10 @@ function UpdatePosition() {
 	} else {
 		Draw();
 	}
+}
+
+function startNewGame(){
+	setUpSetting();
+	//init timer
+	start();
 }
