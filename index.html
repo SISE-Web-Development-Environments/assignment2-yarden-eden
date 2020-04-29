@@ -139,38 +139,40 @@
                 <label for="lblUserName">UserName:</label>
                 <input id="lblUserName" type="text" disabled="disabled" />
             </div>
-
+            <br>
             <div id="score">
                 <label for="lblScore">Score:</label>
                 <input id="lblScore" type="text" />
             </div>
+            <br>
             <div id="time">
                 <label for="lblTime">Time:</label>
                 <input id="lblTime" type="text" />
             </div>
-
+            <br>
             <div id="disqualification">
                 <label for="lblDisqualification">Disqualifications:</label>
                 <input id="lblDisqualification" type="text" value="0" disabled="disabled"/>
-            </div>\
-            <button type="button"  onclick="startNewGame()" class="newGame" >Start New Game</button>
-            <div class="board" style="float: left; display: flex;
-            justify-content: center; margin-bottom: 0px;">
-           <div class="gameSetting">
-          <div class="arrows">            
-            <i id="up-arrow" class="fas fa-arrow-up" "></i>
+            </div>
             <br>
-            <i id="down-arrow" class="fas fa-arrow-down"></i>
-            <br>
-            <i  id="left-arrow" class="fas fa-arrow-left"></i>
-            <br>
-            <i  id="right-arrow" class="fas fa-arrow-right"></i>
-        </div>
-<div class="otherSetting" style="color:black;">
+            <button type="button"  onclick="readyToGame()" class="newGame" >Start New Game</button>
+
+           <div class="board" style="float: left; display: flex; justify-content: center; margin-bottom: 0px;">
+            <div class="gameSetting">
+            <div class="arrows">            
+                <i id="up-arrow" class="fas fa-arrow-up"></i>
+                <br>
+                <i id="down-arrow" class="fas fa-arrow-down"></i>
+                <br>
+                <i  id="left-arrow" class="fas fa-arrow-left"></i>
+                <br>
+                <i  id="right-arrow" class="fas fa-arrow-right"></i>
+            </div>
+
+            <div class="otherSetting" style="color:black;">
             <br>
             <span class="setting-text">👹 Monsters: </span><i  id="monster-setting" ></i>
 
-                
                 <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span></p>
                 
                 <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15 Point</span></p>
@@ -178,13 +180,18 @@
                 <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span></p>
             </i>
             <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
-<br>
-<br>
+            <br>
+            <br>
             <span class="setting-text">Total Time: </span><i id="totalTime"></i>
         </div>
            </div>
             <div id="game">
                 <canvas id="canvas" height="700" width="700"></canvas>
+                <div style="display:none;">
+                    <img id="monster-img"
+                         src="./images/monster.jpg"
+                         width="300" height="227">
+                </div>
             </div>
         </div>
     </div>  
