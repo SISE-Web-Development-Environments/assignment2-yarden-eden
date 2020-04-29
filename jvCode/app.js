@@ -204,7 +204,7 @@ function Start() {
 
 
 function setMonstersInterval(){
-	intervalMonster1 = setInterval(UpdateMonsterPosition,2250);
+	// intervalMonster1 = setInterval(UpdateMonsterPosition,2250);
 
 	// if(numberOfMonsters>=2){
 	// 	intervalMonster2 = setInterval(UpdateMonsterPosition,250);
@@ -356,7 +356,7 @@ function Draw() {
 				
 				
 			}
-			if(i==1&&j==1){
+		
 			if (board[i][j] == 7) {
 				context.beginPath();
 				// context.rect(start.x, start.y,cellWidth,cellHeight);
@@ -369,7 +369,7 @@ function Draw() {
 			
 				
 				
-			}
+			
 		}
 	
 		}
