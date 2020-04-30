@@ -14,13 +14,25 @@ var downCode;
 
 var firstAngle=0.15;
 var secondAngle=1.95;
+/*End Game: */
+var gemeTime;
+var loser;
+var winner;
+var better;
 
+/*candy */
+var candy=new Object();
+var candyMove;
+var isBall;
+var isEat;
+var lastMove;
 
 /**monsters position**/
 var monster1;
 var monster2;
 var monster3;
 var monster4;
+
 
 var intervalMonster1;
 var intervalMonster2;
@@ -61,12 +73,10 @@ function setUpSetting(){
 }
 function Start() {
 	board = new Array();
-
-		
  board = [
 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	[4, 7, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 0, 4],
+	[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 0, 4],
 	[4, 0, 4, 4, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 0, 0, 0, 4],
 	[4, 0, 4, 0, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
 	[4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
@@ -95,8 +105,16 @@ function Start() {
 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 ];
-
-
+	looser=false;
+	better=false;
+	winner=false;
+	gameTime=document.getElementById("choosenGameTime").value;
+	candy.i=6;
+	candy.j=6;
+	isBall=0;
+	isEat=false;
+	board[candy.i][candy.j] = 7;
+	// candyMove="down";
 	score = 0;
 	pac_color = "yellow";
 	var cnt = 312;
@@ -196,16 +214,209 @@ function Start() {
 			e.preventDefault();
 		}
 	}, false);
+	foodInterval = setInterval(CandyMove,200);
 	interval = setInterval(UpdatePosition, 250);
 	/**create monsters interval according their number**/
+
 	setMonstersInterval();
 	
 }
 
 
+function CandyMove(){
+	if(!isEat){
+	let counter=0;
+	let leftMove=false;
+	let rightMove=false;
+	let upMove=false;
+	let downMove=false;
+	let lastMoveIsPossible=true;
+
+	board[candy.i][candy.j] = isBall;
+	
+
+	//up is possible?
+	if (candy.j > 0 && board[candy.i][candy.j - 1] != 4) {
+		// candy.j--;
+		counter++;
+		upMove=true;
+		
+	}
+	else{
+		if(lastMove=="up"){
+			lastMoveIsPossible=false;
+		}
+	}
+	//down
+	if (candy.j < 29 && board[candy.i][candy.j + 1] != 4) {
+		// candy.j++;
+		counter++;
+		downMove=true;
+	}
+	else{
+		if(lastMove=="down"){
+			lastMoveIsPossible=false;
+		}
+	}
+
+	//left
+	if (candy.i > 0 && board[candy.i - 1][candy.j] != 4) {
+		// candy.i--;
+		counter++;
+		leftMove=true;
+	}
+	else{
+		if(lastMove=="left"){
+			lastMoveIsPossible=false;
+		}
+	}
+
+	//right
+	if (candy.i < 29 && board[candy.i + 1][candy.j] != 4) {
+		// candy.i++;
+		counter++;
+		rightMove=true;
+	
+	}
+	else{
+		if(lastMove=="right"){
+			lastMoveIsPossible=false;
+		}
+	}
+	/**************/
+
+	let moveArray =new Array();
+	let i=0;
+	if(leftMove){
+		if(lastMove=="right"){
+			moveArray[i]="left";
+			i++;
+		}
+		else{
+			moveArray[i]="left";
+			i++;
+			moveArray[i]="left";
+			i++;
+			moveArray[i]="left";
+			i++;
+			moveArray[i]="left";
+			i++;
+			counter=counter+3;
+		}
+	}
+	if(rightMove){
+		if(lastMove=="left"){
+			moveArray[i]="right";
+			i++;
+		}
+		else{
+			moveArray[i]="right";
+			i++;
+			moveArray[i]="right";
+			i++;
+			moveArray[i]="right";
+			i++;
+			moveArray[i]="right";
+			i++;
+			counter=counter+3;
+		}
+	}
+	if(upMove){
+		if(lastMove=="down"){
+			moveArray[i]="up";
+			i++;
+		}
+		else{
+			moveArray[i]="up";
+			i++;
+			moveArray[i]="up";
+			i++;
+			moveArray[i]="up";
+			i++;
+			moveArray[i]="up";
+			i++;
+			counter=counter+3;
+		}
+		
+	}
+	if(downMove){
+		if(lastMove=="up"){
+			moveArray[i]="down";
+			i++;
+		}
+		else{
+			moveArray[i]="down";
+			i++;
+			moveArray[i]="down";
+			i++;
+			moveArray[i]="down";
+			i++;
+			moveArray[i]="down";
+			i++;
+			
+			counter=counter+3;
+		}
+	
+	}
+	if(lastMoveIsPossible==true){
+		moveArray[i]=lastMove;
+		moveArray[i+1]=lastMove;
+		moveArray[i+2]=lastMove;
+		moveArray[i+3]=lastMove;
+		moveArray[i+4]=lastMove;
+		moveArray[i+5]=lastMove;
+		moveArray[i+6]=lastMove;
+		conter=counter+7;
+	}
+
+	let index=Math.floor(Math.random() * (counter  + 1) );
+	
+	if(moveArray[index]=="left"){
+		candy.i--;
+		lastMove="left";
+	}
+	if(moveArray[index]=="right"){
+		candy.i++;
+		lastMove="right";
+
+	}
+	if(moveArray[index]=="up"){
+		candy.j--;
+		lastMove="up";
+	}
+	if(moveArray[index]=="down"){
+		candy.j++;
+		lastMove="down";
+	}
+
+	if(board[candy.i][candy.j]!=0){
+		isBall=board[candy.i][candy.j];
+	}
+	else{
+		isBall=0;
+	}
+	if(board[candy.i][candy.j]==2){
+		isEat=true;
+		score=score+50;
+	}
+	else{
+		board[candy.i][candy.j] = 7;
+		Draw();
+	}
+
+	// context.beginPath();
+	// // context.rect(start.x, start.y,cellWidth,cellHeight);
+	
+	// img=new Image();
+	// img.src="images/images-removebg-preview.png";
+	// context.beginPath();
+	// context.drawImage(img, candy.x*canvas.width/30, candy.y*canvas.height/30,(canvas.width/30)*1.2,(canvas.height/30)*1.2);
+}
+
+
+}
 function setMonstersInterval(){
 	// intervalMonster1 = setInterval(UpdateMonsterPosition,2250);
-
 	// if(numberOfMonsters>=2){
 	// 	intervalMonster2 = setInterval(UpdateMonsterPosition,250);
 	// }
@@ -374,10 +585,7 @@ function Draw() {
 	
 		}
 	}
-
 	
-
-		
 
 }
 
@@ -477,8 +685,8 @@ function UpdateMonsterPosition(){
 
 /**pacman**/
 function UpdatePosition() {
-	let lasti=shape.i;
-	let lastj=shape.j;
+	let lasti=shape.i;//col
+	let lastj=shape.j;//row
 	board[shape.i][shape.j] = 0;
 	var x = GetKeyPressed();
 	if (x == 1) {//up
@@ -524,6 +732,10 @@ function UpdatePosition() {
 		score=score+25;
 	}
 	document.getElementById("lblScore").value=score;
+	if(board[shape.i][shape.j] ==7){
+		isEat=true;
+		score=score+50;
+	}
 	board[shape.i][shape.j] = 2;
 
 
@@ -537,7 +749,22 @@ function UpdatePosition() {
 	// 	window.clearInterval(interval);
 	// 	window.alert("Game completed");
 	// } else {
+
+	if(time_elapsed>=gameTime){
+		window.clearInterval(interval);
+		window.clearInterval(foodInterval);
+		if(score<100){
+			better=true;
+		}
+		if(score>=100){
+			winner=true;
+		}
+		endGame();
+
+	}
+	else{
 		Draw();
+	}
 
 	// }
 }
@@ -591,3 +818,44 @@ $(".demo").each(function() {
 		"background-color": c2
 	});
 });
+
+function endGame(){
+	if(loser){
+		document.getElementById("endModal").style.backgroundImage="url(images/gameOver4.jpg)";
+		document.getElementById("titleEnd").innerText="Loser!";
+		document.getElementById("titleEnd").style.color="white";
+		document.getElementById("titleEnd").style.marginLeft="35%";
+		openEndModal();
+	}
+	if(winner){
+		document.getElementById("endModal").style.backgroundImage="url(images/winner.jpg)";
+		document.getElementById("titleEnd").innerText="Winner!";
+		document.getElementById("titleEnd").style.marginLeft="30%";
+		openEndModal();
+	}
+
+	if(better){
+		document.getElementById("endModal").style.backgroundImage="url(images/pacman4e.webp)";
+		document.getElementById("titleEnd").innerText="You are better than "+score+ " points!";
+		document.getElementById("titleEnd").style.marginLeft="20px";
+		// document.getElementById("model-body").style.marginBottom="0px";
+		document.getElementById("titleEnd").style.color="white";
+		document.getElementById("titleEnd").style.fontSize="27px";
+		// document.getElementById("end-game-btn").style.marginTop="0px";
+
+		//end-game-btn
+
+
+
+
+		openEndModal();
+	}
+
+
+
+}
+
+function backToGame(){
+    closeEndModal();
+    readyToGame();
+}

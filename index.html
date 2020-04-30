@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/datalogin.css" />
     <link rel="stylesheet" type="text/css" href="css/about.css" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/endGame.css" />
+
 
     <meta charset="UTF-8">
 
@@ -27,6 +29,8 @@
     <script type="text/javascript" src="jvCode/setting.js"></script>
     <script type="text/javascript" src="jvCode/about.js"></script>
     <script type="text/javascript" src="jvCode/app.js"></script>
+    <script type="text/javascript" src="jvCode/endGame.js"></script>
+
     <script src="https://kit.fontawesome.com/c96c3db330.js" crossorigin="anonymous"></script>
     <!-- <script src="https://kit.fontawesome.com/f35a"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -269,9 +273,6 @@
                             <p id="keyerror" style="display: none;color:red;text-align: center;"></p>
                         </div>
                         <br>
-
-                        <br>
-                        <br>
                         <br>
                         <br>
                         <br>
@@ -322,9 +323,13 @@
 
                     </form>
                     <br>
-                    <button type="button" class="startGame-btn" id="start" onclick="start(this)">START!</button>
+                    <!-- <button type="button" class="startGame-btn" id="start" onclick="start(this)">START!</button>
                     <button type="button" class="startGame-btn" id="random" onclick="random(this)">Random Values And
-                        Start</button>
+                        Start</button> -->
+                        <ul style="margin-left: 35%;">
+                            <li  onclick="start(this)"><a href="#" class="round red"  >Start<span class="round">Are You Ready For Packman?!</span></a></li>
+                              <li onclick="random(this)" ><a href="#" class="round yellow">Rand<span class="round">This Pic Values For You <br> And Start!</span></a></li>
+                          </ul> 
 
 
                     </form>
@@ -334,11 +339,27 @@
         </section>
 
 
-        <div class="footer">
-            <p>Footer</p>
+        <div class="endModal" id="endModal" style="  background-repeat: no-repeat;
+        background-size:500px 280px; text-align: center;">
+            <div class="model-header-end">
+                <div class="end-title" id="titleEnd" style=" font-size: 40px;"></div>
+                <button class="close-button" onclick="closeEndModal()">&times;</button>
+            </div>
+            <div class="model-body-end" id="model-body">
+            </div>
+            <!-- <button type="button" class="new-game-end" id="new-game-end" onclick="backToGame()" style="margin-top: 25%;">New Game</button> -->
+            <div class="button button-1" id="end-game-btn"style="margin-top: 25%;   margin-left: 0px;" onclick="backToGame()" >New Game</div>
         </div>
 
 
+
+
+    </div>
+
+
+
+    <div class="footer">
+        <p>Footer</p>
     </div>
 
 
