@@ -46,7 +46,7 @@
 
     <div class="header">
         <h1>Header</h1>
-
+            
     </div>
 
     <div class="menu" id="menu">
@@ -67,9 +67,9 @@
 
 
 
-        <section id="dataWelcome" style=" height: 600px; width: 100%;   padding-top: 10%;">
+        <section id="dataWelcome" style=" height: 1100px; width: 100%;   padding-top: 10%;">
             <div class="welcomeContainer">
-                <img id="pacman_icon" style="width: 70px; margin-top: -50px;" src="images/pacman_icon.jpg">
+                <img id="pacman_icon" style="width: 70px; margin-top: -90px;" src="images/pacman_icon_withoutBG.png">
                 <button type="button" class="signup-btn" onclick="changeWindowById('dataRegister')">Sign in</button>
                 <hr>
                 <p class="or">OR</p>
@@ -158,7 +158,7 @@
                 <br>
                 <div id="score">
                     <label for="lblScore">Score:</label>
-                    <input id="lblScore" type="text" />
+                    <input id="lblScore" type="text" disabled="disabled" />
                 </div>
                 <br>
                 <div id="time">
@@ -167,56 +167,63 @@
                 </div>
                 <br>
                 <div id="disqualification">
-                    <label for="lblDisqualification">Disqualifications:</label>
-                    <input id="lblDisqualification" type="text" value="0" disabled="disabled" />
+                    <!-- <input id="lblDisqualification" type="text" disabled="disabled" /> -->
+                    <!-- <br> -->
+                    <table style="margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <td>Life :</td>
+                            <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
+                            <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
+                            <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
+                            <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
+                            <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
+                        </tr>
+                    </table>
                 </div>
-                <button type="button" onclick="readyToGame()" class="newGame">Start New Game</button>
-                <div class="board" style="float: left; display: flex;
-            justify-content: center; margin-bottom: 0px;">
-                        <div class="board"
-                            style="float: left; display: flex; justify-content: center; margin-bottom: 0px;">
-                            <div class="gameSetting" style="background-image: url(images/w1.png);  background-size:cover;">
-                                <div class="arrows">
-                                    <i id="up-arrow" class="fas fa-arrow-up"></i>
-                                    <br>
-                                    <i id="down-arrow" class="fas fa-arrow-down"></i>
-                                    <br>
-                                    <i id="left-arrow" class="fas fa-arrow-left"></i>
-                                    <br>
-                                    <i id="right-arrow" class="fas fa-arrow-right"></i>
-                                </div>
+                <br>
+                
+                <button type="button" class="newGame-bth" onclick="readyToGame()" class="newGame">Start New Game</button>
 
-                                <div class="otherSetting" style="color:black;">
-                                    <br>
-                                    <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
+                <div class="board" style="float: left; display: flex; justify-content: center; margin-bottom: 0px;">
+                    <div class="gameSetting">
+                        <div class="arrows">
+                            <i id="up-arrow" class="fas fa-arrow-up"></i>
+                            <br>
+                            <i id="down-arrow" class="fas fa-arrow-down"></i>
+                            <br>
+                            <i id="left-arrow" class="fas fa-arrow-left"></i>
+                            <br>
+                            <i id="right-arrow" class="fas fa-arrow-right"></i>
+                        </div>
 
-                                    <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5
-                                            Point</span></p>
+                        <div class="otherSetting" style="color:black;">
+                            <br>
+                            <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
 
-                                    <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
-                                            Point</span></p>
+                            <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span>
+                            </p>
 
-                                    <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25
-                                            Point</span></p>
-                                    </i>
-                                    <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
-                                    <br>
-                                    <br>
-                                    <span class="setting-text">Total Time: </span><i id="totalTime"></i>
-                                </div>
-                            </div>
-                            <div id="game"
-                                style="background-image: url(images/w4.png);  background-size:cover;border: #8FBC8F solid 3px; border-radius: 10px;">
+                            <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
+                                    Point</span></p>
 
-
-
-                                <canvas id="canvas" height="700" width="700"></canvas>
-                                <div style="display:none;">
-                                    <img id="monster-img" src="./images/monster.jpg" width="300" height="227">
-                                </div>
-                            </div>
+                            <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span>
+                            </p>
+                            </i>
+                            <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
+                            <br>
+                            <br>
+                            <span class="setting-text">Total Time: </span><i id="totalTime"></i>
                         </div>
                     </div>
+                    <div id="game">
+                        <canvas id="canvas" height="700" width="700"></canvas>
+                        <div style="display:none; z-index: +1;">
+                            <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
+                                style="z-index: +1; position: relative;">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- <section id="aboutSection">
@@ -356,11 +363,11 @@
 
     </div>
 
-
+<!-- 
 
     <div class="footer">
         <p>Footer</p>
-    </div>
+    </div> -->
 
 
 

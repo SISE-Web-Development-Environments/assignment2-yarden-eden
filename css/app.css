@@ -39,3 +39,18 @@
     margin-left: 10px;
     text-align: left;
 }
+
+.newGame-bth{
+    color: #ffffff;
+    background-color: cornflowerblue;
+    width: 20%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 18px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: cursive;
+    height: 40px;
+  }
