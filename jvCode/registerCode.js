@@ -17,7 +17,7 @@ $(document).ready(function () {
             },
             register_password: {
                 required: true,
-                pattern: '^(?=.*\\d)(?=.*[a-zA-Z]).{6,}$',
+                pattern: '^(?=.*\\d)(?=.*[a-zA-Z]).{6,}$'
             },
             email: {
                 required: true,
@@ -30,18 +30,16 @@ $(document).ready(function () {
         },
         messages: {
             fullname: {
-                pattern: "Your name must be contains at least 2 words seperated by space and only letters",
+                pattern:"At least 2 words",
                 required: "Please enter your first and last name",
-                //checkFullName: "Please enter at least 2 words"
-                //wordCount: "Please enter at least 2 words"
             },
             register_username: {
-                pattern: "Your user name must be contains only letters and numbers",
+                pattern: "Only letters and numbers",
                 required: "Please enter a username",
-                minlength: "Your username must consist of at least 2 characters"
+                minlength: "At least 2 characters"
             },
             register_password: {
-                pattern: "You have to insert both numbers and letters, at least 6 characters",
+                pattern: "Numbers and letters, at lease 6 characters",
                 required: "Please provide a password",
             },
             email: {
@@ -88,4 +86,5 @@ function register(){
         }
 
     }
+
 }
