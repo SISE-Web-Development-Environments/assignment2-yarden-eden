@@ -12,6 +12,7 @@ var rightCode;
 var upCode;
 var downCode;
 
+var isInGame;
 var firstAngle=0.15;
 var secondAngle=1.95;
 /*End Game: */
@@ -53,7 +54,26 @@ var deathSound;
 // 	Start();
 // });
 
+function clearAllIntervals(){
+	window.clearInterval(foodInterval);
+	window.clearInterval(interval);
+	window.clearInterval(intervalMonster1);
+	window.clearInterval(intervalMonster2);
+	window.clearInterval(intervalMonster3);
+	window.clearInterval(intervalMonster4);
+}
+
+
+function startNewGame(){
+	clearAllIntervals();
+	readyToGame();
+}
 function readyToGame() {
+
+	lost = 0;
+
+
+	isInGame=true;
 	// document.getElementById("start").addEventListener("click", setUpSetting);  
 	// document.getElementById("random").addEventListener("click", setUpSetting);  
 	//*****/
@@ -786,17 +806,18 @@ function catchThePacman(monster) {
 		// drawDead(context);
 		document.getElementById("pacman5").style.display = "none"
 
-		window.clearInterval(intervalMonster1);
-		window.clearInterval(intervalMonster2);
-		window.clearInterval(intervalMonster3);
-		window.clearInterval(intervalMonster4);
-		window.clearInterval(interval);
+		// window.clearInterval(intervalMonster1);
+		// window.clearInterval(intervalMonster2);
+		// window.clearInterval(intervalMonster3);
+		// window.clearInterval(intervalMonster4);
+		// window.clearInterval(interval);
 
 		monster.x = shape.i;
 		monster.y = shape.j;
 		// drawDead(canvas);
 		board[shape.i][shape.j] = 0;
 		Draw();
+		clearAllIntervals();
 
 		setTimeout(afterHalfSecond, 500);
 	}
@@ -951,8 +972,9 @@ function UpdatePosition() {
 	// } else {
 
 	if(time_elapsed>=gameTime){
-		window.clearInterval(interval);
-		window.clearInterval(foodInterval);
+		// window.clearInterval(interval);
+		// window.clearInterval(foodInterval);
+		clearAllIntervals();
 		if(score<100){
 			better=true;
 		}
