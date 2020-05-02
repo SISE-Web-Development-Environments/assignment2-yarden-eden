@@ -183,7 +183,7 @@ svg {
 
 .cloud-text {
 	font-family: 'Coiny', cursive;
-	-webkit-background-clip: text;
+	/* -webkit-background-clip: text; */
   	-webkit-text-fill-color: transparent;	
 	/* background-image: url("images/pacmanBg2.jpg"); */
 	background-size: auto;
