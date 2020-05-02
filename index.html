@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
 
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="jquery-3.4.1.slim.min.js"></script>
 
@@ -35,37 +35,64 @@
     <!-- <script src="https://kit.fontawesome.com/f35a"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
+    <title>PAC-MAN Game</title>
 
 </head>
+
 
 
 <body class="body" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
     <div id="overlay"></div>
 
-    <div class="header">
+    <div class="page-header">
+        <img class="logo-crop" src="images/logo2.jpg" alt="Pac-Man Logo">
+    </div>
+    <!-- <div class="game-header" style=" margin-top: -30px">
+        <p><b>PAC-MAN Game Application</b></p>
+    </div>
+    <div class="page-header">
+        <p>Code By: Eden Mizrahi & Yarden Schwartz</p>
+    </div> -->
+
+    <!-- <div class="header">
         <h1>Header</h1>
             
+    </div> -->
+
+    <div class="menuContext">
+        <div class="menu" id="menu">
+            <img id="pacman_icon" style="width: 80; height: 50px;  margin-top: +3px"
+                src="images/pacman_icon1_withoutBg.png">
+            <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)"><b>Welcome</b></a>
+            <img id="pacman_icon" style="width: 80; height: 50px;    margin-top: 3px"
+                src="images/pacman_icon1_withoutBg.png">
+            <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)"><b>Log in</b></a>
+            <img id="pacman_icon" style="width: 80; height: 50px;   margin-top: 3px"
+                src="images/pacman_icon1_withoutBg.png">
+
+            <a class="signin" href="#register" data-option="dataRegister" onclick="changeWindow(this)"><b>Sign
+                    up</b></a>
+            <img id="pacman_icon" style="width: 80; height: 50px;   margin-top: 3px"
+                src="images/pacman_icon1_withoutBg.png">
+
+            <a class="about" href="#about" data-option="aboutSection" onclick="openModel()"><b>
+
+                    About
+
+                </b></a>
+            <img id="pacman_icon" style="width: 80; height: 50px;   margin-top: 3px"
+                src="images/pacman_icon1_withoutBg.png">
+
+            <a class="setting" href="#setting" data-option="settingSection"
+                onclick="changeWindow(this)"><b>Settings</b></a>
+
+        </div>
     </div>
 
-    <div class="menu" id="menu">
-        <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)"><b>Welcome</b></a>
-        <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)"><b>Log in</b></a>
-        <a class="signin" href="#register" data-option="dataRegister" onclick="changeWindow(this)"><b>Sign in</b></a>
-        <a class="about" href="#about" data-option="aboutSection" onclick="openModel()"><b>
 
-                About
-
-            </b></a>
-        <a class="setting" href="#setting" data-option="settingSection" onclick="changeWindow(this)"><b>Settings</b></a>
-
-    </div>
 
     <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
     <div id="mainContainer" class="main" style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height:1100px;">
-
-
 
         <section id="dataWelcome" style=" height: 1100px; width: 100%;   padding-top: 10%;">
             <div class="welcomeContainer">
@@ -80,54 +107,62 @@
 
 
         <section id="dataRegister"
-            style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px;; width: 100%;   padding-top: 15%;">
+            style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px; width: 100%;   padding-top: 4%;">
 
-            <div class="signinContainer">
+            <div class="registerContainer" style="margin:0 auto;">
 
                 <form id="registrationForm" role="form" method="post" action="" class="registrationForm"
                     name="registration">
-                    <h1>Sign-in</h1>
-                    <table style="width:80%; margin: 0 auto;">
+                    <h1 class="signInHeader" style=" margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">Sign-in</h1>
+
+                    <table class="registerTable" style="width:80%; margin: 0 auto;  table-layout: fixed; ">
                         <tr>
+
                             <th><label for="fName"><b>Full Name</b></label></th>
                             <th><input type="text" class="input-box" placeholder="Enter full name" id="fullname"
-                                    name="fullname"></th>
+                                    name="fullname" required></th>
                         </tr>
                         <tr>
+
                             <th><label for="uName"><b>User Name</b></label></th>
                             <th><input type="text" class="input-box" placeholder="Enter UserName" id="register_username"
-                                    name="register_username"></th>
+                                    name="register_username" required></th>
                         </tr>
                         <tr>
+
                             <th><label for="psw"><b>Password</b></label></th>
-                            <th><input type="password" class="input-box" id="register_password"
-                                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" name="register_password">
+                            <th style="text-align: left;"><input type="password" class="input-box"
+                                    id="register_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+                                    name="register_password" minlength="6" required>
                             </th>
                         </tr>
                         <tr>
                             <th><label for="email"><b>Email</b></label></th>
-                            <th><input type="email" class="input-box" placeholder="Enter Email" id="email" name="email">
+                            <th><input type="email" class="input-box" placeholder="Enter Email" id="email" name="email"
+                                    required>
                             </th>
                         </tr>
                         <tr>
                             <th><label for="dt"><b>BirthDate</b></label></th>
-                            <th><input name="dt" id="bDate" class="input-box" style="text-align: center;" type="date" />
+                            <th><input name="dt" id="bDate" class="input-box" style="text-align: center;" type="date"
+                                    required />
                             </th>
                         </tr>
                     </table>
 
                 </form>
+                <br>
                 <button type="submit" onclick="register()" class="submit-btn">Submit</button>
 
             </div>
         </section>
 
         <section id="dataLogin"
-            style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px; width: 100%;   padding-top: 15%;">
+            style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px; width: 100%;   padding-top: 4%;">
             <div class="loginContainer" id="loginContainer">
                 <form id="loginForm" role="form" method="post" action="">
-                    <h1>Log-in</h1>
-                    <table style="width:80%; margin: 0 auto;">
+                    <h1 class="loginHeader" style=" margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">Log-in</h1>
+                    <table class="loginTable" style="width:80%; margin: 0 auto;  table-layout: fixed; ">
                         <tr>
                             <th><label for="login_username">User Name</label></th>
                             <th><input id="login_username" placeholder="User Name" type="text" name="login_username">
@@ -148,83 +183,93 @@
 
 
         <section id="gameSection" name="gameSection"
-            style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover;">
-            <div class="settingConteiner" style="width:900px;  margin-top: 100px;">
+        style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover;">
+        
 
-                <div id="user-login">
-                    <label for="lblUserName">UserName:</label>
-                    <input id="lblUserName" type="text" disabled="disabled" />
-                </div>
-                <br>
-                <div id="score">
-                    <label for="lblScore">Score:</label>
-                    <input id="lblScore" type="text" disabled="disabled" />
-                </div>
-                <br>
-                <div id="time">
-                    <label for="lblTime">Time:</label>
-                    <input id="lblTime" type="text" />
-                </div>
-                <br>
-                <div id="disqualification">
-                    <!-- <input id="lblDisqualification" type="text" disabled="disabled" /> -->
-                    <!-- <br> -->
-                    <table style="margin-left:auto;margin-right:auto;">
-                        <tr>
-                            <td>Life :</td>
-                            <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
-                            <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
-                            <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
-                            <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
-                            <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="20" height="20"></td>
-                        </tr>
-                    </table>
-                </div>
-                <br>
-                
-                <button type="button" class="newGame-bth" onclick="readyToGame()" class="newGame">Start New Game</button>
-
-                <div class="board" style="float: left; display: flex; justify-content: center; margin-bottom: 0px;">
-                    <div class="gameSetting">
-                        <div class="arrows">
-                            <i id="up-arrow" class="fas fa-arrow-up"></i>
-                            <br>
-                            <i id="down-arrow" class="fas fa-arrow-down"></i>
-                            <br>
-                            <i id="left-arrow" class="fas fa-arrow-left"></i>
-                            <br>
-                            <i id="right-arrow" class="fas fa-arrow-right"></i>
-                        </div>
-
-                        <div class="otherSetting" style="color:black;">
-                            <br>
-                            <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
-
-                            <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span>
-                            </p>
-
-                            <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
-                                    Point</span></p>
-
-                            <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span>
-                            </p>
-                            </i>
-                            <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
-                            <br>
-                            <br>
-                            <span class="setting-text">Total Time: </span><i id="totalTime"></i>
-                        </div>
+        <!--above the board-->
+        <table class="gameImportantDetails" style="width:60%; margin: 0 auto; color: white;margin-top: -80px;
+        margin-left: 20px; float: left; border: 1px solid white;">
+            <tr>
+                <!-- <th>
+                    <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
+                        Game</button>
+                </th> -->
+                <th> <label for="lblUserName">UserName:</label></th>
+                <th> <input id="lblUserName" type="text" disabled="disabled" /></th>
+                <th> <label for="lblScore">Score:</label></th>
+                <th> <input id="lblScore" type="text" disabled="disabled" /></th>
+                <th> <label for="lblTime">Time:</label> </th>
+                <th> <input id="lblTime" type="text" /> </th>
+                <th>
+                    <div id="disqualification">
+                        <table style="margin-left:auto;margin-right:auto;">
+                            <tr>
+                                <td>Life :</td>
+                                <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="30"
+                                        height="30"></td>
+                                <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="30"
+                                        height="30"></td>
+                                <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="30"
+                                        height="30"></td>
+                                <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="30"
+                                        height="30"></td>
+                                <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="30"
+                                        height="30"></td>
+                            </tr>
+                        </table>
                     </div>
-                    <div id="game">
-                        <canvas id="canvas" height="700" width="700"></canvas>
-                        <div style="display:none; z-index: +1;">
-                            <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
-                                style="z-index: +1; position: relative;">
-                        </div>
+                </th>
+
+            </tr>
+        </table>
+
+        <div class="settingContainer" style="width:1700px;  margin-top: 10px;">
+
+            <div class="board" style="float: left; display: flex; margin-left: 140px; justify-content: center; margin-top: 0px;">
+                <div class="gameSetting">
+                    <div class="arrows">
+                        <i id="up-arrow" class="fas fa-arrow-up"></i>
+                        <br>
+                        <i id="down-arrow" class="fas fa-arrow-down"></i>
+                        <br>
+                        <i id="left-arrow" class="fas fa-arrow-left"></i>
+                        <br>
+                        <i id="right-arrow" class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="otherSetting" style="color:black;">
+                        <br>
+                        <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
+
+                        <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span>
+                        </p>
+
+                        <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
+                                Point</span></p>
+
+                        <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span>
+                        </p>
+                        </i>
+                        <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
+                        <br>
+                        <br>
+                        <span class="setting-text">Total Time: </span><i id="totalTime"></i>
+                        <br>
+                        <br>
+                        <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
+                            Game</button>
+                    </div>
+                </div>
+                <div id="game">
+                    <canvas id="canvas" height="900" width="900"></canvas>
+                    <div style="display:none; z-index: +1;">
+                        <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
+                            style="z-index: +1; position: relative;">
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- <section id="aboutSection">
         </section> -->
@@ -345,7 +390,6 @@
             </div>
         </section>
 
-
         <div class="endModal" id="endModal" style="  background-repeat: no-repeat;
         background-size:500px 280px; text-align: center;">
             <div class="model-header-end">
@@ -355,7 +399,8 @@
             <div class="model-body-end" id="model-body">
             </div>
             <!-- <button type="button" class="new-game-end" id="new-game-end" onclick="backToGame()" style="margin-top: 25%;">New Game</button> -->
-            <div class="button button-1" id="end-game-btn"style="margin-top: 25%;   margin-left: 0px;" onclick="backToGame()" >New Game</div>
+            <div class="button button-1" id="end-game-btn" style="margin-top: 25%;   margin-left: 0px;"
+                onclick="backToGame()">New Game</div>
         </div>
 
 
@@ -363,7 +408,7 @@
 
     </div>
 
-<!-- 
+    <!-- 
 
     <div class="footer">
         <p>Footer</p>

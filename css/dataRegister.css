@@ -1,42 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap');
 
 .dataRegister{
     background-image: url(images/pacman_background);
     width: 100%;
 }
 
-.signinContainer{
+.signInHeader{
+  font-family: "Bungee Shade";
+  font-size: 65px;
+}
 
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+.registerContainer{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.9);
     padding:0 0 20px;
-    padding-top: 30px;
+    /* opacity: 0.6; */
+    padding-top: 10px;
     margin: 0px auto 0px;
     text-align: center;
     width: 50%;
     color: white;
-    background-color: rgba(3, 1, 1, 0.9);
+    /* background: rgba(0,0,0,0.5); */
+    background-color: rgba(3, 1, 1, 0.4);
     font-family: cursive;
-    width: 850px;
-    height: 500px;
-    top: 50%;
-    left: 50%;
+    width: 800px;
+    height: 650px;
 }
 
 .input-box{
     border-radius: 20px;
     padding: 10px;
     margin: 10px 0;
-    width: 50%;
+    width: 95%;
     border: 1px solid #999;
     outline: none;
+    font-size: 14px;
 }
 
 .submit-btn{
     color: #ffffff;
     background-color: cornflowerblue;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 20px;
     margin: 10px 0;
     border: none;
     outline: none;
@@ -46,11 +52,12 @@
 
   form .error {
     color: #ff0000;
-    font-size: 14px;
+    font-size: 16px;
   }
 
-  tr{
+  .registerTable tr{
     text-align: left;
-}
+    font-size: 24px;
+  }
 
 
