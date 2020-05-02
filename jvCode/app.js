@@ -12,6 +12,11 @@ var rightCode;
 var upCode;
 var downCode;
 
+var slowMonst;
+var numberOfSec=0;
+
+var isEatMadicn;
+
 var isInGame = false;
 var firstAngle = 0.15;
 var secondAngle = 1.95;
@@ -180,6 +185,8 @@ function Start() {
 	];
 	looser = false;
 	better = false;
+	slowMonst=false;
+	isEatMadicn=false;
 	winner = false;
 	gameTime = document.getElementById("choosenGameTime").value;
 	candy.i = 1;
@@ -243,6 +250,11 @@ function Start() {
 		food_remain--;
 	}
 
+
+	var emptyCellForMadicn=findRandomEmptyCell(board);
+	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 6;
+	emptyCellForMadicn=findRandomEmptyCell(board);
+	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] =99;
 	keysDown = {};
 	addEventListener(
 		"keydown",
@@ -631,20 +643,20 @@ function Draw() {
 
 
 
-				context.lineWidth = 2;
-				context.strokeStyle = document.getElementById("colorpadfirst").value;
+				// context.lineWidth = 2;
+				// context.strokeStyle = document.getElementById("colorpadfirst").value;
 
-				context.shadowColor =document.getElementById("colorpadfirst").value;
-				context.shadowBlur = 50;
-				context.shadowOffsetX = 0;
-				context.shadowOffsetY = 0;
+				// context.shadowColor =document.getElementById("colorpadfirst").value;
+				// context.shadowBlur = 50;
+				// context.shadowOffsetX = 0;
+				// context.shadowOffsetY = 0;
 
-				context.stroke();
+				// context.stroke();
 
 				context.fill();
-				context.shadowBlur =0;
-				context.shadowOffsetX = 0;
-				context.shadowOffsetY = 0;
+				// context.shadowBlur =0;
+				// context.shadowOffsetX = 0;
+				// context.shadowOffsetY = 0;
 				// context.shadowColor = "red";
 				// // document.getElementById("colorpadfirstthird").value; // string
 				// //Color of the shadow;  RGB, RGBA, HSL, HEX, and other inputs are valid.
@@ -692,6 +704,24 @@ function Draw() {
 				context.drawImage(img, start.x, start.y, cellWidth * 1.2, cellHeight * 1.2);
 			}
 
+			if(board[i][j]==6){
+				context.beginPath();
+				// context.rect(start.x, start.y,cellWidth,cellHeight);
+
+				im = new Image();
+				im.src = "images/pill2.png";
+				context.drawImage(im, start.x, start.y, cellWidth * 1.2, cellHeight * 1.2);
+			}
+
+			if(board[i][j]==99){
+				context.beginPath();
+				// context.rect(start.x, start.y,cellWidth,cellHeight);
+
+				im = new Image();
+				im.src = "images/star.png";
+				context.drawImage(im, start.x, start.y, cellWidth * 1.2, cellHeight * 1.2);
+			}
+
 		}
 	}
 
@@ -705,20 +735,45 @@ function Draw() {
 function drawMonsters() {
 	var cellHeight = canvas.height / 30;
 	var cellWidth = canvas.width / 30;
-
+	/******for slow motion:****** */
+	var blueImage= new Image();
+	blueImage.src = "images/blueMonst.png";
 	var image = document.getElementById("monster-img");
-	context.drawImage(image, monster1.x * cellWidth, monster1.y * cellHeight, cellWidth, cellHeight);
+	if(slowMonst){
+		context.drawImage(blueImage, monster1.x * cellWidth, monster1.y * cellHeight, cellWidth, cellHeight);
+	}
+	else{
+		context.drawImage(image, monster1.x * cellWidth, monster1.y * cellHeight, cellWidth, cellHeight);
 
+	}
 	if (numberOfMonsters >= 2) {
+		if(slowMonst){
+			context.drawImage(blueImage, monster2.x * cellWidth, monster2.y * cellHeight, cellWidth, cellHeight);
+		}
+		else{
 		context.drawImage(image, monster2.x * cellWidth, monster2.y * cellHeight, cellWidth, cellHeight);
+		}
 	}
 
 	if (numberOfMonsters >= 3) {
-		context.drawImage(image, monster3.x * cellWidth, monster3.y * cellHeight, cellWidth, cellHeight);
+		if(slowMonst){
+		context.drawImage(blueImage, monster3.x * cellWidth, monster3.y * cellHeight, cellWidth, cellHeight);
+		}
+		else{
+			context.drawImage(image, monster3.x * cellWidth, monster3.y * cellHeight, cellWidth, cellHeight);
+
+		}
+	
 	}
 
 	if (numberOfMonsters == 4) {
-		context.drawImage(image, monster4.x * cellWidth, monster4.y * cellHeight, cellWidth, cellHeight);
+		if(slowMonst){
+		context.drawImage(blueImage, monster4.x * cellWidth, monster4.y * cellHeight, cellWidth, cellHeight);
+		}
+		else{
+			context.drawImage(image, monster4.x * cellWidth, monster4.y * cellHeight, cellWidth, cellHeight);
+
+		}
 	}
 }
 
@@ -887,6 +942,9 @@ function catchThePacman(monster) {
 	}
 	else {
 		//loseLife
+		if(lost==0){
+			document.getElementById("pacman6").style.display = "none"
+		}
 		if (lost == 1) {
 			document.getElementById("pacman1").style.display = "none"
 		}
@@ -948,6 +1006,15 @@ function UpdateMonsterPosition(monster) {
 
 /**pacman**/
 function UpdatePosition() {
+	if(numberOfSec>0){
+		numberOfSec--;
+	}
+	else{
+		if(slowMonst){
+			slowMonst=false;
+			setMonstersInterval();
+		}
+	}
 	let lasti = shape.i;//col
 	let lastj = shape.j;//row
 	board[shape.i][shape.j] = 0;
@@ -994,11 +1061,59 @@ function UpdatePosition() {
 	if (board[shape.i][shape.j] == 25) {
 		score = score + 25;
 	}
+
+
 	document.getElementById("lblScore").value = score;
+	
 	if (board[shape.i][shape.j] == 7) {
 		isEat = true;
 		score = score + 50;
 	}
+
+	if (board[shape.i][shape.j] ==99) {
+		slowMonst=true;
+		window.clearInterval(intervalMonster1);
+		window.clearInterval(intervalMonster2);
+		window.clearInterval(intervalMonster3);
+		window.clearInterval(intervalMonster4);
+		numberOfSec=20;
+		UpdateMonsterPosition(true)
+
+	}
+	if (board[shape.i][shape.j] == 6) {
+		isEatMadicn = true;
+
+		if (lost == 0) {
+			document.getElementById("pacman6").style.display = "block";
+		}
+		if (lost == 1) {
+			document.getElementById("pacman1").style.display = "block";
+		}
+		else {
+			if (lost == 2) {
+				document.getElementById("pacman2").style.display = "block";
+			}
+			else {
+				if (lost == 3) {
+					document.getElementById("pacman3").style.display = "block";
+				}
+				else {
+					if (lost == 4) {
+						document.getElementById("pacman4").style.display = "block";
+					}
+					else{
+						if(lost==5){
+							document.getElementById("pacman5").style.display = "block";
+
+						}
+					}
+				}
+			}
+		}
+
+	lost--;
+	}
+
 	if (isPackmanOnManster()) {
 		catchThePacman();
 	}
