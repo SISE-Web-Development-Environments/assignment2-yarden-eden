@@ -24,7 +24,7 @@
 }
 
 .gameSetting{
-    font-size: 26px;
+    font-size: 15px;
     text-align: center;
     background-color: #FADAD7;
     /* background-image: url('/assignment2-yarden-eden/images/w4.png'); */
@@ -51,12 +51,12 @@
     border: black solid 3px;
     /* margin-top: 10px; */
     margin-left: 10px;
-    margin-top: 50px;
-    padding-top:10px ;
-    padding-bottom:10px ;
+    margin-top: 0px;
+    padding-top:5px ;
+    padding-bottom:5px ;
     text-align: left;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     color: black;
     font-family: cursive;
     font-size: 26px;
@@ -92,8 +92,8 @@
   } */
 
   .newGame-bth {
-    width:calc(10vw + 24px);
-    height:calc(4vw + 46px);
+    width:calc(10vw + 4px);
+    height:calc(4vw + 12px);
     background: rgb(219,218,237);
     background: linear-gradient(60deg, rgba(219,218,237,1) 6%, rgba(22,29,162,1) 50%, rgba(38,177,205,1) 95%);
     /* background-image: linear-gradient(90deg, #dbdaed 6%, #1616a2 50%, #00d4ff 95%); */
@@ -102,7 +102,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size: 40px;
+    font-size: 20px;
     /* color: black; */
     color: white;
     /* text-transform:uppercase; */
@@ -112,11 +112,11 @@
   }
   .newGame-bth:after {
     content:attr(alt);
-    width:calc(10vw + 24px);
-    height:calc(4vw + 46px);
+    width:calc(10vw +4px);
+    height:calc(4vw + 12px);
     /* background-color:#191919; */
     display:flex;
-    font-size: 40px;
+    font-size: 20px;
     align-items:center;
     justify-content:center;
   }

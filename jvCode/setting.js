@@ -248,8 +248,11 @@ function random(id){
     document.getElementById("colorpadfirst").value =getRandomColor();
     document.getElementById("colorpadsecond").value =getRandomColor();
     document.getElementById("colorpadfirstthird").value =getRandomColor();
+ 
+    
     changeWindowById("gameSection")
     readyToGame();
+
     
 
     

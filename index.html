@@ -240,12 +240,13 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
 
 
         <section id="gameSection" name="gameSection"
-            style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover;">
+            style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/gameBack1.jpeg);  background-size:cover;background-repeat: repeat-y;">
 
 
             <!--above the board-->
-            <table class="gameImportantDetails" style="width:60%; margin: 0 auto; color: white;margin-top: -3%;
-        margin-left: 5%; float: left; border: 1px solid white; border-radius: 60px;">
+            <table class="gameImportantDetails " style="width:60%;
+              color: white;margin-top: -3%;   margin-left: 12%;
+         float: left; border: 1px solid white; border-radius: 60px; background-color: black;">
                 <tr>
                     <!-- <th>
                     <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
@@ -261,7 +262,7 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
                         <div id="disqualification">
                             <table style="margin-left:auto;margin-right:auto;">
                                 <tr>
-                                    <td>Life :</td>
+                                    <td>Life:</td>
                                     <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="30"
                                             height="30"></td>
                                     <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="30"
@@ -284,36 +285,36 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
 
                 <div class="board"
                     style="float: left; display: flex; margin-left: 140px; justify-content: center; margin-top: 0px;">
-                    <div class="gameSetting">
+                    <div class="gameSetting" style="background-image: url(images/setting1.png); height: 600px;     font-size: 15px;">
                         <div class="arrows">
-                            <i id="up-arrow" class="fas fa-arrow-up"></i>
+                            <i id="up-arrow" class="fas fa-arrow-up" style="font-size: 15px;"></i>
                             <br>
-                            <i id="down-arrow" class="fas fa-arrow-down"></i>
+                            <i id="down-arrow" class="fas fa-arrow-down" style="font-size: 15px;"></i>
                             <br>
-                            <i id="left-arrow" class="fas fa-arrow-left"></i>
+                            <i id="left-arrow" class="fas fa-arrow-left" style="font-size: 15px;"></i>
                             <br>
-                            <i id="right-arrow" class="fas fa-arrow-right"></i>
+                            <i id="right-arrow" class="fas fa-arrow-right" style="font-size: 15px;"></i>
                         </div>
 
                         <div class="otherSetting" style="color:black;">
                             <br>
-                            <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
+                            <span class="setting-text"  style="font-size: 15px;">👹 Monsters: </span><i id="monster-setting"></i>
 
-                            <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span>
+                            <p><i class="fas fa-circle" id="firstPoint" style="font-size: 15px;"></i> <span class="setting-text" style="font-size: 15px;">- 5 Point</span>
                             </p>
 
-                            <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
+                            <p><i class="fas fa-circle" id="secondPoint" style="font-size: 15px;margin-bottom: 0px;"></i><span class="setting-text" style="font-size: 15px; margin-bottom: 0px;">- 15
                                     Point</span></p>
 
-                            <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span>
+                            <p><i class="fas fa-circle" id="thirdPoint" style="font-size: 15px;"></i><span class="setting-text" style="font-size: 15px;">- 25 Point</span>
                             </p>
                             </i>
-                            <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
+                            <span class="setting-text" style="font-size: 15px;">Total Balls: </span><i id="totalBalls"></i>
                             <br>
+                            
+                            <span class="setting-text" style="font-size: 15px;">Total Time: </span><i id="totalTime"></i>
                             <br>
-                            <span class="setting-text">Total Time: </span><i id="totalTime"></i>
-                            <br>
-                            <br>
+                          
                             <!-- <button type="button" class="newGame-bth" style="position: center;"
                                 onclick="startNewGame()">Start<br>New
                                 Game</button> -->
@@ -324,7 +325,7 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
                         </div>
                     </div>
                     <div id="game">
-                        <canvas id="canvas" height="900" width="900"></canvas>
+                        <canvas id="canvas" height="600" width="600" style="background-color: black;"></canvas>
                         <div style="display:none; z-index: +1;">
                             <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
                                 style="z-index: +1; position: relative;">
@@ -480,13 +481,13 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
             <h3  class="packmanFooter" style="  color:#00008B;
             font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png" alt="Smiley face" height="50" width="42"></h3> 
             <p class="footer-links" style="margin-top: 0px;">
-                <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1" style="color: #CCCC00;">Home</a>
+                <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1" style="color: #CCCC00;font-size: 15px;">Home</a>
                 
-                <a href="#" onclick="changeWindowById('dataRegister')" style="color: #FFFF00;">Sign In</a>
+                <a href="#" onclick="changeWindowById('dataRegister')" style="color: #FFFF00;font-size: 15px;">Sign In</a>
             
-                <a href="#"  onclick="changeWindowById('dataLogin')" style="color: #FFFF99	;" >Log In</a>
+                <a href="#"  onclick="changeWindowById('dataLogin')" style="color: #FFFF99	;font-size: 15px;" >Log In</a>
             
-                <a href="#"  style="color: #FFFFCC	;" onclick="openModel()" >About</a>
+                <a href="#"  style="color: #FFFFCC	; font-size: 15px;" onclick="openModel()" >About</a>
             
             </p>
             <p class="footer-company-about" style="text-align: left; font-family: 'Chewy';">
@@ -510,12 +511,12 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
     
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a href="mailto:schyarde@post.bgu.ac.il">schyarde@post.bgu.ac.il</a></p>
+                <p><a  style="font-size: 15px;" href="mailto:schyarde@post.bgu.ac.il">schyarde@post.bgu.ac.il</a></p>
             </div>
     
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a href="mailto:edenmizr@post.bgu.ac.il">edenmizr@post.bgu.ac.il</a></p>
+                <p><a  style="font-size: 15px;" href="mailto:edenmizr@post.bgu.ac.il">edenmizr@post.bgu.ac.il</a></p>
             </div>
     
            
@@ -525,18 +526,18 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
     
             <div class="footer-icons" style="margin-top: 0px;">
     <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
-                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/yarden.schwartz.7"><i class="fa fa-facebook"></i></a>
     
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yarden-schwartz-60a5b0177/"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/yardenSchwartz?tab=repositories"><i class="fa fa-github"></i></a>
     
       <br>
       <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
       
-                          <a href="#"><i class="fa fa-facebook"></i></a>
+                          <a href="https://www.facebook.com/eden.mizrahi.18"><i class="fa fa-facebook"></i></a>
     
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/eden-mizrahi-1264841a3/"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/edenmizrahi?tab=repositories"><i class="fa fa-github"></i></a>
     
             </div>
             <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi ֲ© 2020</p>

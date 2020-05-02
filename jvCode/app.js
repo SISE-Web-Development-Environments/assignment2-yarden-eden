@@ -576,36 +576,94 @@ function Draw() {
 					context.beginPath();
 					context.arc(centerX, centerY, 5, 0, 2 * Math.PI); // circle
 					context.fillStyle = document.getElementById("colorpadfirst").value;
+
+
+					context.arc(centerX, centerY, 5, 0, 2 * Math.PI); // circle
+					context.lineWidth = 2;ד
+					context.strokeStyle = document.getElementById("colorpadfirst").value;
+
+					context.shadowColor =document.getElementById("colorpadfirst").value;
+					context.shadowBlur = 50;
+					context.shadowOffsetX = 0;
+					context.shadowOffsetY = 0;
+
+					context.stroke();
+
 					context.fill();
-					context.font = "bold 10px Ariel";
-					context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
-					context.fillText('5', centerX - 2, centerY + 3);
+					context.shadowBlur = 0;
+					context.shadowOffsetX = 0;
+					context.shadowOffsetY = 0;
+					// context.font = "bold 10px Ariel";
+					// context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
+					// context.fillText('5', centerX - 2, centerY + 3);
 				}
 
 			if (board[i][j] == 15) {
 				context.beginPath();
-				context.arc(centerX, centerY, 9, 0, 2 * Math.PI); // circle
+				context.arc(centerX, centerY, 8, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("colorpadsecond").value;
+				
+				// context.shadowColor = document.getElementById("colorpadsecond").value; // string
+				//Color of the shadow;  RGB, RGBA, HSL, HEX, and other inputs are valid.
+				// context.shadowBlur = 40;
+				// context.shadowOffsetX = 0;
+				// context.shadowOffsetY = 0;
+				// context.stroke();
 				context.fill();
-				context.font = "bold 12px Ariel";
-				context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
-				context.fillText('15', centerX - 7, centerY + 4);
+				// context.shadowBlur = 0;
+				// context.shadowOffsetX = 0;
+				// context.shadowOffsetY = 0;
+				
+				// context.fill();
+				// context.font = "bold 12px Ariel";
+				// context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
+				// context.fillText('15', centerX - 7, centerY + 4);
 			}
 			if (board[i][j] == 25) {
 				context.beginPath();
-				context.arc(centerX, centerY, 12, 0, 2 * Math.PI); // circle
+				context.arc(centerX, centerY, 10, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("colorpadfirstthird").value;
-				context.fill();
+				
 
-				let negativeColor = invertColor(document.getElementById("colorpadfirstthird").value);
-				context.arc(centerX, centerY, 12, 0, 2 * Math.PI);
+
+
 				context.lineWidth = 2;
-				context.strokeStyle = "red";
+				context.strokeStyle = document.getElementById("colorpadfirst").value;
+
+				context.shadowColor =document.getElementById("colorpadfirst").value;
+				context.shadowBlur = 50;
+				context.shadowOffsetX = 0;
+				context.shadowOffsetY = 0;
+
 				context.stroke();
 
-				context.font = "bold 15px Lucida Console";
-				context.fillStyle = negativeColor
-				context.fillText('25', centerX - 10, centerY + 5);
+				context.fill();
+				context.shadowBlur =0;
+				context.shadowOffsetX = 0;
+				context.shadowOffsetY = 0;
+				// context.shadowColor = "red";
+				// // document.getElementById("colorpadfirstthird").value; // string
+				// //Color of the shadow;  RGB, RGBA, HSL, HEX, and other inputs are valid.
+				// context.shadowBlur = 90;
+				// context.shadowOffsetX = 0;
+				// context.shadowOffsetY = 0;
+				// context.stroke();
+				// context.fill();
+				// context.shadowBlur = 0;
+				// context.shadowOffsetX = 0;
+				// context.shadowOffsetY = 0;
+				
+				
+
+				// let negativeColor = invertColor(document.getElementById("colorpadfirstthird").value);
+				// context.arc(centerX, centerY, 12, 0, 2 * Math.PI);
+				// context.lineWidth = 2;
+				// context.strokeStyle = "red";
+				// context.stroke();
+
+				// context.font = "bold 15px Lucida Console";
+				// context.fillStyle = negativeColor
+				// context.fillText('25', centerX - 10, centerY + 5);
 
 			}
 			/*Walls*/
@@ -959,10 +1017,7 @@ function UpdatePosition() {
 		isEat=true;
 		score=score+50;
 	}
-	if(board[shape.i][shape.j]){
-		isEat=true;
-		score=score+50;
-	}
+
 	if(isPackmanOnManster()){
 		catchThePacman();
 	}
@@ -1097,19 +1152,28 @@ function backToGame(){
     readyToGame();
 }
 
+function isPackmanOnManster() {
 
-function isPackmanOnManster(){
-	if(board[shape.i]==monster1.x&&board[shape.j]==monster1.y){
+	if (board[shape.i] == monster1.x && board[shape.j] == monster1.y) {
 		return true;
 	}
-	if(board[shape.i]==monster2.x&&board[shape.j]==monster2.y){
-		return true;
+	if (numberOfMonsters >= 2) {
+		if (board[shape.i] == monster2.x && board[shape.j] == monster2.y) {
+			return true;
+		}
 	}
-		if(board[shape.i]==monster3.x&&board[shape.j]==monster3.y){
-		return true;
+
+	if(numberOfMonsters>=3){
+		if (board[shape.i] == monster3.x && board[shape.j] == monster3.y) {
+			return true;
+		}
 	}
-		if(board[shape.i]==monster4.x&&board[shape.j]==monster4.y){
-		return true;
+	
+	if(numberOfMonsters==4){
+		if (board[shape.i] == monster4.x && board[shape.j] == monster4.y) {
+			return true;
+		}
 	}
+	
 	return false;
 }
