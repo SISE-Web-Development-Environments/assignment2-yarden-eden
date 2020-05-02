@@ -45,12 +45,10 @@
 <body class="body" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
     <div id="overlay"></div>
 
-    <header style=" background-image: url('images/logo2.jpg'); background-repeat: no-repeat;
-background-size: auto; -webkit-background-size: cover; -moz-background-size: cover;
--o-background-size: cover;background-size: cover;">
+    <header id="headerPage">
         <!-- <div class="page-header" ></div> -->
         <!-- <img class="logo-crop" src="images/logo2.jpg" alt="Pac-Man Logo"> -->
-
+        <div class="logo"></div>
     </header>
 
     <!-- <div class="game-header" style=" margin-top: -30px">
@@ -83,7 +81,8 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
-            <a class="about" href="#about" data-option="aboutSection" onclick="openModel()" style="width: 15%;  height: 100%;"><b>
+            <a class="about" href="#about" data-option="aboutSection" onclick="openModel()"
+                style="width: 15%;  height: 100%;"><b>
 
                     About
 
@@ -170,7 +169,7 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
 
                 <form id="registrationForm" role="form" method="post" action="" class="registrationForm"
                     name="registration">
-                    <h1 class="signInHeader" style=" margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">Sign-in</h1>
+                    <h1 class="signInHeader" style=" margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">Sign-up</h1>
 
                     <table class="registerTable" style="width:80%; margin: 0 auto;  table-layout: fixed; ">
                         <tr>
@@ -329,6 +328,12 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
                         <div style="display:none; z-index: +1;">
                             <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
                                 style="z-index: +1; position: relative;">
+                            <img id="monster2-img" src="./images/monster2.jpg" width="300" height="227"
+                                style="z-index: +1; position: relative;">
+                            <img id="monster3-img" src="./images/monster3.jpg" width="300" height="227"
+                                style="z-index: +1; position: relative;">
+                            <img id="monster4-img" src="./images/monster5.jpg" width="300" height="227"
+                                style="z-index: +1; position: relative;">
                         </div>
                     </div>
                 </div>
@@ -371,13 +376,13 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
 
                             <div class="keyboard">
                                 <ul>
-                                    <li><a  class="key c37" id="left" onclick="leftKeyHandling()"
+                                    <li><a class="key c37" id="left" onclick="leftKeyHandling()"
                                             style="padding-top: 5px;"><span><i class="fas fa-arrow-alt-circle-left"
                                                     id="leftC"></i></span> </a></li>
-                                    <li><a  class="key c38" id="up" onclick="upKeyHandling()"
+                                    <li><a class="key c38" id="up" onclick="upKeyHandling()"
                                             style="padding-top: 5px;"><span><i
                                                     class="fas fa-arrow-alt-circle-up"></i></span></a>
-                                        <a  class="key c40" id="down" onclick="downKeyHandling()"
+                                        <a class="key c40" id="down" onclick="downKeyHandling()"
                                             style="padding-top: 5px;"><span><i
                                                     class="fas fa-arrow-alt-circle-down"></i></span></a>
                                     </li>
@@ -477,9 +482,10 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
     <footer class="footer-distributed">
 
         <div class="footer-left">
-    
-            <h3  class="packmanFooter" style="  color:#00008B;
-            font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png" alt="Smiley face" height="50" width="42"></h3> 
+
+            <h3 class="packmanFooter" style="  color:#00008B;
+            font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png"
+                    alt="Smiley face" height="50" width="42"></h3>
             <p class="footer-links" style="margin-top: 0px;">
                 <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1" style="color: #CCCC00;font-size: 15px;">Home</a>
                 
@@ -491,39 +497,41 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
             
             </p>
             <p class="footer-company-about" style="text-align: left; font-family: 'Chewy';">
-                <span style="text-align: left; margin-bottom: 0px; border-bottom: blanchedalmond solid 2px; width: 22%;  font-family: 'Chewy';" >About The Game - </span>
+                <span
+                    style="text-align: left; margin-bottom: 0px; border-bottom: blanchedalmond solid 2px; width: 22%;  font-family: 'Chewy';">About
+                    The Game - </span>
                 Playing Pacman is easy to learn and hard to master.<br>
-                Simply score as many points as you can eating <br>the small dots all around the maze.<br> 
+                Simply score as many points as you can eating <br>the small dots all around the maze.<br>
                 Remember! You have to be careful of the monsters.
-    
+
             </p>
-    
-          
-        
+
+
+
         </div>
-    
+
         <div class="footer-center">
-    
+
             <div>
                 <i class="fa fa-map-marker"></i>
                 <p><span>Ben Gurion University</span> Beer Sheva, Israel</p>
             </div>
-    
+
             <div>
                 <i class="fa fa-envelope"></i>
                 <p><a  style="font-size: 15px;" href="mailto:schyarde@post.bgu.ac.il">schyarde@post.bgu.ac.il</a></p>
             </div>
-    
+
             <div>
                 <i class="fa fa-envelope"></i>
                 <p><a  style="font-size: 15px;" href="mailto:edenmizr@post.bgu.ac.il">edenmizr@post.bgu.ac.il</a></p>
             </div>
-    
-           
+
+
         </div>
-    
-        <div class="footer-right" style="padding-top: 0px;"> 
-    
+
+        <div class="footer-right" style="padding-top: 0px;">
+
             <div class="footer-icons" style="margin-top: 0px;">
     <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
                 <a href="https://www.facebook.com/yarden.schwartz.7"><i class="fa fa-facebook"></i></a>
@@ -542,9 +550,9 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
             </div>
             <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi ֲ© 2020</p>
             <!-- <img src="images/monsrersbg.png" alt="Smiley face" height="50" width="250"> -->
-    
+
         </div>
-    
+
     </footer>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
