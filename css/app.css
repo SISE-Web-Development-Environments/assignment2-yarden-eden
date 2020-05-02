@@ -3,12 +3,13 @@
 .board{
     border: black solid 3px;
     border-radius: 10px;
-    background-color: black;
+    /* background-color: black; */
+    background-image: url('/assignment2-yarden-eden/images/w4.png');
 }
 
 .gameImportantDetails{
     font-family: cursive;
-    font-size: 24px;
+    font-size: 26px;
     text-align: center;
 }
 
@@ -19,13 +20,14 @@
     width: 80%;
     border: 1px solid #999;
     outline: none;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .gameSetting{
-    font-size: 20px;
+    font-size: 26px;
     text-align: center;
     background-color: #FADAD7;
+    /* background-image: url('/assignment2-yarden-eden/images/w4.png'); */
     border: #FADAD7 solid 3px;
     border-radius: 10px;
     padding: 10px 20px 10px 10px;
@@ -56,21 +58,24 @@
     padding-left: 10px;
     padding-right: 10px;
     color: black;
-    font-size: 18px;
+    font-family: cursive;
+    font-size: 26px;
 }
 
 .setting-text{
     font-family: cursive;
-    font-size: 20px;
+    font-size: 26px;
     color: black;
 }
 
 .otherSetting{
     margin-left: 10px;
     text-align: left;
+    font-size: 26px;
 }
 
-.newGame-bth{
+/******new Game Btn************/
+/* .newGame-bth{
     color: #ffffff;
     background-color: cornflowerblue;
     width: 100%;
@@ -84,4 +89,44 @@
     cursor: pointer;
     font-family: cursive;
     height: 140px;
+  } */
+
+  .newGame-bth {
+    width:calc(10vw + 24px);
+    height:calc(4vw + 46px);
+    background: rgb(219,218,237);
+    background: linear-gradient(60deg, rgba(219,218,237,1) 6%, rgba(22,29,162,1) 50%, rgba(38,177,205,1) 95%);
+    /* background-image: linear-gradient(90deg, #dbdaed 6%, #1616a2 50%, #00d4ff 95%); */
+    /* background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%); */
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 40px;
+    /* color: black; */
+    color: white;
+    /* text-transform:uppercase; */
+    text-align: center;
+    /* font-size:3vw; */
+    font-weight:bold;
+  }
+  .newGame-bth:after {
+    content:attr(alt);
+    width:calc(10vw + 24px);
+    height:calc(4vw + 46px);
+    /* background-color:#191919; */
+    display:flex;
+    font-size: 40px;
+    align-items:center;
+    justify-content:center;
+  }
+  .newGame-bth:hover {
+    animation:slidebg 2s linear infinite;
+
+  }
+  
+  @keyframes slidebg {
+    to {
+      background-position:20vw;
+    }
   }

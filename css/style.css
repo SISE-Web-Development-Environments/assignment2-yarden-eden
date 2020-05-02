@@ -9,15 +9,21 @@
 /*******menu*******/
 .menuContext{
  overflow: auto;
- height: 70px;
+ height: 30%;
  width: 100%;
 }
-
 
 .menuContext::-webkit-scrollbar {
   display: none;
 }
 
+#menu.menu::-webkit-scrollbar{
+  display: none;
+}
+
+#menu.menu{
+  height: 30%;
+}
 .menu
   {
     position: relative;
@@ -42,7 +48,7 @@
     text-align: center;
     padding: 8px 60px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 160%;
     font-family: cursive;
     list-style: solid;
   }
@@ -51,10 +57,10 @@
   {
     background-image: url('../images/menuBg.JPG') ;
     background-size: cover;
-    font-size: 34px;
+    font-size: 190%;
     font: outline;
     color: white;
-    height: 60px;
+    /* height: 60px; */
   }
 
   .menu > img {
@@ -122,8 +128,8 @@ h1{
 header{
   width:100%; 
   height:300px;
-
 }
+
 .page-header { 
   /* background: #000000 url(../images/logo2.JPG) 40% 100% no-repeat; */
   /* overflow:hidden;  */
