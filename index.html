@@ -44,15 +44,14 @@
 
 <body class="body" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
     <div id="overlay"></div>
-<header style=" background-image: url('images/logo2.jpg'); background-repeat: no-repeat;
-background-size: auto;
--webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">    <div class="page-header" ></div>
+
+    <header style=" background-image: url('images/logo2.jpg'); background-repeat: no-repeat;
+background-size: auto; -webkit-background-size: cover; -moz-background-size: cover;
+-o-background-size: cover;background-size: cover;">
+        <!-- <div class="page-header" ></div> -->
         <!-- <img class="logo-crop" src="images/logo2.jpg" alt="Pac-Man Logo"> -->
-    
-</header>
+
+    </header>
 
     <!-- <div class="game-header" style=" margin-top: -30px">
         <p><b>PAC-MAN Game Application</b></p>
@@ -66,19 +65,22 @@ background-size: auto;
             
     </div> -->
     <div class="menuContext">
-        <div class="menu" id="menu" style="height: 85px;">
-            <img id="pacman_icon" style="width: 5%; height: 50px;  margin-top: +3px"
+        <div class="menu" id="menu">
+            <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
-            <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)" style="width: 15%;"><b>Welcome</b></a>
-            <img id="pacman_icon" style="width: 5%; height: 50px;    margin-top: 3px"
+            <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)"
+                style="width: 15%;"><b>Welcome</b></a>
+            <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
-            <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)" style="width: 15%;"><b>Log in</b></a>
-            <img id="pacman_icon" style="width: 5%; height: 50px;   margin-top: 3px"
+            <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)"
+                style="width: 15%;"><b>Log in</b></a>
+            <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
-            <a class="signin" href="#register" data-option="dataRegister" onclick="changeWindow(this)" style="width: 15%;"><b>Sign
+            <a class="signin" href="#register" data-option="dataRegister" onclick="changeWindow(this)"
+                style="width: 15%;"><b>Sign
                     up</b></a>
-            <img id="pacman_icon" style="width: 5%; height: 50px;   margin-top: 3px"
+            <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
             <a class="about" href="#about" data-option="aboutSection" onclick="openModel()" style="width: 15%;"><b>
@@ -86,7 +88,7 @@ background-size: auto;
                     About
 
                 </b></a>
-            <img id="pacman_icon" style="width: 5%; height: 50px;   margin-top: 3px"
+            <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
             <a class="setting" href="#setting" data-option="settingSection" style="width: 15%;"
@@ -97,7 +99,8 @@ background-size: auto;
 
     <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
     <div id="mainContainer" class="main" style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height:100%;">
-        <section id="dataWelcome" style=" height: 900px; width: 100%;   padding-top: 10%;background-image: url('images/welcomeBackground2.jpg');">
+        <section id="dataWelcome"
+            style=" height: 900px; width: 100%;   padding-top: 10%;background-image: url('images/welcomeBackground2.jpg');">
             <!-- <svg viewBox="0 0 960 300">
                 <symbol id="s-text">
                     <text text-anchor="middle" x="50%" y="80%">Welcome To Pac-Man!</text>
@@ -113,14 +116,16 @@ background-size: auto;
             </svg> -->
 
 
-<!-- <p class="cloud-text attribute">Photo by <a href="https://unsplash.com/photos/Xk0uzYL3lyY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Setu Anand</a> on <a href="https://unsplash.com/search/photos/coal?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p> -->
+            <!-- <p class="cloud-text attribute">Photo by <a href="https://unsplash.com/photos/Xk0uzYL3lyY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Setu Anand</a> on <a href="https://unsplash.com/search/photos/coal?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p> -->
 
-    <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
+            <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
             <!-- <h1>Welcome To Our Pac-Man Game!</h1> -->
             <div class="welcomeContainer" style="margin-top: 0px; padding-bottom: 100px;">
                 <img id="pacman_icon" style="width: 70px; margin-top: -90px;" src="images/pacman_icon_withoutBG.png">
-               
-                <p class="cloud-text cloud-title" style="	background-image: url('images/packmanBack3.jpg'); margin-bottom: 0px ; padding-bottom: 0px; margin-top: 0px;">Welcome To<br> Pac-Man!</p>
+
+                <p class="cloud-text cloud-title"
+                    style="	background-image: url('images/packmanBack3.jpg'); margin-bottom: 0px ; padding-bottom: 0px; margin-top: 0px;">
+                    Welcome To<br> Pac-Man!</p>
 
                 <!-- <button type="button" class="signup-btn" onclick="changeWindowById('dataRegister')">Sign in</button> -->
                 <!-- <div class="contact-fp-wrap">
@@ -144,17 +149,14 @@ background-size: auto;
                   </div>
            -->
 
-           <div style="float: left; display: flex; justify-content: center; margin-left: 35%;">
-                  <a href="#" class="rainbow-button" alt="Sign Up"></a>
-            
-                  <a href="#" class="rainbow-button" alt="Login" style="margin-left: 100px;"></a>
-                  
+                <div style="float: left; display: flex; justify-content: center; margin-left: 35%;">
+                    <a href="#" class="rainbow-button" alt="Sign Up" onclick="changeWindowById('dataRegister')"></a>
+
+                    <a href="#" class="rainbow-button" alt="Login" onclick="changeWindowById('dataLogin')"
+                        style="margin-left: 100px;"></a>
+
                 </div>
 
-
-            
-               
-    
                 <!-- <button type="button" class="login-btn" onclick="changeWindowById('dataLogin')">Login</button> -->
             </div>
 
@@ -238,93 +240,99 @@ background-size: auto;
 
 
         <section id="gameSection" name="gameSection"
-        style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover;">
-        
+            style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/back2.png);  background-size:cover;">
 
-        <!--above the board-->
-        <table class="gameImportantDetails" style="width:60%; margin: 0 auto; color: white;margin-top: -80px;
-        margin-left: 20px; float: left; border: 1px solid white;">
-            <tr>
-                <!-- <th>
+
+            <!--above the board-->
+            <table class="gameImportantDetails" style="width:60%; margin: 0 auto; color: white;margin-top: -3%;
+        margin-left: 5%; float: left; border: 1px solid white; border-radius: 60px;">
+                <tr>
+                    <!-- <th>
                     <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
                         Game</button>
                 </th> -->
-                <th> <label for="lblUserName">UserName:</label></th>
-                <th> <input id="lblUserName" type="text" disabled="disabled" /></th>
-                <th> <label for="lblScore">Score:</label></th>
-                <th> <input id="lblScore" type="text" disabled="disabled" /></th>
-                <th> <label for="lblTime">Time:</label> </th>
-                <th> <input id="lblTime" type="text" /> </th>
-                <th>
-                    <div id="disqualification">
-                        <table style="margin-left:auto;margin-right:auto;">
-                            <tr>
-                                <td>Life :</td>
-                                <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="30"
-                                        height="30"></td>
-                                <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="30"
-                                        height="30"></td>
-                                <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="30"
-                                        height="30"></td>
-                                <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="30"
-                                        height="30"></td>
-                                <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="30"
-                                        height="30"></td>
-                            </tr>
-                        </table>
+                    <th> <label for="lblUserName">UserName:</label></th>
+                    <th> <input id="lblUserName" type="text" disabled="disabled" /></th>
+                    <th> <label for="lblScore">Score:</label></th>
+                    <th> <input id="lblScore" type="text" disabled="disabled" /></th>
+                    <th> <label for="lblTime">Time:</label> </th>
+                    <th> <input id="lblTime" type="text" /> </th>
+                    <th>
+                        <div id="disqualification">
+                            <table style="margin-left:auto;margin-right:auto;">
+                                <tr>
+                                    <td>Life :</td>
+                                    <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </th>
+
+                </tr>
+            </table>
+
+            <div class="settingContainer" style="width:1700px;  margin-top: 10px;">
+
+                <div class="board"
+                    style="float: left; display: flex; margin-left: 140px; justify-content: center; margin-top: 0px;">
+                    <div class="gameSetting">
+                        <div class="arrows">
+                            <i id="up-arrow" class="fas fa-arrow-up"></i>
+                            <br>
+                            <i id="down-arrow" class="fas fa-arrow-down"></i>
+                            <br>
+                            <i id="left-arrow" class="fas fa-arrow-left"></i>
+                            <br>
+                            <i id="right-arrow" class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="otherSetting" style="color:black;">
+                            <br>
+                            <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
+
+                            <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span>
+                            </p>
+
+                            <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
+                                    Point</span></p>
+
+                            <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span>
+                            </p>
+                            </i>
+                            <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
+                            <br>
+                            <br>
+                            <span class="setting-text">Total Time: </span><i id="totalTime"></i>
+                            <br>
+                            <br>
+                            <!-- <button type="button" class="newGame-bth" style="position: center;"
+                                onclick="startNewGame()">Start<br>New
+                                Game</button> -->
+                            <br>
+                            <div> <a href="#" class="newGame-bth" onclick="startNewGame()" alt="Start new game"></a>
+                            </div>
+
+                        </div>
                     </div>
-                </th>
-
-            </tr>
-        </table>
-
-        <div class="settingContainer" style="width:1700px;  margin-top: 10px;">
-
-            <div class="board" style="float: left; display: flex; margin-left: 140px; justify-content: center; margin-top: 0px;">
-                <div class="gameSetting">
-                    <div class="arrows">
-                        <i id="up-arrow" class="fas fa-arrow-up"></i>
-                        <br>
-                        <i id="down-arrow" class="fas fa-arrow-down"></i>
-                        <br>
-                        <i id="left-arrow" class="fas fa-arrow-left"></i>
-                        <br>
-                        <i id="right-arrow" class="fas fa-arrow-right"></i>
-                    </div>
-
-                    <div class="otherSetting" style="color:black;">
-                        <br>
-                        <span class="setting-text">👹 Monsters: </span><i id="monster-setting"></i>
-
-                        <p><i class="fas fa-circle" id="firstPoint"></i> <span class="setting-text">- 5 Point</span>
-                        </p>
-
-                        <p><i class="fas fa-circle" id="secondPoint"></i><span class="setting-text">- 15
-                                Point</span></p>
-
-                        <p><i class="fas fa-circle" id="thirdPoint"></i><span class="setting-text">- 25 Point</span>
-                        </p>
-                        </i>
-                        <span class="setting-text">Total Balls: </span><i id="totalBalls"></i>
-                        <br>
-                        <br>
-                        <span class="setting-text">Total Time: </span><i id="totalTime"></i>
-                        <br>
-                        <br>
-                        <button type="button" class="newGame-bth" style="position: center;" onclick="startNewGame()">Start<br>New
-                            Game</button>
-                    </div>
-                </div>
-                <div id="game">
-                    <canvas id="canvas" height="900" width="900"></canvas>
-                    <div style="display:none; z-index: +1;">
-                        <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
-                            style="z-index: +1; position: relative;">
+                    <div id="game">
+                        <canvas id="canvas" height="900" width="900"></canvas>
+                        <div style="display:none; z-index: +1;">
+                            <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
+                                style="z-index: +1; position: relative;">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- <section id="aboutSection">
         </section> -->
@@ -433,10 +441,12 @@ background-size: auto;
                     <!-- <button type="button" class="startGame-btn" id="start" onclick="start(this)">START!</button>
                     <button type="button" class="startGame-btn" id="random" onclick="random(this)">Random Values And
                         Start</button> -->
-                        <ul style="margin-left: 35%;">
-                            <li  onclick="start(this)"><a href="#" class="round red"  >Start<span class="round">Are You Ready For Packman?!</span></a></li>
-                              <li onclick="random(this)" ><a href="#" class="round yellow">Rand<span class="round">This Pic Values For You <br> And Start!</span></a></li>
-                          </ul> 
+                    <ul style="margin-left: 35%;">
+                        <li onclick="start(this)"><a href="#" class="round red">Start<span class="round">Are You Ready
+                                    For Packman?!</span></a></li>
+                        <li onclick="random(this)"><a href="#" class="round yellow">Rand<span class="round">This Pic
+                                    Values For You <br> And Start!</span></a></li>
+                    </ul>
 
 
                     </form>
@@ -463,15 +473,10 @@ background-size: auto;
 
     </div>
 
-    <!-- 
 
-    <div class="footer">
-        <p>Footer</p>
-    </div> -->
- 
-<footer class="footer-distributed">
+    <footer class="footer-distributed">
 
-    <div class="footer-left">
+        <div class="footer-left">
 
         <h3  class="packmanFooter" style="  color:#00008B;
         font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png" alt="Smiley face" height="50" width="42"></h3> 
@@ -497,12 +502,7 @@ background-size: auto;
     
     </div>
 
-    <div class="footer-center">
 
-        <div>
-            <i class="fa fa-map-marker"></i>
-            <p><span>Ben Gurion University</span> Beer Sheva, Israel</p>
-        </div>
 
         <div>
             <i class="fa fa-envelope"></i>
@@ -514,33 +514,30 @@ background-size: auto;
             <p><a href="mailto:edenmizr@post.bgu.ac.il" style="font-size: 15px;">edenmizr@post.bgu.ac.il</a></p>
         </div>
 
-       
-    </div>
+        <div class="footer-right" style="padding-top: 0px;">
 
-    <div class="footer-right" style="padding-top: 0px;"> 
+            <div class="footer-icons" style="margin-top: 0px;">
+                <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
+                <a href="#"><i class="fa fa-facebook"></i></a>
 
-        <div class="footer-icons" style="margin-top: 0px;">
-<p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
-            <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
 
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
+                <br>
+                <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
 
-  <br>
-  <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
-  
-                      <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
 
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+
+            </div>
+            <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi © 2020</p>
+            <!-- <img src="images/monsrersbg.png" alt="Smiley face" height="50" width="250"> -->
 
         </div>
-        <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi © 2020</p>
-        <!-- <img src="images/monsrersbg.png" alt="Smiley face" height="50" width="250"> -->
 
-    </div>
-
-</footer>
+    </footer>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>

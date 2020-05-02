@@ -27,7 +27,7 @@ function closeEndModal(){
     model.classList.remove('active');
     overlay=document.getElementById("overlay");
     overlay.classList.remove('active');
-    document.getElementById("menu").style.position="fixed";
+    // document.getElementById("menu").style.position="fixed";
     document.removeEventListener("click", function(){
         closeEndModal();   
     });

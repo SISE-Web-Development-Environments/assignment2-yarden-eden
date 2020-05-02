@@ -84,8 +84,7 @@ function readyToGame() {
 	// 	openGameSound.loop = false;
 	// 	openGameSound.stop();
 	// }
-	document.getElementById("menu").style.position="relative";
-
+	
 	openGameSound.pause();
 	setUpSetting();
 	setUpPacmanLose();
