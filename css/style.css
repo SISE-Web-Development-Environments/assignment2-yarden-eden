@@ -61,10 +61,12 @@
   {
     background-image: url('../images/menuBg.JPG') ;
     background-size: cover;
-    font-size: 190%;
+    background-repeat: round;
+    padding-top: 0;
+    font-size: 200%;
     font: outline;
     color: white;
-    /* height: 60px; */
+    /* height: 50%; */
   }
 
   .menu > img {
@@ -129,10 +131,22 @@ h1{
   z-index: 999;
 } */
 
-header{
-  width:100%; 
-  height:300px;
+#headerPage{
+  width: 100% !important; 
+  height: 250px; 
+  background: url('../images/logo2.JPG');
+  background-size: cover;
+  background-repeat: round;
 }
+
+/* @media only screen and (min-width: 1366px) {
+
+  #headerPage{
+          width: 100%;
+          height: auto;
+          background-size: 100% auto !important;
+  }
+} */
 
 .page-header { 
   /* background: #000000 url(../images/logo2.JPG) 40% 100% no-repeat; */
