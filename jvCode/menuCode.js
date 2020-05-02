@@ -1,7 +1,7 @@
 
 //initialize array for saving users
 var allUsers;
-var currentLoginUser;
+var currentLoginUser="";
 
 $(document).ready(function(){
     
@@ -32,16 +32,24 @@ $(document).ready(function(){
 
 /*************switching windows**************/
 function changeWindow(id) {
-   if(isInGame){
-    clearAllIntervals();
-   }
-    let section = document.getElementsByTagName('section');
-
-    for(i=0; i<section.length; i++){
-            section[i].style.display = 'none';
+    if((id.getAttribute("data-option")=="settingSection"&&currentLoginUser!="")||
+    id.getAttribute("data-option")!="settingSection"){
+        if(isInGame){
+            clearAllIntervals();
+           }
+            let section = document.getElementsByTagName('section');
+        
+            for(i=0; i<section.length; i++){
+                    section[i].style.display = 'none';
+            }
+            
+            document.getElementById(id.getAttribute("data-option")).style.display = "block"
+        
     }
-    
-    document.getElementById(id.getAttribute("data-option")).style.display = "block"
+    else{
+        alert("Before change setting you must login first.")
+    }
+  
 }
 
 

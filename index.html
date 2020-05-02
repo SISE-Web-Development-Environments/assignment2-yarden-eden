@@ -69,21 +69,21 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
             <a class="welcome" href="#welcome" data-option="dataWelcome" onclick="changeWindow(this)"
-                style="width: 15%;"><b>Welcome</b></a>
+                style="width: 15%; height: 100%;"><b>Welcome</b></a>
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
             <a class="login" href="#login" data-option="dataLogin" onclick="changeWindow(this)"
-                style="width: 15%;"><b>Log in</b></a>
+                style="width: 15%;  height: 100%;"><b>Log in</b></a>
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
             <a class="signin" href="#register" data-option="dataRegister" onclick="changeWindow(this)"
-                style="width: 15%;"><b>Sign
+                style="width: 15%; height: 100%;"><b>Sign
                     up</b></a>
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
-            <a class="about" href="#about" data-option="aboutSection" onclick="openModel()" style="width: 15%;"><b>
+            <a class="about" href="#about" data-option="aboutSection" onclick="openModel()" style="width: 15%;  height: 100%;"><b>
 
                     About
 
@@ -91,7 +91,7 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
                 src="images/pacman_icon1_withoutBg.png">
 
-            <a class="setting" href="#setting" data-option="settingSection" style="width: 15%;"
+            <a class="setting" href="#setting" data-option="settingSection" style="width: 15%;  height: 100%;"
                 onclick="changeWindow(this)"><b>Settings</b></a>
 
         </div>
@@ -473,70 +473,77 @@ background-size: auto; -webkit-background-size: cover; -moz-background-size: cov
 
     </div>
 
-
     <footer class="footer-distributed">
 
         <div class="footer-left">
-
-        <h3  class="packmanFooter" style="  color:#00008B;
-        font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png" alt="Smiley face" height="50" width="42"></h3> 
-        <p class="footer-links" style="margin-top: 0px;">
-            <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1" style="color: #CCCC00;font-size: 15px;">Home</a>
-            
-            <a href="#" onclick="changeWindowById('dataRegister')"  style="color: #FFFF00;font-size: 15px;">Sign In</a>
-        
-            <a href="#"  onclick="changeWindowById('dataLogin')"   style="color: #FFFF99	;font-size: 15px;" >Log In</a>
-        
-            <a href="#"  style="color: #FFFFCC	;font-size: 15px;"  onclick="openModel()" >About</a>
-        
-        </p>
-        <p class="footer-company-about" style="text-align: left; font-family: 'Chewy';">
-            <span style="text-align: left; margin-bottom: 0px; border-bottom: blanchedalmond solid 2px; width: 22%;  font-family: 'Chewy';" >About The Game - </span>
-            Playing Pacman is easy to learn and hard to master.<br>
-            Simply score as many points as you can eating <br>the small dots all around the maze.<br> 
-            Remember! You have to be careful of the monsters.
-
-        </p>
-
-      
     
-    </div>
-
-
-
-        <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="mailto:schyarde@post.bgu.ac.il" style="font-size: 15px;">schyarde@post.bgu.ac.il</a></p>
+            <h3  class="packmanFooter" style="  color:#00008B;
+            font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png" alt="Smiley face" height="50" width="42"></h3> 
+            <p class="footer-links" style="margin-top: 0px;">
+                <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1" style="color: #CCCC00;">Home</a>
+                
+                <a href="#" onclick="changeWindowById('dataRegister')" style="color: #FFFF00;">Sign In</a>
+            
+                <a href="#"  onclick="changeWindowById('dataLogin')" style="color: #FFFF99	;" >Log In</a>
+            
+                <a href="#"  style="color: #FFFFCC	;" onclick="openModel()" >About</a>
+            
+            </p>
+            <p class="footer-company-about" style="text-align: left; font-family: 'Chewy';">
+                <span style="text-align: left; margin-bottom: 0px; border-bottom: blanchedalmond solid 2px; width: 22%;  font-family: 'Chewy';" >About The Game - </span>
+                Playing Pacman is easy to learn and hard to master.<br>
+                Simply score as many points as you can eating <br>the small dots all around the maze.<br> 
+                Remember! You have to be careful of the monsters.
+    
+            </p>
+    
+          
+        
         </div>
-
-        <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="mailto:edenmizr@post.bgu.ac.il" style="font-size: 15px;">edenmizr@post.bgu.ac.il</a></p>
-        </div>
-
-        <div class="footer-right" style="padding-top: 0px;">
-
-            <div class="footer-icons" style="margin-top: 0px;">
-                <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-
-                <br>
-                <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
-
-                <a href="#"><i class="fa fa-facebook"></i></a>
-
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-
+    
+        <div class="footer-center">
+    
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Ben Gurion University</span> Beer Sheva, Israel</p>
             </div>
-            <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi © 2020</p>
-            <!-- <img src="images/monsrersbg.png" alt="Smiley face" height="50" width="250"> -->
-
+    
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:schyarde@post.bgu.ac.il">schyarde@post.bgu.ac.il</a></p>
+            </div>
+    
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:edenmizr@post.bgu.ac.il">edenmizr@post.bgu.ac.il</a></p>
+            </div>
+    
+           
         </div>
-
+    
+        <div class="footer-right" style="padding-top: 0px;"> 
+    
+            <div class="footer-icons" style="margin-top: 0px;">
+    <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+    
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+    
+      <br>
+      <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
+      
+                          <a href="#"><i class="fa fa-facebook"></i></a>
+    
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+    
+            </div>
+            <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi ֲ© 2020</p>
+            <!-- <img src="images/monsrersbg.png" alt="Smiley face" height="50" width="250"> -->
+    
+        </div>
+    
     </footer>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

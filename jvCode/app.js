@@ -62,6 +62,7 @@ function clearAllIntervals(){
 	window.clearInterval(intervalMonster3);
 	window.clearInterval(intervalMonster4);
 	isInGame=false;
+	openGameSound.loop=false;
 
 }
 
@@ -612,7 +613,7 @@ function Draw() {
 				if (board[i][j] == 4) {
 					context.beginPath();
 					context.rect(start.x, start.y, cellWidth, cellHeight);
-					context.fillStyle = "#8FBC8F"; //color
+					context.fillStyle = "#030cc2"; //color
 					context.fill();
 					context.lineWidth = 1;
 					context.strokeStyle = "#696969";
@@ -958,7 +959,17 @@ function UpdatePosition() {
 		isEat=true;
 		score=score+50;
 	}
-	board[shape.i][shape.j] = 2;
+	if(board[shape.i][shape.j]){
+		isEat=true;
+		score=score+50;
+	}
+	if(isPackmanOnManster()){
+		catchThePacman();
+	}
+	else{
+		board[shape.i][shape.j] = 2;
+
+	}
 
 
 
@@ -1084,4 +1095,21 @@ function endGame(){
 function backToGame(){
     closeEndModal();
     readyToGame();
+}
+
+
+function isPackmanOnManster(){
+	if(board[shape.i]==monster1.x&&board[shape.j]==monster1.y){
+		return true;
+	}
+	if(board[shape.i]==monster2.x&&board[shape.j]==monster2.y){
+		return true;
+	}
+		if(board[shape.i]==monster3.x&&board[shape.j]==monster3.y){
+		return true;
+	}
+		if(board[shape.i]==monster4.x&&board[shape.j]==monster4.y){
+		return true;
+	}
+	return false;
 }
