@@ -583,7 +583,7 @@ function Draw() {
 
 
 					context.arc(centerX, centerY, 5, 0, 2 * Math.PI); // circle
-					context.lineWidth = 2;ד
+					context.lineWidth = 2;
 					context.strokeStyle = document.getElementById("colorpadfirst").value;
 
 					context.shadowColor =document.getElementById("colorpadfirst").value;
