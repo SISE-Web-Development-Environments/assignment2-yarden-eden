@@ -9,7 +9,7 @@
 /*******menu*******/
 .menuContext{
  overflow: auto;
- height: 70px;
+ height: 10%;
  width: 100%;
 }
 
@@ -25,14 +25,16 @@
     display: flex;
     justify-content: center;
     background-color: black;
+    
     /* position: absolute !important; */
     /* top: 0; */
     width: 100%;
     /* z-index: 999; */
     margin-top: 70px;
     margin: auto;
-    height: 70px;
+    height: 20px;
     border-spacing: 40px 0px;
+    padding: 00px 0px 0px 0px;
   }
 
   .menu a{
@@ -40,21 +42,24 @@
     float: left;
     color: white;
     text-align: center;
-    padding: 8px 60px;
+    padding: 8px 60px 0px 0px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 120%;
     font-family: cursive;
     list-style: solid;
+    margin-bottom: 0px;
+    height: 10px;
   }
 
   .menu a:hover
   {
     background-image: url('../images/menuBg.JPG') ;
     background-size: cover;
-    font-size: 34px;
+    font-size: 120%;
     font: outline;
     color: white;
-    height: 60px;
+    height: 100%;
+    margin-bottom: 0px;
   }
 
   .menu > img {
@@ -177,6 +182,7 @@ header{
   font-weight: 700;
   text-decoration: underline;
 } */
+
 
 .footer-distributed{
   /* background: #666; */

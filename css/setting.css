@@ -68,11 +68,11 @@ li {float: left;}
 
 .keyboard{
     /* margin-left: 40%; */
-    padding-left:30%;
+    /* padding-left:30%;
     padding-right:45%;
-	padding-top: 0px;
+	padding-top: 0px; */
 	/* margin-bottom: 20px; */
-
+	margin-left: 30%;
    
 }
 span{

@@ -12,7 +12,7 @@ var rightCode;
 var upCode;
 var downCode;
 
-var isInGame;
+var isInGame=false;
 var firstAngle=0.15;
 var secondAngle=1.95;
 /*End Game: */
@@ -61,6 +61,8 @@ function clearAllIntervals(){
 	window.clearInterval(intervalMonster2);
 	window.clearInterval(intervalMonster3);
 	window.clearInterval(intervalMonster4);
+	isInGame=false;
+
 }
 
 
@@ -176,8 +178,8 @@ function Start() {
 	better=false;
 	winner=false;
 	gameTime=document.getElementById("choosenGameTime").value;
-	candy.i=6;
-	candy.j=6;
+	candy.i=1;
+	candy.j=1;
 	isBall=0;
 	isEat=false;
 	board[candy.i][candy.j] = 7;

@@ -32,6 +32,9 @@ $(document).ready(function(){
 
 /*************switching windows**************/
 function changeWindow(id) {
+   if(isInGame){
+    clearAllIntervals();
+   }
     let section = document.getElementsByTagName('section');
 
     for(i=0; i<section.length; i++){
@@ -43,6 +46,9 @@ function changeWindow(id) {
 
 
 function changeWindowById(id) {
+    if(isInGame){
+        clearAllIntervals() ;
+    }
     let section = document.getElementsByTagName('section');
 
     for(i=0; i<section.length; i++){

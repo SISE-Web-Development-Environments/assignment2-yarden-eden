@@ -197,8 +197,8 @@ function start(id){
     }
     if(isValid==true){
         //go to game
-        readyToGame();
         changeWindowById("gameSection")
+        readyToGame();
 
     }
 
