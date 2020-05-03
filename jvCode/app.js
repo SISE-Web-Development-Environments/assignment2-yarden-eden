@@ -13,7 +13,7 @@ var upCode;
 var downCode;
 
 var slowMonst;
-var numberOfSec=0;
+var numberOfSec = 0;
 
 var isEatMadicn;
 
@@ -156,38 +156,6 @@ function setUpSetting() {
 
 function Start() {
 	board = new Array();
-	// board = [
-	// 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
-	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
-	// 	[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-	// 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-	// ];
 	board = [
 		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
@@ -222,8 +190,8 @@ function Start() {
 	];
 	looser = false;
 	better = false;
-	slowMonst=false;
-	isEatMadicn=false;
+	slowMonst = false;
+	isEatMadicn = false;
 	winner = false;
 	gameTime = document.getElementById("choosenGameTime").value;
 	candy.i = 1;
@@ -288,10 +256,10 @@ function Start() {
 	}
 
 
-	var emptyCellForMadicn=findRandomEmptyCell(board);
+	var emptyCellForMadicn = findRandomEmptyCell(board);
 	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 6;
-	emptyCellForMadicn=findRandomEmptyCell(board);
-	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] =99;
+	emptyCellForMadicn = findRandomEmptyCell(board);
+	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 99;
 	keysDown = {};
 	addEventListener(
 		"keydown",
@@ -538,18 +506,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 200);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 950);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 200);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 950);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 200);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 950);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 200);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 950);
 	}
 }
 
@@ -639,7 +607,7 @@ function Draw() {
 					context.lineWidth = 2;
 					context.strokeStyle = document.getElementById("colorpadfirst").value;
 
-					context.shadowColor =document.getElementById("colorpadfirst").value;
+					context.shadowColor = document.getElementById("colorpadfirst").value;
 					context.shadowBlur = 50;
 					context.shadowOffsetX = 0;
 					context.shadowOffsetY = 0;
@@ -659,7 +627,7 @@ function Draw() {
 				context.beginPath();
 				context.arc(centerX, centerY, 8, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("colorpadsecond").value;
-				
+
 				// context.shadowColor = document.getElementById("colorpadsecond").value; // string
 				//Color of the shadow;  RGB, RGBA, HSL, HEX, and other inputs are valid.
 				// context.shadowBlur = 40;
@@ -670,7 +638,7 @@ function Draw() {
 				// context.shadowBlur = 0;
 				// context.shadowOffsetX = 0;
 				// context.shadowOffsetY = 0;
-				
+
 				// context.fill();
 				// context.font = "bold 12px Ariel";
 				// context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
@@ -680,7 +648,7 @@ function Draw() {
 				context.beginPath();
 				context.arc(centerX, centerY, 10, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("colorpadfirstthird").value;
-				
+
 
 
 
@@ -709,8 +677,8 @@ function Draw() {
 				// context.shadowBlur = 0;
 				// context.shadowOffsetX = 0;
 				// context.shadowOffsetY = 0;
-				
-				
+
+
 
 				// let negativeColor = invertColor(document.getElementById("colorpadfirstthird").value);
 				// context.arc(centerX, centerY, 12, 0, 2 * Math.PI);
@@ -745,7 +713,7 @@ function Draw() {
 				context.drawImage(img, start.x, start.y, cellWidth * 1.2, cellHeight * 1.2);
 			}
 
-			if(board[i][j]==6){
+			if (board[i][j] == 6) {
 				context.beginPath();
 				// context.rect(start.x, start.y,cellWidth,cellHeight);
 
@@ -754,7 +722,7 @@ function Draw() {
 				context.drawImage(im, start.x, start.y, cellWidth * 1.2, cellHeight * 1.2);
 			}
 
-			if(board[i][j]==99){
+			if (board[i][j] == 99) {
 				context.beginPath();
 				// context.rect(start.x, start.y,cellWidth,cellHeight);
 
@@ -768,8 +736,6 @@ function Draw() {
 
 	//after all - draw the monsters
 	drawMonsters();
-
-
 }
 
 
@@ -777,45 +743,45 @@ function drawMonsters() {
 	var cellHeight = canvas.height / 30;
 	var cellWidth = canvas.width / 30;
 	/******for slow motion:****** */
-	var blueImage= new Image();
+	var blueImage = new Image();
 	blueImage.src = "images/blueMonst.png";
 
-	
-	if(slowMonst){
+
+	if (slowMonst) {
 		context.drawImage(blueImage, monster1.x * cellWidth, monster1.y * cellHeight, cellWidth, cellHeight);
 	}
-	else{
+	else {
 		var image = document.getElementById("monster-img");
 		context.drawImage(image, monster1.x * cellWidth, monster1.y * cellHeight, cellWidth, cellHeight);
 
 	}
 	if (numberOfMonsters >= 2) {
-		if(slowMonst){
+		if (slowMonst) {
 			context.drawImage(blueImage, monster2.x * cellWidth, monster2.y * cellHeight, cellWidth, cellHeight);
 		}
-		else{
-		var image = document.getElementById("monster2-img");
-		context.drawImage(image, monster2.x * cellWidth, monster2.y * cellHeight, cellWidth, cellHeight);
+		else {
+			var image = document.getElementById("monster2-img");
+			context.drawImage(image, monster2.x * cellWidth, monster2.y * cellHeight, cellWidth, cellHeight);
 		}
 	}
 
 	if (numberOfMonsters >= 3) {
-		if(slowMonst){
-		context.drawImage(blueImage, monster3.x * cellWidth, monster3.y * cellHeight, cellWidth, cellHeight);
+		if (slowMonst) {
+			context.drawImage(blueImage, monster3.x * cellWidth, monster3.y * cellHeight, cellWidth, cellHeight);
 		}
-		else{
+		else {
 			var image = document.getElementById("monster3-img");
 			context.drawImage(image, monster3.x * cellWidth, monster3.y * cellHeight, cellWidth, cellHeight);
 
 		}
-	
+
 	}
 
 	if (numberOfMonsters == 4) {
-		if(slowMonst){
-		context.drawImage(blueImage, monster4.x * cellWidth, monster4.y * cellHeight, cellWidth, cellHeight);
+		if (slowMonst) {
+			context.drawImage(blueImage, monster4.x * cellWidth, monster4.y * cellHeight, cellWidth, cellHeight);
 		}
-		else{
+		else {
 			var image = document.getElementById("monster4-img");
 			context.drawImage(image, monster4.x * cellWidth, monster4.y * cellHeight, cellWidth, cellHeight);
 
@@ -832,7 +798,7 @@ function bestMove(monster, lastPosition) {
 	let right;
 
 	//up
-	if (board[monster.x][monster.y - 1] != 4 && (lastPosition.y+1!=monster.y) ){
+	if (board[monster.x][monster.y - 1] != 4 && (lastPosition.y + 1 != monster.y)) {
 		var deltaX = Math.abs((monster.x) - shape.i);
 		var deltaY = Math.abs((monster.y - 1) - shape.j);
 		up = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -843,7 +809,7 @@ function bestMove(monster, lastPosition) {
 	}
 
 	//down
-	if (board[monster.x][monster.y + 1] != 4  && (lastPosition.y-1!=monster.y)) {
+	if (board[monster.x][monster.y + 1] != 4 && (lastPosition.y - 1 != monster.y)) {
 		var deltaX = Math.abs(monster.x - shape.i);
 		var deltaY = Math.abs((monster.y + 1) - shape.j);
 		down = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -854,7 +820,7 @@ function bestMove(monster, lastPosition) {
 	}
 
 	//left
-	if (board[monster.x - 1][monster.y] != 4  && (lastPosition.x+1!=monster.x) ) {
+	if (board[monster.x - 1][monster.y] != 4 && (lastPosition.x + 1 != monster.x)) {
 		var deltaX = Math.abs((monster.x - 1) - shape.i);
 		var deltaY = Math.abs(monster.y - shape.j);
 		left = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -865,7 +831,7 @@ function bestMove(monster, lastPosition) {
 	}
 
 	//right
-	if (board[monster.x + 1][monster.y] != 4  && (lastPosition.x-1!=monster.x)) {
+	if (board[monster.x + 1][monster.y] != 4 && (lastPosition.x - 1 != monster.x)) {
 		var deltaX = Math.abs((monster.x + 1) - shape.i);
 		var deltaY = Math.abs(monster.y - shape.j);
 		right = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -965,21 +931,10 @@ function catchThePacman(monster) {
 	deathSound = new sound("sounds/pacman_death.mp3")
 	deathSound.play();
 	if (lost == 5) {
-		// document.getElementById("lblDisqualification").value = lost;
-		// window.clearInterval(interval);
-		// window.clearInterval(intervalMonster1);
-		// drawDead(context);
 		document.getElementById("pacman5").style.display = "none"
-
-		// window.clearInterval(intervalMonster1);
-		// window.clearInterval(intervalMonster2);
-		// window.clearInterval(intervalMonster3);
-		// window.clearInterval(intervalMonster4);
-		// window.clearInterval(interval);
-
 		monster.x = shape.i;
 		monster.y = shape.j;
-		// drawDead(canvas);
+	
 		board[shape.i][shape.j] = 0;
 		Draw();
 		clearAllIntervals();
@@ -989,7 +944,7 @@ function catchThePacman(monster) {
 	}
 	else {
 		//loseLife
-		if(lost==0){
+		if (lost == 0) {
 			document.getElementById("pacman6").style.display = "none"
 		}
 		if (lost == 1) {
@@ -1022,9 +977,9 @@ function catchThePacman(monster) {
 
 function afterHalfSecond() {
 	// run this code half a second after executing run.  
-	// alert("You lost - try again with new game!");
-	loser = true;
-	endGame();
+	alert("You lost - try again with new game!");
+	// loser = true;
+	// endGame();
 }
 
 function UpdateMonsterPosition(monster, lastPosition) {
@@ -1039,151 +994,165 @@ function UpdateMonsterPosition(monster, lastPosition) {
 	monster.y = move[1];
 
 	//catch the pacman
-	if (board[monster.x][monster.y] == 2) {
-		// score = score - 10;
-		// document.getElementById("lblDisqualification").value = lost + 1;//write the current loses
-		// lost = lost + 1;
-		// initMonstersPodition();
-		// board[shape.i][shape.j] = 0;
-		// let emptyCell = findRandomEmptyCell(board);
+	if (board[monster.x][monster.y] == 2 || board[lastPosition.x][lastPosition.y]==2 || isPackmanOnManster()==true) {
 		// shape.i = emptyCell[0];
 		// shape.j = emptyCell[1];
 		catchThePacman(monster);
 	}
 	// board[monster1.x, monster1.y] = 3;
 	// Draw();
+	
 }
 
 
 /**pacman**/
 function UpdatePosition() {
-	if(numberOfSec>0){
-		numberOfSec--;
-	}
-	else{
-		if(slowMonst){
-			loopBlueMonster.loop = false;
-			loopBlueMonster.pause();
-			loopGameSound.loop = true;
-			loopGameSound.play();
-			loopGameSound.currentTime = 0;
-			slowMonst=false;
-			setMonstersInterval();
-		}
-	}
-	let lasti = shape.i;//col
-	let lastj = shape.j;//row
-	board[shape.i][shape.j] = 0;
-	var x = GetKeyPressed();
-	if (x == 1) {//up
-		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-			shape.j--;
-			firstAngle = 1.6;
-			secondAngle = 3.35;
-		}
-	}
-	if (x == 2) {//down
-		if (shape.j < 29 && board[shape.i][shape.j + 1] != 4) {
-			shape.j++;
-			firstAngle = 0.7;
-			secondAngle = 2.3;
-		}
-	}
-	if (x == 3) {//left
-		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-			shape.i--;
-			firstAngle = 1.1;
-			secondAngle = 2.9;
-		}
-	}
-	if (x == 4) {//right
-		if (shape.i < 29 && board[shape.i + 1][shape.j] != 4) {
-			shape.i++;
-			firstAngle = 0.15;
-			secondAngle = 1.85;
-		}
-	}
-	let newi = shape.i;
-	let newj = shape.j;
-
-	//lblScore
-
-	if (board[shape.i][shape.j] == 5) {
-		score = score + 5;
-	}
-	if (board[shape.i][shape.j] == 15) {
-		score = score + 15;
-	}
-	if (board[shape.i][shape.j] == 25) {
-		score = score + 25;
-	}
-
-
-	document.getElementById("lblScore").value = score;
 	
-	if (board[shape.i][shape.j] == 7) {
-		isEat = true;
-		score = score + 50;
-	}
-
-	if (board[shape.i][shape.j] ==99) {
-		slowMonst=true;
-		loopGameSound.loop = false;
-		loopGameSound.pause();
-		loopGameSound.currentTime = 0;
-		loopBlueMonster.loop = true;
-		loopBlueMonster.play();
-		window.clearInterval(intervalMonster1);
-		window.clearInterval(intervalMonster2);
-		window.clearInterval(intervalMonster3);
-		window.clearInterval(intervalMonster4);
-		numberOfSec=20;
-		// UpdateMonsterPosition(true)
-
-	}
-	if (board[shape.i][shape.j] == 6) {
-		isEatMadicn = true;
-
-		if (lost == 0) {
-			document.getElementById("pacman6").style.display = "block";
-		}
-		if (lost == 1) {
-			document.getElementById("pacman1").style.display = "block";
+	//check if current cell is on monster
+	if (isPackmanOnManster()==false) {
+		if (numberOfSec > 0) {
+			numberOfSec--;
 		}
 		else {
-			if (lost == 2) {
-				document.getElementById("pacman2").style.display = "block";
+			if (slowMonst) {
+				loopBlueMonster.loop = false;
+				loopBlueMonster.pause();
+				loopGameSound.loop = true;
+				loopGameSound.play();
+				loopGameSound.currentTime = 0;
+				slowMonst = false;
+				setMonstersInterval();
+			}
+		}
+
+		let lasti = shape.i;//col
+		let lastj = shape.j;//row
+		board[shape.i][shape.j] = 0;
+		var x = GetKeyPressed();
+		if (x == 1) {//up
+			if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
+				shape.j--;
+				firstAngle = 1.6;
+				secondAngle = 3.35;
+			}
+		}
+		if (x == 2) {//down
+			if (shape.j < 29 && board[shape.i][shape.j + 1] != 4) {
+				shape.j++;
+				firstAngle = 0.7;
+				secondAngle = 2.3;
+			}
+		}
+		if (x == 3) {//left
+			if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
+				shape.i--;
+				firstAngle = 1.1;
+				secondAngle = 2.9;
+			}
+		}
+		if (x == 4) {//right
+			if (shape.i < 29 && board[shape.i + 1][shape.j] != 4) {
+				shape.i++;
+				firstAngle = 0.15;
+				secondAngle = 1.85;
+			}
+		}
+		let newi = shape.i;
+		let newj = shape.j;
+
+		//lblScore
+
+		if (board[shape.i][shape.j] == 5) {
+			score = score + 5;
+		}
+		if (board[shape.i][shape.j] == 15) {
+			score = score + 15;
+		}
+		if (board[shape.i][shape.j] == 25) {
+			score = score + 25;
+		}
+
+
+		document.getElementById("lblScore").value = score;
+
+		if (board[shape.i][shape.j] == 7) {
+			isEat = true;
+			score = score + 50;
+		}
+
+		if (board[shape.i][shape.j] == 99) {
+			slowMonst = true;
+			loopGameSound.loop = false;
+			loopGameSound.pause();
+			loopGameSound.currentTime = 0;
+			loopBlueMonster.loop = true;
+			loopBlueMonster.play();
+			window.clearInterval(intervalMonster1);
+			window.clearInterval(intervalMonster2);
+			window.clearInterval(intervalMonster3);
+			window.clearInterval(intervalMonster4);
+			numberOfSec = 20;
+			// UpdateMonsterPosition(true)
+
+		}
+		if (board[shape.i][shape.j] == 6) {
+			isEatMadicn = true;
+
+			if (lost == 0) {
+				document.getElementById("pacman6").style.display = "block";
+			}
+			if (lost == 1) {
+				document.getElementById("pacman1").style.display = "block";
 			}
 			else {
-				if (lost == 3) {
-					document.getElementById("pacman3").style.display = "block";
+				if (lost == 2) {
+					document.getElementById("pacman2").style.display = "block";
 				}
 				else {
-					if (lost == 4) {
-						document.getElementById("pacman4").style.display = "block";
+					if (lost == 3) {
+						document.getElementById("pacman3").style.display = "block";
 					}
-					else{
-						if(lost==5){
-							document.getElementById("pacman5").style.display = "block";
+					else {
+						if (lost == 4) {
+							document.getElementById("pacman4").style.display = "block";
+						}
+						else {
+							if (lost == 5) {
+								document.getElementById("pacman5").style.display = "block";
 
+							}
 						}
 					}
 				}
 			}
+
+			lost--;
 		}
 
-	lost--;
-	}
+		// setTimeout(afterHalfSecond, 1000);
+		if (isPackmanOnManster()) {
+			catchThePacman();
+		}
+		else {
+			board[shape.i][shape.j] = 2;
+			// setTimeout(afterHalfSecond, 70000);
+		}
+		
 
-	if (isPackmanOnManster()) {
-		catchThePacman();
+		if (isPackmanOnManster()) {
+			
+			catchThePacman();
+			
+		}
+
+		
+
 	}
 	else {
-		board[shape.i][shape.j] = 2;
+		catchThePacman();
 	}
 
-
-
+	
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {
@@ -1210,7 +1179,7 @@ function UpdatePosition() {
 	else {
 		Draw();
 	}
-
+	
 	// }
 }
 
@@ -1308,50 +1277,32 @@ function backToGame() {
 	readyToGame();
 }
 
-
-
 function isPackmanOnManster() {
 
-	// if (board[shape.i] == monster1.x && board[shape.j] == monster1.y) {
-	// 	return true;
-	// }
-	// if (numberOfMonsters >= 2) {
-	// 	if (board[shape.i] == monster2.x && board[shape.j] == monster2.y) {
-	// 		return true;
-	// 	}
-	// }
-
-	// if(numberOfMonsters>=3){
-	// 	if (board[shape.i] == monster3.x && board[shape.j] == monster3.y) {
-	// 		return true;
-	// 	}
-	// }
-	
-	// if(numberOfMonsters==4){
-	// 	if (board[shape.i] == monster4.x && board[shape.j] == monster4.y) {
-	// 		return true;
-	// 	}
-	// }
-	if (board[shape.i] == lastPosMonster1.x && board[shape.j] == lastPosMonster1.y) {
+	if ((board[shape.i] == lastPosMonster1.x && board[shape.j] == lastPosMonster1.y) ||
+		(board[shape.i] == monster1.x && board[shape.j] == monster1.y)) {
 		return true;
 	}
 	if (numberOfMonsters >= 2) {
-		if (board[shape.i] == lastPosMonster2.x && board[shape.j] == lastPosMonster2.y) {
+		if ((board[shape.i] == lastPosMonster2.x && board[shape.j] == lastPosMonster2.y) ||
+			(board[shape.i] == monster2.x && board[shape.j] == monster2.y)) {
 			return true;
 		}
 	}
 
-	if(numberOfMonsters>=3){
-		if (board[shape.i] == lastPosMonster3.x && board[shape.j] == lastPosMonster3.y) {
+	if (numberOfMonsters >= 3) {
+		if ((board[shape.i] == lastPosMonster3.x && board[shape.j] == lastPosMonster3.y) ||
+			(board[shape.i] == monster3.x && board[shape.j] == monster3.y)) {
 			return true;
 		}
 	}
-	
-	if(numberOfMonsters==4){
-		if (board[shape.i] == lastPosMonster4.x && board[shape.j] == lastPosMonster4.y) {
+
+	if (numberOfMonsters == 4) {
+		if ((board[shape.i] == lastPosMonster4.x && board[shape.j] == lastPosMonster4.y) ||
+			(board[shape.i] == monster4.x && board[shape.j] == monster4.y)) {
 			return true;
 		}
 	}
-	
+
 	return false;
 }
