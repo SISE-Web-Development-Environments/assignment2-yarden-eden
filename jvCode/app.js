@@ -70,6 +70,26 @@ var deathSound;
 // 	Start();
 // });
 
+function soundOn(){
+	loopGameSound.loop = true;
+	loopGameSound.play();
+
+	document.getElementById("onSound").style.display = "block";
+	document.getElementById("muteSound").style.display = "none";
+
+	
+}
+
+function soundOff(){
+	loopGameSound.loop = false;
+	loopGameSound.pause();
+	loopGameSound.currentTime = 0;
+
+	document.getElementById("onSound").style.display = "none";
+	document.getElementById("muteSound").style.display = "block";
+
+}
+
 function clearAllIntervals() {
 	window.clearInterval(foodInterval);
 	window.clearInterval(interval);

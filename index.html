@@ -272,10 +272,13 @@
                             <span class="setting-text" style="font-size: 15px;">Total Time: </span><i
                                 id="totalTime"></i>
                             <br>
-
-                            <!-- <button type="button" class="newGame-bth" style="position: center;"
-                                onclick="startNewGame()">Start<br>New
-                                Game</button> -->
+                            <div class="imageSound">
+                                <img id="onSound" src="./images/onSound.png" width="50" height="50"
+                                onclick="soundOff()" style="z-index: +1; position: relative;">
+                                <img id="muteSound" src="./images/muteVolume.jpg" width="50" height="50"
+                                onclick="soundOn()" style="z-index: +1; position: relative; display: none;">
+                            </div>
+                           
                             <br>
                             <div> <a  class="newGame-bth" onclick="startNewGame()" alt="Start new game"></a>
                             </div>
