@@ -6,8 +6,8 @@ you can find it here - https://sise-web-development-environments.github.io/assig
 
 At the top of the page you a have a menu that take you to different windows such as -
 * Welcome - home page, you can find here 2 button. 
-1.Sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
-2.Log-in btn: that take you to set settings for the game.
+&nbsp;1.Sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
+&nbsp;2.Log-in btn: that take you to set settings for the game.
 * Setting - you can set your setting by :
 1. choose your in-game keyboard (press on each arrow and then select a key),
 2. Then you will have to choose the number and colors of pacman's food. 
