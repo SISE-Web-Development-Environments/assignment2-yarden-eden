@@ -16,9 +16,10 @@ For easier life, you can press the Random button that select the settings for yo
 Don't forget to press on - Start in order to start the game.
 * Log-In & Sign-Up 
 * About - a little bit of information about the code&design and the difficults we faced.
+
 To make the game a little more interesting you can find the following functionality -
-1. Addition of life by eating the medicine icon.
-2. Freezing the monsters for a while by eating the corona icon.
+<br>1. Addition of life by eating the medicine icon.
+<br>2. Freezing the monsters for a while by eating the corona icon.
 
 We hope you will enjoy at least as much as we enjoyed doing it :)
 
