@@ -134,6 +134,7 @@ function setUpPacmanLose() {
 	document.getElementById("pacman3").style.display = "block";
 	document.getElementById("pacman4").style.display = "block";
 	document.getElementById("pacman5").style.display = "block";
+	document.getElementById("pacman6").style.display = "none";
 }
 
 function setUpSetting() {
