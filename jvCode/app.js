@@ -1083,7 +1083,7 @@ function UpdatePosition() {
 		window.clearInterval(intervalMonster3);
 		window.clearInterval(intervalMonster4);
 		numberOfSec=20;
-		UpdateMonsterPosition(true)
+		// UpdateMonsterPosition(true)
 
 	}
 	if (board[shape.i][shape.j] == 6) {
