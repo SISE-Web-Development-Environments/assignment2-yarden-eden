@@ -250,8 +250,8 @@ function random(id){
     document.getElementById("colorpadfirstthird").value =getRandomColor();
  
     
-    changeWindowById("gameSection")
-    readyToGame();
+    // changeWindowById("gameSection")
+    // readyToGame();
 
     
 

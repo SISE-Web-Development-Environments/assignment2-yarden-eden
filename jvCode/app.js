@@ -195,6 +195,7 @@ function Start() {
 	];
 	looser = false;
 	better = false;
+	lblTime.style.color="black";
 	slowMonst = false;
 	isEatMadicn = false;
 	winner = false;
@@ -204,6 +205,11 @@ function Start() {
 	isBall = 0;
 	isEat = false;
 	board[candy.i][candy.j] = 7;
+	shape.i = 29 && shape.j == 5
+	board[29][12]=11;
+	board[0][12]=11;
+	board[29][22]=11;
+	board[0][22]=11;
 	// candyMove="down";
 	score = 0;
 	pac_color = "yellow";
@@ -263,6 +269,10 @@ function Start() {
 
 	var emptyCellForMadicn = findRandomEmptyCell(board);
 	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 6;
+	emptyCellForMadicn = findRandomEmptyCell(board);
+	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 99;
+	emptyCellForMadicn = findRandomEmptyCell(board);
+	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 99;
 	emptyCellForMadicn = findRandomEmptyCell(board);
 	board[emptyCellForMadicn[0]][emptyCellForMadicn[1]] = 99;
 	keysDown = {};
@@ -511,18 +521,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 250);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 400);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 250);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 400);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 250);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 400);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 250);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 400);
 	}
 }
 
@@ -556,7 +566,7 @@ function GetKeyPressed() {
 function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score;
-	lblTime.value = time_elapsed;
+	lblTime.value = gameTime-time_elapsed;
 	var cellHeight = canvas.height / 30;
 	var cellWidth = canvas.width / 30;
 	for (var i = 0; i < 30; i++) {
@@ -977,7 +987,7 @@ function UpdatePosition() {
 				setMonstersInterval();
 			}
 		}
-
+		let isMove=false;
 		let lasti = shape.i;//col
 		let lastj = shape.j;//row
 		board[shape.i][shape.j] = 0;
@@ -987,6 +997,7 @@ function UpdatePosition() {
 				shape.j--;
 				firstAngle = 1.6;
 				secondAngle = 3.35;
+				isMove=true;
 			}
 		}
 		if (x == 2) {//down
@@ -994,18 +1005,51 @@ function UpdatePosition() {
 				shape.j++;
 				firstAngle = 0.7;
 				secondAngle = 2.3;
+				isMove=true;
+
 			}
 		}
 		if (x == 3) {//left
 			if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
+
 				shape.i--;
 				firstAngle = 1.1;
 				secondAngle = 2.9;
+				isMove=true;
+
 			}
 		}
 		if (x == 4) {//right
 			if (shape.i < 29 && board[shape.i + 1][shape.j] != 4) {
 				shape.i++;
+				firstAngle = 0.15;
+				secondAngle = 1.85;
+				isMove=true;
+
+			}
+		}
+		if(x==3&&!isMove)//left
+		{
+			if(shape.i==0&&shape.j==12){
+				shape.i=29;
+				firstAngle = 1.1;
+				secondAngle = 2.9;
+			}
+			if(shape.i==0&&shape.j==22){
+				shape.i=29;
+				firstAngle = 1.1;
+				secondAngle = 2.9;
+			}
+		}
+
+		if (x == 4&&!isMove) {//right
+			if (shape.i==29&&shape.j==12) {
+				shape.i=0;
+				firstAngle = 0.15;
+				secondAngle = 1.85;
+			}
+			if (shape.i==29&&shape.j==22) {
+				shape.i=0;
 				firstAngle = 0.15;
 				secondAngle = 1.85;
 			}
@@ -1112,9 +1156,21 @@ function UpdatePosition() {
 
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
-
-	if (time_elapsed >= gameTime) {
-
+	// if (score >= 20 && time_elapsed <= 10) {
+	// 	pac_color = "green";
+	// }
+	// if (score == 50) {
+	// 	window.clearInterval(interval);
+	// 	window.alert("Game completed");
+	// } else {
+	if(gameTime - time_elapsed<=60){
+		lblTime.style.color="red";
+		lblTime.style.size="50px";
+	
+	}
+	if (gameTime - time_elapsed <= 0) {
+		// window.clearInterval(interval);
+		// window.clearInterval(foodInterval);
 		clearAllIntervals();
 		if (score < 100) {
 			better = true;
