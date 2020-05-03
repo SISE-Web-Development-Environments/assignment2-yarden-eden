@@ -54,7 +54,11 @@ var lost = 0;
 
 var openGameSound = new Audio('sounds/pacman_beginning.mp3');
 var loopGameSound = new Audio('sounds/super-mario.mp3');
+
 var loopBlueMonster = new Audio('sounds/wakka.mp3');
+var eatSound = new Audio('sounds/pacman_eat.mp3');
+var extraLifeSound = new Audio('sounds/pac_bonus.mp3');
+var moveFoodSound = new Audio('sounds/pacman_eatfruit.mp3')
 
 var deathSound;
 
@@ -506,18 +510,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 950);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 550);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 950);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 550);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 950);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 550);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 950);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 550);
 	}
 }
 
@@ -1066,12 +1070,15 @@ function UpdatePosition() {
 		//lblScore
 
 		if (board[shape.i][shape.j] == 5) {
+			eatSound.play();
 			score = score + 5;
 		}
 		if (board[shape.i][shape.j] == 15) {
+			eatSound.play();
 			score = score + 15;
 		}
 		if (board[shape.i][shape.j] == 25) {
+			eatSound.play();
 			score = score + 25;
 		}
 
@@ -1079,6 +1086,7 @@ function UpdatePosition() {
 		document.getElementById("lblScore").value = score;
 
 		if (board[shape.i][shape.j] == 7) {
+			moveFoodSound.play();
 			isEat = true;
 			score = score + 50;
 		}
@@ -1098,7 +1106,9 @@ function UpdatePosition() {
 			// UpdateMonsterPosition(true)
 
 		}
+		
 		if (board[shape.i][shape.j] == 6) {
+			extraLifeSound.play();
 			isEatMadicn = true;
 
 			if (lost == 0) {
