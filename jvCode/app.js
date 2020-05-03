@@ -934,7 +934,7 @@ function catchThePacman(monster) {
 		document.getElementById("pacman5").style.display = "none"
 		monster.x = shape.i;
 		monster.y = shape.j;
-	
+
 		board[shape.i][shape.j] = 0;
 		Draw();
 		clearAllIntervals();
@@ -984,32 +984,35 @@ function afterHalfSecond() {
 
 function UpdateMonsterPosition(monster, lastPosition) {
 	//what happend after doing the move ?
+	if (isPackmanOnManster() == false) {
+		let move = bestMove(monster, lastPosition);
+		/**update last move**/
+		lastPosition.x = monster.x;
+		lastPosition.y = monster.y;
+		/**update last move**/
+		monster.x = move[0];
+		monster.y = move[1];
 
-	let move = bestMove(monster, lastPosition);
-	/**update last move**/
-	lastPosition.x = monster.x;
-	lastPosition.y = monster.y;
-	/**update last move**/
-	monster.x = move[0];
-	monster.y = move[1];
-
-	//catch the pacman
-	if (board[monster.x][monster.y] == 2 || board[lastPosition.x][lastPosition.y]==2 || isPackmanOnManster()==true) {
-		// shape.i = emptyCell[0];
-		// shape.j = emptyCell[1];
+		//catch the pacman
+		if (board[monster.x][monster.y] == 2 || board[lastPosition.x][lastPosition.y] == 2 || isPackmanOnManster() == true) {
+			// shape.i = emptyCell[0];
+			// shape.j = emptyCell[1];
+			catchThePacman(monster);
+		}
+		// board[monster1.x, monster1.y] = 3;
+		// Draw();
+	}
+	else {
 		catchThePacman(monster);
 	}
-	// board[monster1.x, monster1.y] = 3;
-	// Draw();
-	
 }
 
 
 /**pacman**/
 function UpdatePosition() {
-	
+
 	//check if current cell is on monster
-	if (isPackmanOnManster()==false) {
+	if (isPackmanOnManster() == false) {
 		if (numberOfSec > 0) {
 			numberOfSec--;
 		}
@@ -1137,22 +1140,20 @@ function UpdatePosition() {
 			board[shape.i][shape.j] = 2;
 			// setTimeout(afterHalfSecond, 70000);
 		}
-		
+
 
 		if (isPackmanOnManster()) {
-			
 			catchThePacman();
-			
 		}
 
-		
+
 
 	}
 	else {
 		catchThePacman();
 	}
 
-	
+
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {
@@ -1179,7 +1180,7 @@ function UpdatePosition() {
 	else {
 		Draw();
 	}
-	
+
 	// }
 }
 
@@ -1279,26 +1280,30 @@ function backToGame() {
 
 function isPackmanOnManster() {
 
-	if ((board[shape.i] == lastPosMonster1.x && board[shape.j] == lastPosMonster1.y) ||
+	if (board[monster1.x][monster1.y]==2 || board[lastPosMonster1.x][lastPosMonster1.y]==2 ||
+		(board[shape.i] == lastPosMonster1.x && board[shape.j] == lastPosMonster1.y) ||
 		(board[shape.i] == monster1.x && board[shape.j] == monster1.y)) {
 		return true;
 	}
 	if (numberOfMonsters >= 2) {
-		if ((board[shape.i] == lastPosMonster2.x && board[shape.j] == lastPosMonster2.y) ||
+		if (board[monster2.x][monster2.y]==2 || board[lastPosMonster2.x][lastPosMonster2.y]==2 ||
+			(board[shape.i] == lastPosMonster2.x && board[shape.j] == lastPosMonster2.y) ||
 			(board[shape.i] == monster2.x && board[shape.j] == monster2.y)) {
 			return true;
 		}
 	}
 
 	if (numberOfMonsters >= 3) {
-		if ((board[shape.i] == lastPosMonster3.x && board[shape.j] == lastPosMonster3.y) ||
+		if (board[monster3.x][monster3.y]==2 || board[lastPosMonster3.x][lastPosMonster3.y]==2 ||
+			(board[shape.i] == lastPosMonster3.x && board[shape.j] == lastPosMonster3.y) ||
 			(board[shape.i] == monster3.x && board[shape.j] == monster3.y)) {
 			return true;
 		}
 	}
 
 	if (numberOfMonsters == 4) {
-		if ((board[shape.i] == lastPosMonster4.x && board[shape.j] == lastPosMonster4.y) ||
+		if (board[monster4.x][monster4.y]==2 || board[lastPosMonster4.x][lastPosMonster4.y]==2 ||
+			(board[shape.i] == lastPosMonster4.x && board[shape.j] == lastPosMonster4.y) ||
 			(board[shape.i] == monster4.x && board[shape.j] == monster4.y)) {
 			return true;
 		}
