@@ -59,7 +59,7 @@
 
   .menu a:hover
   {
-    background-image: url('../images/menuBg.JPG') ;
+    background-image: url(../images/menuBg.jpeg) ;
     background-size: cover;
     background-repeat: round;
     padding-top: 0;
