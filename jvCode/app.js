@@ -53,7 +53,8 @@ var intervalMonster4;
 var lost = 0;
 
 var openGameSound = new Audio('sounds/pacman_beginning.mp3');
-var loopGameSound = new Audio('sounds/super-mario.mp3')
+var loopGameSound = new Audio('sounds/super-mario.mp3');
+var loopBlueMonster = new Audio('sounds/wakka.mp3');
 
 var deathSound;
 
@@ -325,7 +326,6 @@ function Start() {
 	interval = setInterval(UpdatePosition, 250);
 
 	/**create monsters interval according their number**/
-
 	setMonstersInterval();
 
 }
@@ -351,6 +351,7 @@ function initMonstersPodition() {
 	}
 
 }
+
 function CandyMove() {
 	if (!isEat) {
 		let counter = 0;
@@ -982,8 +983,9 @@ function catchThePacman(monster) {
 		board[shape.i][shape.j] = 0;
 		Draw();
 		clearAllIntervals();
-
-		setTimeout(afterHalfSecond, 500);
+		loser = true;
+		endGame();
+		// setTimeout(afterHalfSecond, 500);
 	}
 	else {
 		//loseLife
@@ -1060,6 +1062,11 @@ function UpdatePosition() {
 	}
 	else{
 		if(slowMonst){
+			loopBlueMonster.loop = false;
+			loopBlueMonster.pause();
+			loopGameSound.loop = true;
+			loopGameSound.play();
+			loopGameSound.currentTime = 0;
 			slowMonst=false;
 			setMonstersInterval();
 		}
@@ -1121,6 +1128,11 @@ function UpdatePosition() {
 
 	if (board[shape.i][shape.j] ==99) {
 		slowMonst=true;
+		loopGameSound.loop = false;
+		loopGameSound.pause();
+		loopGameSound.currentTime = 0;
+		loopBlueMonster.loop = true;
+		loopBlueMonster.play();
 		window.clearInterval(intervalMonster1);
 		window.clearInterval(intervalMonster2);
 		window.clearInterval(intervalMonster3);
