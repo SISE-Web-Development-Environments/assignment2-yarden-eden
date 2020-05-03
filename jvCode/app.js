@@ -705,8 +705,8 @@ function Draw() {
 				// context.rect(start.x, start.y,cellWidth,cellHeight);
 
 				im = new Image();
-				im.src = "images/star.png";
-				context.drawImage(im, start.x, start.y, cellWidth * 1.2, cellHeight * 1.2);
+				im.src = "images/corona.png";
+				context.drawImage(im, start.x, start.y, cellWidth * 1, cellHeight * 1);
 			}
 
 		}
