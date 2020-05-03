@@ -6,12 +6,12 @@ you can find it here - https://sise-web-development-environments.github.io/assig
 
 At the top of the page you a have a menu that take you to different windows such as -
 * Welcome - home page, you can find here 2 button. 
-<br>1.Sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
-<br>2.Log-in btn: that take you to set settings for the game.
-* Setting - you can set your setting by :
-1. choose your in-game keyboard (press on each arrow and then select a key),
-2. Then you will have to choose the number and colors of pacman's food. 
-3. And after all you have to choose the game time and number of monsters you want to deal with (Note!- greater number of monsters -> difficulty level rising)
+<br>1. Sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
+<br>2. Log-in btn: that take you to set settings for the game.
+* Setting - you can set your setting by : 
+<br>1. choose your in-game keyboard (press on each arrow and then select a key),
+<br>2. Then you will have to choose the number and colors of pacman's food. 
+<br>3. And after all you have to choose the game time and number of monsters you want to deal with (Note!- greater number of monsters -> difficulty level rising)
 For easier life, you can press the Random button that select the settings for you.
 Don't forget to press on - Start in order to start the game.
 * Log-In & Sign-Up 
