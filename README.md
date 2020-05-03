@@ -6,7 +6,9 @@ you can find it here - https://sise-web-development-environments.github.io/assig
 
 At the top of the page you a have a menu that take you to different windows such as -
 * Welcome - home page, you can find here 2 button. 
+
 first, sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
+
 second, log-in btn: that take you to set settings for the game.
 * Setting - you can set your setting by :
 1. choose your in-game keyboard (press on each arrow and then select a key),
