@@ -119,7 +119,7 @@
 
             <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
             <!-- <h1>Welcome To Our Pac-Man Game!</h1> -->
-            <div class="welcomeContainer" style="margin-top: 0px; padding-bottom:150px;">
+            <div class="welcomeContainer" style="margin-top: 0px; padding-bottom: 100px;">
                 <img id="pacman_icon" style="width: 70px; margin-top: -90px;" src="images/pacman_icon_withoutBG.png">
 
                 <p class="cloud-text cloud-title"
@@ -239,51 +239,49 @@
 
 
         <section id="gameSection" name="gameSection"
-            style="display: none; height: 900px; width: 100%; padding-top: 5%;background-image: url(images/gameBack1.jpeg);  background-size:cover;background-repeat: repeat-y;">
+            style="display: none; height: 1100px; width: 100%; padding-top: 5%;background-image: url(images/gameBack1.jpeg);  background-size:cover;background-repeat: repeat-y;">
 
 
             <!--above the board-->
+            <table class="gameImportantDetails " style="width:60%;
+              color: white;margin-top: -3%;   margin-left: 12%;
+         float: left; border: 1px solid white; border-radius: 60px; background-color: black;">
+                <tr>
+                    <!-- <th>
+                    <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
+                        Game</button>
+                </th> -->
+                    <th> <label for="lblUserName">UserName:</label></th>
+                    <th> <input id="lblUserName" type="text" disabled="disabled" /></th>
+                    <th> <label for="lblScore">Score:</label></th>
+                    <th> <input id="lblScore" type="text" disabled="disabled" /></th>
+                    <th> <label for="lblTime">Time:</label> </th>
+                    <th> <input id="lblTime" type="text" /> </th>
+                    <th>
+                        <div id="disqualification">
+                            <table style="margin-left:auto;margin-right:auto;">
+                                <tr>
+                                    <td>Life:</td>
+                                    <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                    <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="30"
+                                            height="30"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </th>
 
+                </tr>
+            </table>
 
             <div class="settingContainer" style="width:1700px;  margin-top: 10px;">
-                <table class="gameImportantDetails " style="width:47%;
-                color: white;margin-top: -3%;   margin-left: 8%;
-           float: left; border: 1px solid white; border-radius: 60px; background-color: black;">
-                  <tr>
-                      <!-- <th>
-                      <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
-                          Game</button>
-                  </th> -->
-                      <th> <label for="lblUserName">UserName:</label></th>
-                      <th> <input id="lblUserName" type="text" disabled="disabled" /></th>
-                      <th> <label for="lblScore">Score:</label></th>
-                      <th> <input id="lblScore" type="text" disabled="disabled" /></th>
-                      <th> <label for="lblTime">Time:</label> </th>
-                      <th> <input id="lblTime" type="text" /> </th>
-                      <th>
-                          <div id="disqualification">
-                              <table style="margin-left:auto;margin-right:auto;">
-                                  <tr>
-                                      <td>Life:</td>
-                                      <td><img id="pacman1" src="./images/pacman_icon_withoutBG.png" width="30"
-                                              height="30"></td>
-                                      <td><img id="pacman2" src="./images/pacman_icon_withoutBG.png" width="30"
-                                              height="30"></td>
-                                      <td><img id="pacman3" src="./images/pacman_icon_withoutBG.png" width="30"
-                                              height="30"></td>
-                                      <td><img id="pacman4" src="./images/pacman_icon_withoutBG.png" width="30"
-                                              height="30"></td>
-                                      <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="30"
-                                              height="30"></td>
-                                      <td><img id="pacman6" src="./images/pacman_icon_withoutBG.png" width="30"
-                                              height="30" style="display: none;;"></td>
-                                  </tr>
-                              </table>
-                          </div>
-                      </th>
-  
-                  </tr>
-              </table>
+
                 <div class="board"
                     style="float: left; display: flex; margin-left: 140px; justify-content: center; margin-top: 0px;">
                     <div class="gameSetting" style="background-image: url(images/setting1.png); height: 600px;     font-size: 15px;">
@@ -330,12 +328,12 @@
                         <div style="display:none; z-index: +1;">
                             <img id="monster-img" src="./images/monster4.jpg" width="300" height="227"
                                 style="z-index: +1; position: relative;">
-                            <!-- <img id="monster2-img" src="./images/monster2.jpg" width="300" height="227"
+                            <img id="monster2-img" src="./images/monster2_withoutBg.png" width="300" height="227"
                                 style="z-index: +1; position: relative;">
-                            <img id="monster3-img" src="./images/monster3.jpg" width="300" height="227"
+                            <img id="monster3-img" src="./images/monster3_withoutBg.png" width="300" height="227"
                                 style="z-index: +1; position: relative;">
-                            <img id="monster4-img" src="./images/monster5.jpg" width="300" height="227"
-                                style="z-index: +1; position: relative;"> -->
+                            <img id="monster4-img" src="./images/monst5.png" width="300" height="227"
+                                style="z-index: +1; position: relative;">
                         </div>
                     </div>
                 </div>
@@ -365,7 +363,7 @@
 
         <section id="settingSection" style="display: none;">
             <div
-                style="background-image: url('images/pacBackground3.jpg'); height: 1100px; width: 100%;   padding-top:3%;">
+                style="background-image: url('images/pacBackground3.jpg'); height: 1100px; width: 100%;   padding-top: 10%;">
                 <div class="settingConteiner">
                     <!-- <img style=" width: 200px; margin-top: -140px;" src ="images/packman4e.jpg"> -->
                     <p class="mainHeadline" style="margin-top: 0px;margin-bottom: 0px;">Almost There...</p>
