@@ -206,7 +206,7 @@ function start(id){
 // let firstColor="";
 // let secondColor="";
 // let thirdColor="";
-let arrayOfColors="";
+var arrayOfColors="";
 function random(id){
     leftChoose="ArrowLeft";
     rightChoose="ArrowRight";
