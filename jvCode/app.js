@@ -511,18 +511,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 350);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 250);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 350);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 250);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 350);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 250);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 350);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 250);
 	}
 }
 
@@ -846,26 +846,47 @@ function bestMove(monster, lastPosition) {
 		right = Infinity;
 	}
 
-	/**find the minimun dist**/
-	var minDist = Math.min(up, down, left, right);
-	if (minDist == up) {
-		return [monster.x, monster.y - 1];
-	}
-	else {
-		if (minDist == down) {
-			return [monster.x, monster.y + 1];
+
+	var rand = Math.floor(Math.random() * 9 + 1);
+
+	if (rand <= 8) {
+		/**find the minimun dist**/
+		var minDist = Math.min(up, down, left, right);
+		if (minDist == up) {
+			return [monster.x, monster.y - 1];
 		}
 		else {
-			if (minDist == left) {
-				return [monster.x - 1, monster.y];
+			if (minDist == down) {
+				return [monster.x, monster.y + 1];
 			}
 			else {
-				if (minDist == right) {
-					return [monster.x + 1, monster.y];
+				if (minDist == left) {
+					return [monster.x - 1, monster.y];
+				}
+				else {
+					if (minDist == right) {
+						return [monster.x + 1, monster.y];
+					}
 				}
 			}
 		}
 	}
+	else {
+		var array = [];
+		array[0]=[monster.x, monster.y - 1];
+		array[1]=[monster.x, monster.y + 1];
+		array[2]=[monster.x - 1, monster.y];
+		array[3]=[monster.x + 1, monster.y];
+
+		var temp = array[Math.floor(Math.random()*array.length)];
+		while(board[temp[0]][temp[1]]==4){
+			temp = array[Math.floor(Math.random()*array.length)];
+		}
+
+		return temp;
+	
+	}
+
 
 }
 
@@ -1107,7 +1128,7 @@ function UpdatePosition() {
 			// UpdateMonsterPosition(true)
 
 		}
-		
+
 		if (board[shape.i][shape.j] == 6) {
 			extraLifeSound.play();
 			isEatMadicn = true;
@@ -1291,13 +1312,13 @@ function backToGame() {
 
 function isPackmanOnManster() {
 
-	if (board[monster1.x][monster1.y]==2 || board[lastPosMonster1.x][lastPosMonster1.y]==2 ||
+	if (board[monster1.x][monster1.y] == 2 || board[lastPosMonster1.x][lastPosMonster1.y] == 2 ||
 		(board[shape.i] == lastPosMonster1.x && board[shape.j] == lastPosMonster1.y) ||
 		(board[shape.i] == monster1.x && board[shape.j] == monster1.y)) {
 		return true;
 	}
 	if (numberOfMonsters >= 2) {
-		if (board[monster2.x][monster2.y]==2 || board[lastPosMonster2.x][lastPosMonster2.y]==2 ||
+		if (board[monster2.x][monster2.y] == 2 || board[lastPosMonster2.x][lastPosMonster2.y] == 2 ||
 			(board[shape.i] == lastPosMonster2.x && board[shape.j] == lastPosMonster2.y) ||
 			(board[shape.i] == monster2.x && board[shape.j] == monster2.y)) {
 			return true;
@@ -1305,7 +1326,7 @@ function isPackmanOnManster() {
 	}
 
 	if (numberOfMonsters >= 3) {
-		if (board[monster3.x][monster3.y]==2 || board[lastPosMonster3.x][lastPosMonster3.y]==2 ||
+		if (board[monster3.x][monster3.y] == 2 || board[lastPosMonster3.x][lastPosMonster3.y] == 2 ||
 			(board[shape.i] == lastPosMonster3.x && board[shape.j] == lastPosMonster3.y) ||
 			(board[shape.i] == monster3.x && board[shape.j] == monster3.y)) {
 			return true;
@@ -1313,7 +1334,7 @@ function isPackmanOnManster() {
 	}
 
 	if (numberOfMonsters == 4) {
-		if (board[monster4.x][monster4.y]==2 || board[lastPosMonster4.x][lastPosMonster4.y]==2 ||
+		if (board[monster4.x][monster4.y] == 2 || board[lastPosMonster4.x][lastPosMonster4.y] == 2 ||
 			(board[shape.i] == lastPosMonster4.x && board[shape.j] == lastPosMonster4.y) ||
 			(board[shape.i] == monster4.x && board[shape.j] == monster4.y)) {
 			return true;
