@@ -21,7 +21,7 @@ To make the game a little more interesting you can find the following functional
 <br>1. Addition of life by eating the medicine icon.
 <br>2. Freezing the monsters for a while by eating the corona icon.
 
-We hope you will enjoy at least as much as we enjoyed doing it :)
+We hope you will enjoy to play at least as much as we enjoyed doing it :)
 
 ID's- 206015141, 311322077
  
