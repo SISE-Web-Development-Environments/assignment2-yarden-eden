@@ -3,7 +3,7 @@ var leftChoose="";
 var rightChoose="";
 var downChoose="";
 var upChoose="";
-let isLissen=false;
+var isLissen=false;
 function leftKeyHandling() {
     if(isLissen==false){
         isLissen=true;
