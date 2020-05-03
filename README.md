@@ -1,11 +1,9 @@
 # Assignment2
 
-Hello, our name are Yarden Schwartz and Eden Mizrahi and that's our Pacm-Man game.	
- 
+The Pacm-Man game was created by Eden Mizrahi and Yarden Schwartz.	
 you can find it here - https://sise-web-development-environments.github.io/assignment1-yardenSchwartz/
 
-you a have a menu that take you to different windows such as -
-
+At the top of the page you a have a menu that take you to different windows such as -
 * Welcome - home page, you can find here 2 button. 
 first, sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
 second, log-in btn: that take you to set settings for the game.
