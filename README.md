@@ -1,11 +1,9 @@
 # Assignment2
 
-Hello, our name are Yarden Schwartz and Eden Mizrahi and that's our Pacm-Man game.	
- 
+The Pacm-Man game was created by Eden Mizrahi and Yarden Schwartz.	
 you can find it here - https://sise-web-development-environments.github.io/assignment1-yardenSchwartz/
 
-you a have a menu that take you to different windows such as -
-
+At the top of the page you a have a menu that take you to different windows such as -
 * Welcome - home page, you can find here 2 button. 
 first, sign-up btn: sign-up button, if you haven't signed up, now it's a good time :) 
 second, log-in btn: that take you to set settings for the game.
@@ -17,12 +15,11 @@ For easier life, you can press the Random button that select the settings for yo
 Don't forget to press on - Start in order to start the game.
 * Log-In & Sign-Up 
 * About - a little bit of information about the code&design and the difficults we faced.
-
 To make the game a little more interesting you can find the following functionality -
 1. Addition of life by eating the medicine icon.
 2. Freezing the monsters for a while by eating the star icon.
 
 We hope you will enjoy at least as much as we enjoyed doing it :)
 
-ID-206015141
+ID's- 206015141, 311322077
  
