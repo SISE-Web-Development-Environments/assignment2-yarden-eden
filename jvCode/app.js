@@ -623,78 +623,21 @@ function Draw() {
 					context.shadowBlur = 0;
 					context.shadowOffsetX = 0;
 					context.shadowOffsetY = 0;
-					// context.font = "bold 10px Ariel";
-					// context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
-					// context.fillText('5', centerX - 2, centerY + 3);
+					
 				}
 
 			if (board[i][j] == 15) {
 				context.beginPath();
 				context.arc(centerX, centerY, 8, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("colorpadsecond").value;
-
-				// context.shadowColor = document.getElementById("colorpadsecond").value; // string
-				//Color of the shadow;  RGB, RGBA, HSL, HEX, and other inputs are valid.
-				// context.shadowBlur = 40;
-				// context.shadowOffsetX = 0;
-				// context.shadowOffsetY = 0;
-				// context.stroke();
 				context.fill();
-				// context.shadowBlur = 0;
-				// context.shadowOffsetX = 0;
-				// context.shadowOffsetY = 0;
-
-				// context.fill();
-				// context.font = "bold 12px Ariel";
-				// context.fillStyle = invertColor(document.getElementById("colorpadfirstthird").value);
-				// context.fillText('15', centerX - 7, centerY + 4);
+			
 			}
 			if (board[i][j] == 25) {
 				context.beginPath();
 				context.arc(centerX, centerY, 10, 0, 2 * Math.PI); // circle
 				context.fillStyle = document.getElementById("colorpadfirstthird").value;
-
-
-
-
-				// context.lineWidth = 2;
-				// context.strokeStyle = document.getElementById("colorpadfirst").value;
-
-				// context.shadowColor =document.getElementById("colorpadfirst").value;
-				// context.shadowBlur = 50;
-				// context.shadowOffsetX = 0;
-				// context.shadowOffsetY = 0;
-
-				// context.stroke();
-
 				context.fill();
-				// context.shadowBlur =0;
-				// context.shadowOffsetX = 0;
-				// context.shadowOffsetY = 0;
-				// context.shadowColor = "red";
-				// // document.getElementById("colorpadfirstthird").value; // string
-				// //Color of the shadow;  RGB, RGBA, HSL, HEX, and other inputs are valid.
-				// context.shadowBlur = 90;
-				// context.shadowOffsetX = 0;
-				// context.shadowOffsetY = 0;
-				// context.stroke();
-				// context.fill();
-				// context.shadowBlur = 0;
-				// context.shadowOffsetX = 0;
-				// context.shadowOffsetY = 0;
-
-
-
-				// let negativeColor = invertColor(document.getElementById("colorpadfirstthird").value);
-				// context.arc(centerX, centerY, 12, 0, 2 * Math.PI);
-				// context.lineWidth = 2;
-				// context.strokeStyle = "red";
-				// context.stroke();
-
-				// context.font = "bold 15px Lucida Console";
-				// context.fillStyle = negativeColor
-				// context.fillText('25', centerX - 10, centerY + 5);
-
 			}
 			/*Walls*/
 			else
@@ -886,8 +829,6 @@ function bestMove(monster, lastPosition) {
 		return temp;
 	
 	}
-
-
 }
 
 function drawDead(ctx) {
@@ -934,20 +875,7 @@ function drawDead(ctx) {
 		context.lineTo(shape.i + ghx + x * d1, shape.j + ghy + y * d1);
 	})
 	ctx.stroke();
-	// var size = canvas.width / 30;
-	// var half = size / 2;
 
-	// context.fillStyle = "#FFFF00";
-	// context.beginPath();
-	// context.moveTo(((shape.i / 10) * canvas.width) + half,
-	// 	((shape.j / 10) * canvas.height) + half);
-
-	// context.arc(((shape.i / 10) * canvas.width) + half,
-	// 	((shape.j / 10) * canvas.height) + half,
-	// 	half, 0, Math.PI * 2, true);
-
-	// context.fill();
-	// Draw();
 }
 
 
@@ -1021,12 +949,8 @@ function UpdateMonsterPosition(monster, lastPosition) {
 
 		//catch the pacman
 		if (board[monster.x][monster.y] == 2 || board[lastPosition.x][lastPosition.y] == 2 || isPackmanOnManster() == true) {
-			// shape.i = emptyCell[0];
-			// shape.j = emptyCell[1];
 			catchThePacman(monster);
 		}
-		// board[monster1.x, monster1.y] = 3;
-		// Draw();
 	}
 	else {
 		catchThePacman(monster);
@@ -1188,17 +1112,9 @@ function UpdatePosition() {
 
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
-	// if (score >= 20 && time_elapsed <= 10) {
-	// 	pac_color = "green";
-	// }
-	// if (score == 50) {
-	// 	window.clearInterval(interval);
-	// 	window.alert("Game completed");
-	// } else {
 
 	if (time_elapsed >= gameTime) {
-		// window.clearInterval(interval);
-		// window.clearInterval(foodInterval);
+
 		clearAllIntervals();
 		if (score < 100) {
 			better = true;
@@ -1216,37 +1132,6 @@ function UpdatePosition() {
 	// }
 }
 
-// function startNewGame(){
-// 	lost = 0;
-// 	setUpSetting();
-// 	//init timer
-// 	start();
-// }
-
-// function invertColor(hex) {
-//     if (hex.indexOf('#') === 0) {
-//         hex = hex.slice(1);
-//     }
-//     // convert 3-digit hex to 6-digits.
-//     if (hex.length === 3) {
-//         hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-//     }
-//     if (hex.length !== 6) {
-//         throw new Error('Invalid HEX color.');
-//     }
-//     // invert color components
-//     var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
-//         g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
-//         b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
-//     // pad each with zeros and return
-//     return '#' + padZero(r) + padZero(g) + padZero(b);
-// }
-
-// function padZero(str, len) {
-//     len = len || 2;
-//     var zeros = new Array(len).join('0');
-//     return (zeros + str).slice(-len);
-// }
 
 function invertColor(hexTripletColor) {
 	var color = hexTripletColor;

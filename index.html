@@ -50,17 +50,6 @@
         <div class="logo"></div>
     </header>
 
-    <!-- <div class="game-header" style=" margin-top: -30px">
-        <p><b>PAC-MAN Game Application</b></p>
-    </div>
-    <div class="page-header">
-        <p>Code By: Eden Mizrahi & Yarden Schwartz</p>
-    </div> -->
-
-    <!-- <div class="header">
-        <h1>Header</h1>
-            
-    </div> -->
     <div class="menuContext">
         <div class="menu" id="menu">
             <img id="pacman_icon" style="width: 5%; height: 60px;  margin-top: 1px"
@@ -99,25 +88,7 @@
     <div id="mainContainer" class="main" style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height:100%;">
         <section id="dataWelcome"
             style=" height: 900px; width: 100%;   padding-top: 10%;background-image: url('images/welcomeBackground2.jpg');">
-            <!-- <svg viewBox="0 0 960 300">
-                <symbol id="s-text">
-                    <text text-anchor="middle" x="50%" y="80%">Welcome To Pac-Man!</text>
-                </symbol>
-            
-                <g class = "g-ants">
-                    <use xlink:href="#s-text" class="text-copy"></use>
-                    <use xlink:href="#s-text" class="text-copy"></use>
-                    <use xlink:href="#s-text" class="text-copy"></use>
-                    <use xlink:href="#s-text" class="text-copy"></use>
-                    <use xlink:href="#s-text" class="text-copy"></use>
-                </g>
-            </svg> -->
 
-
-            <!-- <p class="cloud-text attribute">Photo by <a href="https://unsplash.com/photos/Xk0uzYL3lyY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Setu Anand</a> on <a href="https://unsplash.com/search/photos/coal?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p> -->
-
-            <!-- style="margin:0px 0px 0px 0px;padding: 0px 0px 0px 0px; height: 500px;" -->
-            <!-- <h1>Welcome To Our Pac-Man Game!</h1> -->
             <div class="welcomeContainer" style="margin-top: 0px; padding-bottom: 100px;">
                 <img id="pacman_icon" style="width: 70px; margin-top: -90px;" src="images/pacman_icon_withoutBG.png">
 
@@ -125,27 +96,6 @@
                     style="	background-image: url('images/packmanBack3.jpg'); margin-bottom: 0px ; padding-bottom: 0px; margin-top: 0px;">
                     Welcome To<br> Pac-Man!</p>
 
-                <!-- <button type="button" class="signup-btn" onclick="changeWindowById('dataRegister')">Sign in</button> -->
-                <!-- <div class="contact-fp-wrap">
-                    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                     <linearGradient id="logo-gradient" x1="50%" y1="0%" x2="75%" y2="100%" > 
-                              
-                              <stop offset="0%" stop-color="#F79533">
-                                  <animate attributeName="stop-color" values="#F79533; #F37055; #EF4E7B; #A166AB; #5073B8; #1098AD; #07B39B; #6DBA82; #F79533" dur="4s" repeatCount="indefinite"></animate>
-                              </stop>
-                  
-                              <stop offset="100%" stop-color="#F79533">
-                                  <animate attributeName="stop-color" values="#F37055; #EF4E7B; #A166AB; #5073B8; #1098AD; #07B39B; #6DBA82; #F79533; #F37055" dur="4s" repeatCount="indefinite"></animate>
-                              </stop>
-                  
-                          </linearGradient> 
-                    </defs>
-                      <rect class="booton" height="60" width="320" />
-                    </svg>
-                     <div class="booton-text" style="text-align: center;">Sign Up</div>
-                  </div>
-           -->
 
                 <div style="float: left; display: flex; justify-content: center; margin-left: 35%;">
                     <a href="#" class="rainbow-button" alt="Sign Up" onclick="changeWindowById('dataRegister')"></a>
@@ -155,14 +105,13 @@
 
                 </div>
 
-                <!-- <button type="button" class="login-btn" onclick="changeWindowById('dataLogin')">Login</button> -->
             </div>
 
 
         </section>
 
         <section id="dataRegister"
-            style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px; width: 100%;   padding-top: 4%;">
+            style="display: none; background-image: url(images/pacman_background.jpg);  height: 900px; width: 100%;   padding-top: 4%;">
 
             <div class="registerContainer" style="margin:0 auto;">
 
@@ -213,10 +162,11 @@
         </section>
 
         <section id="dataLogin"
-            style="display: none; background-image: url(images/pacman_background.jpg);  height: 1100px; width: 100%;   padding-top: 4%;">
+            style="display: none; background-image: url(images/pacman_background.jpg);  height: 700px; width: 100%;   padding-top: 4%;">
             <div class="loginContainer" id="loginContainer">
                 <form id="loginForm" role="form" method="post" action="">
                     <h1 class="loginHeader" style=" margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">Log-in</h1>
+                    <p class="error" id="errorId" style="margin-top: 0;">  </p>
                     <table class="loginTable" style="width:80%; margin: 0 auto;  table-layout: fixed; ">
                         <tr>
                             <th><label for="login_username">User Name</label></th>
@@ -271,8 +221,8 @@
                                             height="30"></td>
                                     <td><img id="pacman5" src="./images/pacman_icon_withoutBG.png" width="30"
                                             height="30"></td>
-                                    <td><img style="display: none;" id="pacman6" src="./images/pacman_icon_withoutBG.png" width="30"
-                                                height="30"></td>
+                                    <td><img style="display: none;" id="pacman6"
+                                            src="./images/pacman_icon_withoutBG.png" width="30" height="30"></td>
                                 </tr>
                             </table>
                         </div>
@@ -285,7 +235,8 @@
 
                 <div class="board"
                     style="float: left; display: flex; margin-left: 140px; justify-content: center; margin-top: 0px;">
-                    <div class="gameSetting" style="background-image: url(images/setting1.png); height: 600px;     font-size: 15px;">
+                    <div class="gameSetting"
+                        style="background-image: url(images/setting1.png); height: 600px;     font-size: 15px;">
                         <div class="arrows">
                             <i id="up-arrow" class="fas fa-arrow-up" style="font-size: 15px;"></i>
                             <br>
@@ -298,23 +249,30 @@
 
                         <div class="otherSetting" style="color:black;">
                             <br>
-                            <span class="setting-text"  style="font-size: 15px;">👹 Monsters: </span><i id="monster-setting"></i>
+                            <span class="setting-text" style="font-size: 15px;">👹 Monsters: </span><i
+                                id="monster-setting"></i>
 
-                            <p><i class="fas fa-circle" id="firstPoint" style="font-size: 15px;"></i> <span class="setting-text" style="font-size: 15px;">- 5 Point</span>
+                            <p><i class="fas fa-circle" id="firstPoint" style="font-size: 15px;"></i> <span
+                                    class="setting-text" style="font-size: 15px;">- 5 Point</span>
                             </p>
 
-                            <p><i class="fas fa-circle" id="secondPoint" style="font-size: 15px;margin-bottom: 0px;"></i><span class="setting-text" style="font-size: 15px; margin-bottom: 0px;">- 15
+                            <p><i class="fas fa-circle" id="secondPoint"
+                                    style="font-size: 15px;margin-bottom: 0px;"></i><span class="setting-text"
+                                    style="font-size: 15px; margin-bottom: 0px;">- 15
                                     Point</span></p>
 
-                            <p><i class="fas fa-circle" id="thirdPoint" style="font-size: 15px;"></i><span class="setting-text" style="font-size: 15px;">- 25 Point</span>
+                            <p><i class="fas fa-circle" id="thirdPoint" style="font-size: 15px;"></i><span
+                                    class="setting-text" style="font-size: 15px;">- 25 Point</span>
                             </p>
                             </i>
-                            <span class="setting-text" style="font-size: 15px;">Total Balls: </span><i id="totalBalls"></i>
+                            <span class="setting-text" style="font-size: 15px;">Total Balls: </span><i
+                                id="totalBalls"></i>
                             <br>
-                            
-                            <span class="setting-text" style="font-size: 15px;">Total Time: </span><i id="totalTime"></i>
+
+                            <span class="setting-text" style="font-size: 15px;">Total Time: </span><i
+                                id="totalTime"></i>
                             <br>
-                          
+
                             <!-- <button type="button" class="newGame-bth" style="position: center;"
                                 onclick="startNewGame()">Start<br>New
                                 Game</button> -->
@@ -344,19 +302,23 @@
         <!-- <section id="aboutSection">
         </section> -->
         <div class="model" id="model" style=" background-image: url(images/pacBackground1.jpg);  background-repeat: no-repeat;
-        background-size:500px 280px; text-align: center;">
+        background-size:500px 380px; text-align: center;">
             <div class="model-header">
                 <div class="title" style="color: azure; font-family: cursive;font-size: 30px;"> About Us</div>
                 <button class="close-button" onclick="closeModel()">&times;</button>
             </div>
             <div class="model-body">
-                <p style="color: azure; font-family: cursive;">Code and develop by Yarden Schwartz and Eden Mizrahi.
+                <p style="color: azure; font-family: cursive;">
+                    Code and develop by Yarden Schwartz and Eden Mizrahi.
                     <br>
-                    JQuery Plugin:
+                    <strong>JQuery Plugin:</strong> none
                     <br>
-                    jQuery Template:
+                    <strong>jQuery Template:</strong> none
                     <br>
-                    We had no difficulty in this work :)
+                    The most complex part for us was understanding and learning a new languages from zero,
+                    and to handle with languages without compiler 😄
+                    <br>
+                    We hope you enjoy our game at least as much we enjoyed doing it :)
                     <br>
                 </p>
             </div>
@@ -488,14 +450,16 @@
             font-family: 'Sigmar One'; margin-bottom: 0px;"><b>Packman</b><img src="images/footerIcon.png"
                     alt="Smiley face" height="50" width="42"></h3>
             <p class="footer-links" style="margin-top: 0px;">
-                <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1" style="color: #CCCC00;font-size: 15px;">Home</a>
-                
-                <a href="#" onclick="changeWindowById('dataRegister')" style="color: #FFFF00;font-size: 15px;">Sign In</a>
-            
-                <a href="#"  onclick="changeWindowById('dataLogin')" style="color: #FFFF99	;font-size: 15px;" >Log In</a>
-            
-                <a href="#"  style="color: #FFFFCC	; font-size: 15px;" onclick="openModel()" >About</a>
-            
+                <a href="#" onclick="changeWindowById('dataWelcome')" class="link-1"
+                    style="color: #CCCC00;font-size: 15px;">Home</a>
+
+                <a href="#" onclick="changeWindowById('dataRegister')" style="color: #FFFF00;font-size: 15px;">Sign
+                    In</a>
+
+                <a href="#" onclick="changeWindowById('dataLogin')" style="color: #FFFF99	;font-size: 15px;">Log In</a>
+
+                <a href="#" style="color: #FFFFCC	; font-size: 15px;" onclick="openModel()">About</a>
+
             </p>
             <p class="footer-company-about" style="text-align: left; font-family: 'Chewy';">
                 <span
@@ -520,12 +484,12 @@
 
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a  style="font-size: 15px;" href="mailto:schyarde@post.bgu.ac.il">schyarde@post.bgu.ac.il</a></p>
+                <p><a style="font-size: 15px;" href="mailto:schyarde@post.bgu.ac.il">schyarde@post.bgu.ac.il</a></p>
             </div>
 
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a  style="font-size: 15px;" href="mailto:edenmizr@post.bgu.ac.il">edenmizr@post.bgu.ac.il</a></p>
+                <p><a style="font-size: 15px;" href="mailto:edenmizr@post.bgu.ac.il">edenmizr@post.bgu.ac.il</a></p>
             </div>
 
 
@@ -534,20 +498,20 @@
         <div class="footer-right" style="padding-top: 0px;">
 
             <div class="footer-icons" style="margin-top: 0px;">
-    <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
+                <p style="margin-top: 0px; font-family: Dancing Script; margin-bottom: 5px;"><b>Yarden Schwartz:</b></p>
                 <a href="https://www.facebook.com/yarden.schwartz.7"><i class="fa fa-facebook"></i></a>
-    
+
                 <a href="https://www.linkedin.com/in/yarden-schwartz-60a5b0177/"><i class="fa fa-linkedin"></i></a>
                 <a href="https://github.com/yardenSchwartz?tab=repositories"><i class="fa fa-github"></i></a>
-    
-      <br>
-      <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
-      
-                          <a href="https://www.facebook.com/eden.mizrahi.18"><i class="fa fa-facebook"></i></a>
-    
+
+                <br>
+                <p style="font-family: Dancing Script; margin-bottom: 5px;">EdenMizrahi: </p>
+
+                <a href="https://www.facebook.com/eden.mizrahi.18"><i class="fa fa-facebook"></i></a>
+
                 <a href="https://www.linkedin.com/in/eden-mizrahi-1264841a3/"><i class="fa fa-linkedin"></i></a>
                 <a href="https://github.com/edenmizrahi?tab=repositories"><i class="fa fa-github"></i></a>
-    
+
             </div>
             <p class="footer-company-name" style="margin-top: 35px;">Yarden Schwartz & Eden Mizrahi ֲ© 2020</p>
             <!-- <img src="images/monsrersbg.png" alt="Smiley face" height="50" width="250"> -->

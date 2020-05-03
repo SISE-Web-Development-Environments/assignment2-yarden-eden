@@ -4,11 +4,8 @@ $(document).ready(function () {
     $('#registrationForm').validate({
         rules: {
             fullname: {
-                // pattern: '^([a-zA-Z]+\\s)*[a-zA-Z]+$',
                 pattern: '^\s*[a-zA-Z]+[ ][a-zA-z]+\s*$',
                 required: true,
-                //checkFullName: true,
-                //wordCount: 2,
             },
             register_username: {
                 required: true,
@@ -39,7 +36,7 @@ $(document).ready(function () {
                 minlength: "At least 2 characters"
             },
             register_password: {
-                pattern: "Numbers and letters, at lease 6 characters",
+                pattern: "Numbers and letters, at least 6 characters",
                 required: "Please provide a password",
             },
             email: {
@@ -52,20 +49,18 @@ $(document).ready(function () {
 });
 
 function saveUser() {
-    let name = document.getElementById("register_username").value;
-    let password = document.getElementById("register_password").value;
-    //const userFullName = document.getElementById("fullname").value;
-    //const userMail = document.getElementById("email").value;
-    //const userBirthDay = document.getElementById("dt").value;
-    
+    let name = $("#register_username").val();
+    let password = $("#register_password").val();
+  
     let user={name,password};
     if(addUser(user)){
         return true;
     }
     else{
         //reset inputs fields of username and password
-        document.getElementById("register_password").value = "";
-        document.getElementById("register_username").value = "";
+        $("#register_password").val('');
+        $("#register_username").val('');
+        
         return false;
     }
     
@@ -75,11 +70,16 @@ function register(){
     if ($('#registrationForm').valid()) {
         if(saveUser()){
             //reset the inputs fields
-            document.getElementById("fullname").value = "";
-            document.getElementById("register_password").value = "";
-            document.getElementById("register_username").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("bDate").value = "";
+            $("#fullname").val('');
+            $("#register_password").val('');
+            $("#register_username").val('');
+            $("#email").val('');
+            $("#bDate").val('');
+            // document.getElementById("fullname").value = "";
+            // document.getElementById("register_password").value = "";
+            // document.getElementById("register_username").value = "";
+            // document.getElementById("email").value = "";
+            // document.getElementById("bDate").value = "";
             
             alert("submitted!");
             changeWindowById("dataLogin")
