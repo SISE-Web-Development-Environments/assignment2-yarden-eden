@@ -511,18 +511,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 550);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 350);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 550);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 350);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 550);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 350);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 550);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 350);
 	}
 }
 
