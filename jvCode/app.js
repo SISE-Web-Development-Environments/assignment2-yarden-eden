@@ -40,6 +40,10 @@ var monster2;
 var monster3;
 var monster4;
 
+var lastPosMonster1;
+var lastPosMonster2;
+var lastPosMonster3;
+var lastPosMonster4;
 
 var intervalMonster1;
 var intervalMonster2;
@@ -151,39 +155,70 @@ function setUpSetting() {
 
 function Start() {
 	board = new Array();
+	// board = [
+	// 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
+	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
+	// 	[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+	// 	[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+	// ];
 	board = [
 		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
-		[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
-		[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
-		[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 4, 4],
 		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
+		[4, 0, 4, 0, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
+		[4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 4, 4, 0, 4],
+		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 0, 4],
+		[4, 0, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 0, 4],
+		[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4],
+		[4, 0, 4, 4, 0, 0, 0, 4, 4, 0, 4, 4, 4, 4, 0, 0, 4, 4, 4, 4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4],
+		[4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4, 0, 4, 4, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4],
+		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 0, 0, 4, 4, 0, 0, 0, 4],
+		[4, 0, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 4, 4, 0, 0, 4, 4, 0, 0, 0, 4],
 		[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
-		[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 4],
-		[4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
-		[4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 0, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4],
+		[4, 0, 4, 0, 4, 4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 4, 4, 0, 4, 4, 0, 4, 4, 4],
+		[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 4],
+		[4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 4, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 4],
+		[4, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
 		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 	];
-	
 	looser = false;
 	better = false;
 	slowMonst=false;
@@ -297,17 +332,21 @@ function Start() {
 
 function initMonstersPodition() {
 	monster1 = { x: 28, y: 1 };
+	lastPosMonster1 = { x: 28, y: 1 };
 	board[28][1] = 3;
 	if (numberOfMonsters >= 2) {
 		monster2 = { x: 28, y: 28 };
+		lastPosMonster2 = { x: 28, y: 28 };
 		board[28][28] = 3;
 	}
 	if (numberOfMonsters >= 3) {
 		monster3 = { x: 1, y: 28 };
+		lastPosMonster3 = { x: 1, y: 28 };
 		board[1][28] = 3;
 	}
 	if (numberOfMonsters == 4) {
 		monster4 = { x: 1, y: 1 };
+		lastPosMonster4 = { x: 1, y: 1 };
 		board[1][1] = 3;
 	}
 
@@ -498,18 +537,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1)", 350);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 200);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2)", 350);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 200);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3)", 350);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 200);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4)", 350);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 200);
 	}
 }
 
@@ -785,14 +824,14 @@ function drawMonsters() {
 
 
 
-function bestMove(monster) {
+function bestMove(monster, lastPosition) {
 	let up;
 	let down;
 	let left;
 	let right;
 
 	//up
-	if (board[monster.x][monster.y - 1] != 4) {
+	if (board[monster.x][monster.y - 1] != 4 && (lastPosition.y+1!=monster.y) ){
 		var deltaX = Math.abs((monster.x) - shape.i);
 		var deltaY = Math.abs((monster.y - 1) - shape.j);
 		up = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -803,7 +842,7 @@ function bestMove(monster) {
 	}
 
 	//down
-	if (board[monster.x][monster.y + 1] != 4) {
+	if (board[monster.x][monster.y + 1] != 4  && (lastPosition.y-1!=monster.y)) {
 		var deltaX = Math.abs(monster.x - shape.i);
 		var deltaY = Math.abs((monster.y + 1) - shape.j);
 		down = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -814,7 +853,7 @@ function bestMove(monster) {
 	}
 
 	//left
-	if (board[monster.x - 1][monster.y] != 4) {
+	if (board[monster.x - 1][monster.y] != 4  && (lastPosition.x+1!=monster.x) ) {
 		var deltaX = Math.abs((monster.x - 1) - shape.i);
 		var deltaY = Math.abs(monster.y - shape.j);
 		left = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -825,7 +864,7 @@ function bestMove(monster) {
 	}
 
 	//right
-	if (board[monster.x + 1][monster.y] != 4) {
+	if (board[monster.x + 1][monster.y] != 4  && (lastPosition.x-1!=monster.x)) {
 		var deltaX = Math.abs((monster.x + 1) - shape.i);
 		var deltaY = Math.abs(monster.y - shape.j);
 		right = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
@@ -986,10 +1025,14 @@ function afterHalfSecond() {
 	endGame();
 }
 
-function UpdateMonsterPosition(monster) {
+function UpdateMonsterPosition(monster, lastPosition) {
 	//what happend after doing the move ?
 
-	let move = bestMove(monster);
+	let move = bestMove(monster, lastPosition);
+	/**update last move**/
+	lastPosition.x = monster.x;
+	lastPosition.y = monster.y;
+	/**update last move**/
 	monster.x = move[0];
 	monster.y = move[1];
 
@@ -1257,23 +1300,43 @@ function backToGame() {
 
 function isPackmanOnManster() {
 
-	if (board[shape.i] == monster1.x && board[shape.j] == monster1.y) {
+	// if (board[shape.i] == monster1.x && board[shape.j] == monster1.y) {
+	// 	return true;
+	// }
+	// if (numberOfMonsters >= 2) {
+	// 	if (board[shape.i] == monster2.x && board[shape.j] == monster2.y) {
+	// 		return true;
+	// 	}
+	// }
+
+	// if(numberOfMonsters>=3){
+	// 	if (board[shape.i] == monster3.x && board[shape.j] == monster3.y) {
+	// 		return true;
+	// 	}
+	// }
+	
+	// if(numberOfMonsters==4){
+	// 	if (board[shape.i] == monster4.x && board[shape.j] == monster4.y) {
+	// 		return true;
+	// 	}
+	// }
+	if (board[shape.i] == lastPosMonster1.x && board[shape.j] == lastPosMonster1.y) {
 		return true;
 	}
 	if (numberOfMonsters >= 2) {
-		if (board[shape.i] == monster2.x && board[shape.j] == monster2.y) {
+		if (board[shape.i] == lastPosMonster2.x && board[shape.j] == lastPosMonster2.y) {
 			return true;
 		}
 	}
 
 	if(numberOfMonsters>=3){
-		if (board[shape.i] == monster3.x && board[shape.j] == monster3.y) {
+		if (board[shape.i] == lastPosMonster3.x && board[shape.j] == lastPosMonster3.y) {
 			return true;
 		}
 	}
 	
 	if(numberOfMonsters==4){
-		if (board[shape.i] == monster4.x && board[shape.j] == monster4.y) {
+		if (board[shape.i] == lastPosMonster4.x && board[shape.j] == lastPosMonster4.y) {
 			return true;
 		}
 	}
