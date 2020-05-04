@@ -11,6 +11,7 @@ var leftCode;
 var rightCode;
 var upCode;
 var downCode;
+var numOfFood;
 
 var slowMonst;
 var numberOfSec = 0;
@@ -77,6 +78,7 @@ function clearAllIntervals() {
 	window.clearInterval(intervalMonster2);
 	window.clearInterval(intervalMonster3);
 	window.clearInterval(intervalMonster4);
+	window.clearInterval(timmer);
 	isInGame = false;
 	loopGameSound.loop = false;
 	loopGameSound.pause();
@@ -215,6 +217,7 @@ function Start() {
 	pac_color = "yellow";
 	var cnt = 312;
 	var food_remain = document.getElementById("numberOfBalls").value;
+	numOfFood=food_remain;
 	var pacman_remain = 1;
 	start_time = new Date();
 	var numberOfMonsters = document.getElementById("numberOfMonsters").value;
@@ -305,11 +308,13 @@ function Start() {
 			e.preventDefault();
 		}
 	}, false);
-	foodInterval = setInterval(CandyMove, 200);
-	interval = setInterval(UpdatePosition, 250);
+	foodInterval = setInterval(CandyMove, 90);
+	interval = setInterval(UpdatePosition, 120);
+	timmer = setInterval(updateTimmer, 250);
 
 	/**create monsters interval according their number**/
 	setMonstersInterval();
+	
 
 }
 
@@ -521,18 +526,18 @@ function CandyMove() {
 }
 
 function setMonstersInterval() {
-	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 400);
+	intervalMonster1 = setInterval("UpdateMonsterPosition(monster1,lastPosMonster1)", 220);
 
 	if (numberOfMonsters >= 2) {
-		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 400);
+		intervalMonster2 = setInterval("UpdateMonsterPosition(monster2,lastPosMonster2)", 220);
 	}
 
 	if (numberOfMonsters >= 3) {
-		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 400);
+		intervalMonster3 = setInterval("UpdateMonsterPosition(monster3,lastPosMonster3)", 220);
 	}
 
 	if (numberOfMonsters == 4) {
-		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 400);
+		intervalMonster4 = setInterval("UpdateMonsterPosition(monster4,lastPosMonster4)", 220);
 	}
 }
 
@@ -563,10 +568,18 @@ function GetKeyPressed() {
 	}
 }
 
+function updateTimmer(){
+	var currentTime = new Date();
+	time_elapsed = (currentTime - start_time) / 1000;
+	lblTime.value = gameTime-time_elapsed;
+	
+
+}
+
 function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score;
-	lblTime.value = gameTime-time_elapsed;
+	// lblTime.value = gameTime-time_elapsed;
 	var cellHeight = canvas.height / 30;
 	var cellWidth = canvas.width / 30;
 	for (var i = 0; i < 30; i++) {
@@ -1062,14 +1075,17 @@ function UpdatePosition() {
 		if (board[shape.i][shape.j] == 5) {
 			eatSound.play();
 			score = score + 5;
+			numOfFood--;
 		}
 		if (board[shape.i][shape.j] == 15) {
 			eatSound.play();
 			score = score + 15;
+			numOfFood--;
 		}
 		if (board[shape.i][shape.j] == 25) {
 			eatSound.play();
 			score = score + 25;
+			numOfFood--;
 		}
 
 
@@ -1154,8 +1170,9 @@ function UpdatePosition() {
 	}
 
 
-	var currentTime = new Date();
-	time_elapsed = (currentTime - start_time) / 1000;
+	// var currentTime = new Date();
+
+	// time_elapsed = (currentTime - start_time) / 1000;
 	// if (score >= 20 && time_elapsed <= 10) {
 	// 	pac_color = "green";
 	// }
@@ -1168,6 +1185,12 @@ function UpdatePosition() {
 		lblTime.style.size="50px";
 	
 	}
+	if(numOfFood==0&&isEat){
+		clearAllIntervals();
+		winner = true;
+		endGame();
+	}
+	else{
 	if (gameTime - time_elapsed <= 0) {
 		// window.clearInterval(interval);
 		// window.clearInterval(foodInterval);
@@ -1184,6 +1207,7 @@ function UpdatePosition() {
 	else {
 		Draw();
 	}
+}
 
 	// }
 }
