@@ -162,7 +162,7 @@ function setUpPacmanLose() {
 }
 
 function setUpSetting() {
-	document.getElementById("lblUserName").value = currentLoginUser;//write the current userName
+	document.getElementById("lblUserName").innerText = currentLoginUser;//write the current userName
 	// document.getElementById("lblDisqualification").value = lost;
 	document.getElementById("left-arrow").innerText = ": " + leftChoose;
 
