@@ -71,6 +71,26 @@ var deathSound;
 // 	Start();
 // });
 
+function soundOn(){
+	loopGameSound.loop = true;
+	loopGameSound.play();
+
+	document.getElementById("onSound").style.display = "block";
+	document.getElementById("muteSound").style.display = "none";
+
+	
+}
+
+function soundOff(){
+	loopGameSound.loop = false;
+	loopGameSound.pause();
+	loopGameSound.currentTime = 0;
+
+	document.getElementById("onSound").style.display = "none";
+	document.getElementById("muteSound").style.display = "block";
+
+}
+
 function clearAllIntervals() {
 	window.clearInterval(foodInterval);
 	window.clearInterval(interval);
@@ -89,12 +109,13 @@ function clearAllIntervals() {
 
 function startNewGame() {
 	clearAllIntervals();
+	soundOn();
 	readyToGame();
 }
+
 function readyToGame() {
 
 	lost = 0;
-
 
 	isInGame = true;
 	// document.getElementById("start").addEventListener("click", setUpSetting);  
@@ -144,6 +165,8 @@ function setUpPacmanLose() {
 }
 
 function setUpSetting() {
+
+
 	document.getElementById("lblUserName").value = currentLoginUser;//write the current userName
 	// document.getElementById("lblDisqualification").value = lost;
 	document.getElementById("left-arrow").innerText = ": " + leftChoose;

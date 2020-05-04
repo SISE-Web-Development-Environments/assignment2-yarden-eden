@@ -197,14 +197,10 @@
             <!--above the board-->
             <table class="gameImportantDetails " style="width:60%;
               color: white;margin-top: -3%;   margin-left: 12%;
-         float: left; border: 1px solid white; border-radius: 60px; background-color: black;">
+         float: left; border: 2px solid white; border-radius: 60px; background-color: black;">
                 <tr>
-                    <!-- <th>
-                    <button type="button" class="newGame-bth" style="position: center;" onclick="readyToGame()">Start<br>New
-                        Game</button>
-                </th> -->
-                    <th> <label for="lblUserName">UserName:</label></th>
-                    <th> <input id="lblUserName" type="text" disabled="disabled" /></th>
+                    <th> <label for="lblUserName" style="font-size: 30px; color: red;"><strong>Welcome </strong></label></th>
+                    <th> <input id="lblUserName" type="text" disabled="disabled"></th>
                     <th> <label for="lblScore">Score:</label></th>
                     <th> <input id="lblScore" type="text" disabled="disabled" /></th>
                     <th> <label for="lblTime">Time:</label> </th>
@@ -268,18 +264,24 @@
                                     class="setting-text" style="font-size: 15px;">- 25 Point</span>
                             </p>
                             </i>
-                            <span class="setting-text" style="font-size: 15px;">Total Balls: </span><i
-                                id="totalBalls"></i>
-                            <br>
 
-                            <span class="setting-text" style="font-size: 15px;">Total Time: </span><i
-                                id="totalTime"></i>
-                            <br>
-
-                            <!-- <button type="button" class="newGame-bth" style="position: center;"
-                                onclick="startNewGame()">Start<br>New
-                                Game</button> -->
-                            <br>
+                            <table style="margin: 0 auto;  table-layout: fixed;">
+                                <tr>
+                                    <th><span class="setting-text" style="font-size: 15px;">Total Balls: </span><i
+                                        id="totalBalls"></i> </th>
+                                        <th><div class="imageSound">
+                                            <img id="onSound" src="./images/on.png" width="50" height="50"
+                                            onclick="soundOff()" style="z-index: +1; position: relative;">
+                                            <img id="muteSound" src="./images/off.png" width="50" height="50"
+                                            onclick="soundOn()" style="z-index: +1; position: relative; display: none;">
+                                        </div></th>
+                                </tr>
+                                <tr>
+                                    <th>  <span class="setting-text" style="font-size: 15px;">Total Time: </span><i
+                                        id="totalTime"></i></th>
+                                </tr>
+                            </table>
+                        
                             <div> <a  class="newGame-bth" onclick="startNewGame()" alt="Start new game"></a>
                             </div>
 
@@ -314,7 +316,7 @@
                 <p style="color: azure; font-family: cursive;">
                     Code and develop by Yarden Schwartz and Eden Mizrahi.
                     <br>
-                    <strong>JQuery Plugin:</strong> none
+                    <strong>JQuery Plugin:</strong> "jquery.validate" for login and registration form validation. 
                     <br>
                     <strong>jQuery Template:</strong> none
                     <br>

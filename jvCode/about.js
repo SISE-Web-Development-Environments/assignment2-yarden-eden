@@ -9,10 +9,6 @@ function openModel(){
     document.getElementById("overlay").addEventListener("click", function(){
             closeModel();   
         });
-    
-        // document.getElementById("menu").addEventListener("click", function(){
-        //     closeModel();   
-        // });
         
     document.addEventListener("keydown", isEsc);   
 }
