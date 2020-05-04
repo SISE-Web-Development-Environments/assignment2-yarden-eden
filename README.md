@@ -1,6 +1,6 @@
 # Assignment2
 
-The Pacm-Man game was created by Eden Mizrahi and Yarden Schwartz.	
+The Pac-Man game was created by Eden Mizrahi and Yarden Schwartz.	
 
 you can find it here - https://sise-web-development-environments.github.io/assignment2-yarden-eden/#setting
 
