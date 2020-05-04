@@ -107,12 +107,13 @@ function clearAllIntervals() {
 
 function startNewGame() {
 	clearAllIntervals();
+	soundOn();
 	readyToGame();
 }
+
 function readyToGame() {
 
 	lost = 0;
-
 
 	isInGame = true;
 	// document.getElementById("start").addEventListener("click", setUpSetting);  
@@ -162,6 +163,8 @@ function setUpPacmanLose() {
 }
 
 function setUpSetting() {
+
+
 	document.getElementById("lblUserName").value = currentLoginUser;//write the current userName
 	// document.getElementById("lblDisqualification").value = lost;
 	document.getElementById("left-arrow").innerText = ": " + leftChoose;
