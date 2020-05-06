@@ -780,8 +780,8 @@ function bestMove(monster, lastPosition) {
 
 	//up
 	if (board[monster.x][monster.y - 1] != 4 && (lastPosition.y + 1 != monster.y)) {
-		var deltaX = Math.abs((monster.x) - shape.i);
-		var deltaY = Math.abs((monster.y - 1) - shape.j);
+		let deltaX = Math.abs((monster.x) - shape.i);
+		let deltaY = Math.abs((monster.y - 1) - shape.j);
 		up = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 	}
 	else {
@@ -791,8 +791,8 @@ function bestMove(monster, lastPosition) {
 
 	//down
 	if (board[monster.x][monster.y + 1] != 4 && (lastPosition.y - 1 != monster.y)) {
-		var deltaX = Math.abs(monster.x - shape.i);
-		var deltaY = Math.abs((monster.y + 1) - shape.j);
+		let deltaX = Math.abs(monster.x - shape.i);
+		let deltaY = Math.abs((monster.y + 1) - shape.j);
 		down = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 	}
 	else {
@@ -802,8 +802,8 @@ function bestMove(monster, lastPosition) {
 
 	//left
 	if (board[monster.x - 1][monster.y] != 4 && (lastPosition.x + 1 != monster.x)) {
-		var deltaX = Math.abs((monster.x - 1) - shape.i);
-		var deltaY = Math.abs(monster.y - shape.j);
+		let deltaX = Math.abs((monster.x - 1) - shape.i);
+		let deltaY = Math.abs(monster.y - shape.j);
 		left = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 	}
 	else {
@@ -813,8 +813,8 @@ function bestMove(monster, lastPosition) {
 
 	//right
 	if (board[monster.x + 1][monster.y] != 4 && (lastPosition.x - 1 != monster.x)) {
-		var deltaX = Math.abs((monster.x + 1) - shape.i);
-		var deltaY = Math.abs(monster.y - shape.j);
+		let deltaX = Math.abs((monster.x + 1) - shape.i);
+		let deltaY = Math.abs(monster.y - shape.j);
 		right = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 	}
 	else {
@@ -823,11 +823,11 @@ function bestMove(monster, lastPosition) {
 	}
 
 
-	var rand = Math.floor(Math.random() * 9 + 1);
+	let rand = Math.floor(Math.random() * 9 + 1);
 
 	if (rand <= 8) {
 		/**find the minimun dist**/
-		var minDist = Math.min(up, down, left, right);
+		let minDist = Math.min(up, down, left, right);
 		if (minDist == up) {
 			return [monster.x, monster.y - 1];
 		}
@@ -848,13 +848,13 @@ function bestMove(monster, lastPosition) {
 		}
 	}
 	else {
-		var array = [];
+		let array = [];
 		array[0]=[monster.x, monster.y - 1];
 		array[1]=[monster.x, monster.y + 1];
 		array[2]=[monster.x - 1, monster.y];
 		array[3]=[monster.x + 1, monster.y];
 
-		var temp = array[Math.floor(Math.random()*array.length)];
+		let temp = array[Math.floor(Math.random()*array.length)];
 		while(board[temp[0]][temp[1]]==4){
 			temp = array[Math.floor(Math.random()*array.length)];
 		}
@@ -866,8 +866,8 @@ function bestMove(monster, lastPosition) {
 
 function drawDead(ctx) {
 
-	var cellHeight = canvas.height / 30;
-	var cellWidth = canvas.width / 30;
+	let cellHeight = canvas.height / 30;
+	let cellWidth = canvas.width / 30;
 
 	let centerX = shape.i * cellWidth + 0.5 * cellWidth;
 	let centerY = shape.j * cellHeight + 0.5 * cellHeight;
